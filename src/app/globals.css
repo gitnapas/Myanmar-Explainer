@@ -20,10 +20,27 @@
 :root {
   color-scheme: light;
 
-  /* Surfaces: warm paper, not white. */
-  --paper: #f5f2ec;
-  --paper-raised: #faf8f3;
+  /*
+   * Surfaces: warm paper, not white.
+   *
+   * The -base tokens are what the era treatments tint against, and eras must
+   * never set a surface literally. A light literal survives into dark mode,
+   * where it lands under near-white ink and the text disappears. Tinting the
+   * active base means an era can shift the mood but cannot flip which side of
+   * the ink its surface sits on.
+   */
+  --paper-base: #f5f2ec;
+  --paper-raised-base: #faf8f3;
+  --map-land-base: #e8e3d7;
+  --rule-base: #ddd8cc;
+
+  --paper: var(--paper-base);
+  --paper-raised: var(--paper-raised-base);
   --paper-sunk: #ebe7dd;
+
+  /* Neutral tint at zero strength: no era treatment unless one asks for it. */
+  --era-tint: #808080;
+  --era-mix: 100%;
 
   /* Ink */
   --ink: #14130f;
@@ -31,7 +48,7 @@
   --ink-muted: #7d7a70;
 
   /* Hairlines do the work that borders and shadows would elsewhere. */
-  --rule: #ddd8cc;
+  --rule: var(--rule-base);
   --rule-strong: #c3bdae;
 
   /*
@@ -57,7 +74,7 @@
   --contested: #6f6a5e;
 
   /* Map base geography. */
-  --map-land: #e8e3d7;
+  --map-land: var(--map-land-base);
   --map-land-edge: #cfc8b7;
   --map-neighbour: #efece4;
   --map-neighbour-edge: #dcd6c8;
@@ -72,15 +89,16 @@
   :root:where(:not([data-theme="light"])) {
     color-scheme: dark;
 
-    --paper: #16150f;
-    --paper-raised: #1e1d16;
+    --paper-base: #16150f;
+    --paper-raised-base: #1e1d16;
+    --map-land-base: #24221a;
+    --rule-base: #2e2c24;
     --paper-sunk: #100f0a;
 
     --ink: #f2efe6;
     --ink-secondary: #b8b3a5;
     --ink-muted: #8a867a;
 
-    --rule: #2e2c24;
     --rule-strong: #46433a;
 
     --series-1: #bf4a3c;
@@ -94,7 +112,6 @@
     --unclear: #6b665b;
     --contested: #8b8578;
 
-    --map-land: #24221a;
     --map-land-edge: #3c3830;
     --map-neighbour: #1b1a14;
     --map-neighbour-edge: #2a2820;
@@ -145,30 +162,40 @@ body {
  * socialist era cools and flattens, and the post-coup chapters darken. The
  * shift should register as mood, not as a theme change.
  */
+[data-era] {
+  --paper: color-mix(in oklab, var(--paper-base) var(--era-mix), var(--era-tint));
+  --paper-raised: color-mix(in oklab, var(--paper-raised-base) var(--era-mix), var(--era-tint));
+  --map-land: color-mix(in oklab, var(--map-land-base) var(--era-mix), var(--era-tint));
+  --rule: color-mix(in oklab, var(--rule-base) var(--era-mix), var(--era-tint));
+}
+
+/* Archival stock. */
 [data-era="colonial"] {
-  --paper: #f2ece0;
-  --paper-raised: #f8f3e9;
-  --rule: #ded5c2;
-  --map-land: #e6dfcd;
+  --era-tint: #c2a04e;
+  --era-mix: 92%;
 }
 
+/* Austere and drained of warmth. */
 [data-era="socialist"] {
-  --paper: #eeeeea;
-  --paper-raised: #f5f5f1;
-  --rule: #d8d8d2;
-  --map-land: #e2e2dc;
+  --era-tint: #8d9298;
+  --era-mix: 92%;
 }
 
+/* Opening up: the surface moves toward light in either mode. */
 [data-era="opening"] {
-  --paper: #f7f5f0;
-  --paper-raised: #fdfcf8;
-  --map-land: #ebe7db;
+  --era-tint: #ffffff;
+  --era-mix: 95%;
 }
 
+/* Post-coup: the ground darkens. */
 [data-era="rupture"] {
-  --paper: #edeae3;
-  --paper-raised: #f4f1ea;
-  --rule: #d3cec2;
+  --era-tint: #4a3f36;
+  --era-mix: 93%;
+}
+
+/* The present is shown plainly, with no treatment at all. */
+[data-era="present"] {
+  --era-mix: 100%;
 }
 
 /* Typographic primitives ---------------------------------------------------- */
