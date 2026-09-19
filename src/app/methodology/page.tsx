@@ -2,9 +2,10 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 import attribution from "@/data/geo/ATTRIBUTION.json";
+import images from "@/data/images.json";
 import sources from "@/data/sources.json";
 import gaps from "@/data/gaps.json";
-import type { DataGap, Source } from "@/lib/types";
+import type { ActorImage, DataGap, Source } from "@/lib/types";
 
 export const metadata: Metadata = {
   title: "Methodology — Myanmar: A State Unfinished",
@@ -154,6 +155,40 @@ export default function MethodologyPage() {
                 {s.note && (
                   <p className="mt-1 text-[0.8rem] leading-relaxed text-ink-muted">{s.note}</p>
                 )}
+              </li>
+            ))}
+          </ul>
+        </Section>
+
+        <Section title="Portraits and emblems">
+          <p>
+            Every image on this site comes from Wikimedia Commons under a licence that
+            permits reuse: public domain, CC0, CC BY or CC BY-SA. Nothing is used under a
+            claim of fair dealing, and no logo has been copied from an organisation that
+            has not released it.
+          </p>
+          <p>
+            Where no freely-licensed image exists, the organisation is shown as initials
+            rather than as a picture of something approximately right. Four have no image
+            for that reason: the USDP, the MNDAA, the TNLA and the NUG.
+          </p>
+          <ul className="mt-4 space-y-2">
+            {(images as ActorImage[]).map((img) => (
+              <li key={img.actor} className="text-[0.8rem] text-ink-muted">
+                <span className="font-mono text-[0.74rem] text-ink-secondary">{img.actor}</span>
+                {" — "}
+                <a
+                  href={img.source}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="border-b border-rule-strong hover:border-ink"
+                >
+                  {img.title}
+                </a>
+                {" ("}
+                {img.licence}
+                {img.author && img.author !== "unknown" ? `, ${img.author}` : ""}
+                {")"}
               </li>
             ))}
           </ul>

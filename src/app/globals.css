@@ -31,7 +31,7 @@
    */
   --paper-base: #f5f2ec;
   --paper-raised-base: #faf8f3;
-  --map-land-base: #e8e3d7;
+  --map-land-base: #eae3d3;
   --rule-base: #ddd8cc;
 
   --paper: var(--paper-base);
@@ -75,12 +75,12 @@
 
   /* Map base geography. */
   --map-land: var(--map-land-base);
-  --map-land-edge: #cfc8b7;
-  --map-neighbour: #efece4;
-  --map-neighbour-edge: #dcd6c8;
-  --map-water: #dfe4e4;
-  --map-river: #b9c4c6;
-  --map-graticule: #e3ded1;
+  --map-land-edge: #978b74;
+  --map-neighbour: #d0c9ba;
+  --map-neighbour-edge: #bdb5a3;
+  --map-water: #9db8c6;
+  --map-river: #5f87a0;
+  --map-graticule: #ddd6c6;
 
   --focus: #1a5fb4;
 }
@@ -91,7 +91,7 @@
 
     --paper-base: #16150f;
     --paper-raised-base: #1e1d16;
-    --map-land-base: #24221a;
+    --map-land-base: #3c3924;
     --rule-base: #2e2c24;
     --paper-sunk: #100f0a;
 
@@ -112,12 +112,12 @@
     --unclear: #6b665b;
     --contested: #8b8578;
 
-    --map-land-edge: #3c3830;
-    --map-neighbour: #1b1a14;
-    --map-neighbour-edge: #2a2820;
-    --map-water: #15191c;
-    --map-river: #38444a;
-    --map-graticule: #242219;
+    --map-land-edge: #7a7059;
+    --map-neighbour: #1e1c16;
+    --map-neighbour-edge: #2f2c24;
+    --map-water: #080c0f;
+    --map-river: #4a7286;
+    --map-graticule: #2b2820;
 
     --focus: #7aa7e8;
   }
@@ -294,5 +294,17 @@ body {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* The annotation ring drawing itself on, once, as the step arrives. */
+@keyframes ring-draw {
+  from {
+    stroke-dashoffset: 900;
+    opacity: 0;
+  }
+  to {
+    stroke-dashoffset: 0;
+    opacity: 1;
   }
 }

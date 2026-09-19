@@ -63,7 +63,8 @@ export type ActorType =
   | "resistance"
   | "civil-society"
   | "foreign-state"
-  | "bloc";
+  | "bloc"
+  | "person";
 
 export interface Actor {
   id: string;
@@ -136,6 +137,14 @@ export interface Step {
   sources: string[];
   /** Shown inline when the evidence is thinner than the narrative needs. */
   uncertainty?: string;
+  /**
+   * One figure worth lifting out of the paragraph.
+   *
+   * Reserved for numbers that do the explaining by themselves -- a SIM card
+   * going from 2,000 dollars to 1.50 says more about what liberalisation
+   * meant than a paragraph does. Not a decoration, and not on every step.
+   */
+  stat?: { value: string; caption: string };
 }
 
 export interface Chapter {
@@ -182,4 +191,20 @@ export interface DataGap {
   needed: string;
   affects: string[];
   why: string;
+}
+
+/**
+ * A freely-licensed image, fetched by scripts/fetch-images.mjs.
+ *
+ * Licence, author and source page travel with the file so attribution is a
+ * property of the data rather than something to remember at render time.
+ */
+export interface ActorImage {
+  actor: string;
+  kind: "portrait" | "emblem";
+  file: string;
+  title: string;
+  licence: string;
+  author: string;
+  source: string;
 }

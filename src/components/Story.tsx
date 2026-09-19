@@ -2,6 +2,8 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
+import ActorBubble from "@/components/ActorBubble";
+import StatCallout from "@/components/annotate/StatCallout";
 import StoryMap from "@/components/map/StoryMap";
 import Timeline from "@/components/Timeline";
 import OppositionNetwork from "@/components/viz/OppositionNetwork";
@@ -147,14 +149,17 @@ export default function Story({
                             key={id}
                             type="button"
                             onClick={() => setOpenActor(id)}
-                            className="border border-rule px-2 py-1 font-mono text-[0.7rem] tracking-wide text-ink-secondary transition-colors hover:border-rule-strong hover:text-ink"
+                            className="flex items-center gap-1.5 border border-rule py-1 pl-1 pr-2.5 font-mono text-[0.7rem] tracking-wide text-ink-secondary transition-colors hover:border-rule-strong hover:text-ink"
                           >
-                            {actor.abbr ?? actor.name}
+                            <ActorBubble actor={actor} size={22} />
+                            {actor.abbr?.replace(/\s*\/.*$/, "") ?? actor.name}
                           </button>
                         );
                       })}
                     </div>
                   )}
+
+                  {s.stat && <StatCallout value={s.stat.value} caption={s.stat.caption} />}
 
                   {s.uncertainty && <Uncertainty text={s.uncertainty} />}
 

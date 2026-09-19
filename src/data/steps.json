@@ -1,17 +1,193 @@
 [
   {
+    "id": "i-annexation",
+    "chapter": "i-assembled",
+    "date": "1885-11-28",
+    "dateLabel": "1885",
+    "title": "Two Burmas, one colony",
+    "mode": "map",
+    "summary": "Britain deposed the last king and ran the country as a province of India, but not as one place. The lowlands were governed directly. The uplands were left to their existing rulers.",
+    "detail": "This is the most consequential decision in the story. Ministerial Burma got British courts, schools and administration. The Frontier Areas kept their own chiefs under light supervision, and the two had almost no shared political life. When independence came, a border drawn around both had to become a single state.",
+    "focus": {
+      "center": [
+        96.5,
+        19.5
+      ],
+      "zoom": 1
+    },
+    "actors": [],
+    "layers": [
+      "colonial-split"
+    ],
+    "sources": [
+      "charney-2009",
+      "callahan-2003"
+    ]
+  },
+  {
+    "id": "i-thakins",
+    "chapter": "i-assembled",
+    "date": "1930",
+    "dateLabel": "1930s",
+    "title": "We Burmans",
+    "mode": "people",
+    "summary": "A nationalist association took the name Dobama Asiayone, We Burmans, and its members took the title Thakin: master. It was the word they had been required to use when addressing the British.",
+    "detail": "Taking that word was the whole argument in a single gesture. The movement drew on students, spread through strikes in 1936 and 1938, and produced almost every significant political figure of the next thirty years, Aung San and Ne Win among them.",
+    "focus": {
+      "center": [
+        96.16,
+        16.87
+      ],
+      "zoom": 2.4
+    },
+    "actors": [
+      "dobama",
+      "aung-san",
+      "ne-win"
+    ],
+    "layers": [
+      "protest-spread"
+    ],
+    "sources": [
+      "dobama-okayama",
+      "naw-2001",
+      "charney-2009"
+    ]
+  },
+  {
+    "id": "i-thirty-comrades",
+    "chapter": "i-assembled",
+    "date": "1941-04",
+    "dateLabel": "1940 - 1941",
+    "title": "The Thirty Comrades",
+    "mode": "people",
+    "summary": "Aung San slipped out of the country looking for foreign backing against Britain. He found the Japanese. Thirty young nationalists were trained abroad and came back as the core of an army.",
+    "detail": "The Burma Independence Army was formed in Bangkok in December 1941 and marched in behind the Japanese advance. Today's Myanmar armed forces trace their lineage directly to these thirty men, which is why the army has always claimed that it, and not any election, created the nation.",
+    "focus": {
+      "center": [
+        97.5,
+        15.5
+      ],
+      "zoom": 1.5
+    },
+    "actors": [
+      "aung-san",
+      "bia",
+      "dobama",
+      "ne-win"
+    ],
+    "layers": [
+      "flight-to-border"
+    ],
+    "sources": [
+      "naw-2001",
+      "callahan-2003",
+      "charney-2009"
+    ]
+  },
+  {
+    "id": "i-occupation",
+    "chapter": "i-assembled",
+    "date": "1942-05",
+    "dateLabel": "1942 - 1944",
+    "title": "The occupation",
+    "mode": "map",
+    "summary": "The British were driven out. The independence Japan granted in 1943 turned out to be supervision by a different empire.",
+    "detail": "The war wrecked the country and armed its politics. It also taught the nationalist leadership that the force they had built was the one asset nobody could take from them.",
+    "focus": {
+      "center": [
+        96.0,
+        20.5
+      ],
+      "zoom": 1.3
+    },
+    "actors": [
+      "bia",
+      "aung-san"
+    ],
+    "sources": [
+      "charney-2009",
+      "callahan-2003"
+    ]
+  },
+  {
+    "id": "i-switch",
+    "chapter": "i-assembled",
+    "date": "1945-03-27",
+    "dateLabel": "27 March 1945",
+    "title": "Turning on the Japanese",
+    "mode": "system",
+    "summary": "Aung San switched sides, taking his army over to the Allies against the Japanese he had arrived with.",
+    "detail": "The manoeuvre gave him a place at the table with the returning British and made independence a negotiation rather than a plea. The army still marks 27 March every year as Armed Forces Day: the anniversary of a revolt against the government of the day.",
+    "focus": {
+      "center": [
+        96.0,
+        20.0
+      ],
+      "zoom": 1.5
+    },
+    "actors": [
+      "aung-san",
+      "bia",
+      "afpfl"
+    ],
+    "sources": [
+      "naw-2001",
+      "callahan-2003",
+      "charney-2009"
+    ]
+  },
+  {
+    "id": "i-afpfl",
+    "chapter": "i-assembled",
+    "date": "1947-01-27",
+    "dateLabel": "January 1947",
+    "title": "Negotiating the exit",
+    "mode": "system",
+    "summary": "Aung San went to London and returned with an agreement for independence within a year.",
+    "detail": "His coalition, the AFPFL, had become the only body able to speak for the lowlands. What it could not yet speak for were the uplands, which is what took him to Panglong two weeks later.",
+    "focus": {
+      "center": [
+        96.16,
+        16.87
+      ],
+      "zoom": 2.2
+    },
+    "actors": [
+      "aung-san",
+      "afpfl"
+    ],
+    "sources": [
+      "naw-2001",
+      "charney-2009"
+    ]
+  },
+  {
     "id": "i-panglong",
     "chapter": "i-assembled",
     "date": "1947-02-12",
     "dateLabel": "12 February 1947",
-    "title": "Panglong",
+    "title": "Panglong: the deal that made a union",
     "mode": "system",
-    "summary": "Aung San and leaders from the Shan, Kachin and Chin uplands agreed to seek independence together. The terms of the union itself were left to be settled later.",
-    "detail": "Panglong is remembered as the founding promise of a federal Burma. It was also a narrow agreement: many communities in the lowlands and the southeast were not party to it. The gap between what Panglong is remembered as promising and what it actually settled has been argued over ever since.",
-    "focus": { "center": [97.0, 20.8], "zoom": 1.6 },
-    "actors": [],
-    "sources": ["icg-myanmar"],
-    "uncertainty": "Interpretations of what Panglong committed the union to differ sharply between Bamar-centred and ethnic-nationality accounts."
+    "summary": "Britain had run Burma as two places: the lowlands directly, the uplands through their own chiefs. Independence meant deciding whether they would become one country. At Panglong, Aung San persuaded Shan, Kachin and Chin leaders to try.",
+    "detail": "The bargain was simple to state: join us now, and you keep control of your own internal affairs. The agreement runs to nine short clauses. It does not define the union, does not settle how power would be divided, and covers only three of the many peoples inside the border. Every argument since, including the war being fought today, comes back to what was left blank on that page.",
+    "focus": {
+      "center": [
+        97.0,
+        20.8
+      ],
+      "zoom": 1.6
+    },
+    "actors": [
+      "aung-san",
+      "afpfl"
+    ],
+    "sources": [
+      "panglong-1947",
+      "naw-2001",
+      "charney-2009"
+    ],
+    "uncertainty": "The text promises autonomy in internal administration. Whether it promised a federal union, or a right to leave one, is read differently by Bamar-centred and ethnic-nationality accounts, and the document itself does not settle it."
   },
   {
     "id": "i-assassination",
@@ -20,9 +196,23 @@
     "dateLabel": "19 July 1947",
     "title": "Aung San is assassinated",
     "mode": "system",
-    "summary": "Aung San and most of his cabinet were shot dead in Yangon, six months before independence.",
-    "focus": { "center": [96.16, 16.87], "zoom": 2.6 },
-    "sources": ["icg-myanmar"]
+    "summary": "Aung San and most of his cabinet were shot dead in a Yangon council chamber, six months before the independence he had negotiated.",
+    "focus": {
+      "center": [
+        96.16,
+        16.87
+      ],
+      "zoom": 2.6
+    },
+    "sources": [
+      "naw-2001",
+      "charney-2009"
+    ],
+    "detail": "He was 32. The man who had held the AFPFL together, won over the uplands at Panglong and bargained with London was removed from the story before the union he designed came into being. Nobody afterwards had standing with both the army and the ethnic leaderships.",
+    "actors": [
+      "aung-san",
+      "afpfl"
+    ]
   },
   {
     "id": "i-independence",
@@ -31,9 +221,18 @@
     "dateLabel": "4 January 1948",
     "title": "Independence",
     "mode": "map",
-    "summary": "Burma left the British Empire with a border it had not drawn and a constitutional question it had not answered.",
-    "focus": { "center": [96.5, 19.5], "zoom": 1 },
-    "sources": ["icg-myanmar"]
+    "summary": "Burma left the British Empire on 4 January 1948, outside the Commonwealth, with a border it had not drawn and a constitutional question it had not answered.",
+    "focus": {
+      "center": [
+        96.5,
+        19.5
+      ],
+      "zoom": 1
+    },
+    "sources": [
+      "charney-2009",
+      "naw-2001"
+    ]
   },
   {
     "id": "ii-karen",
@@ -44,9 +243,20 @@
     "mode": "map",
     "summary": "Communist forces revolted in 1948 and Karen forces in 1949. Armed conflict is older than the independent state, not a later development.",
     "detail": "This ordering matters for everything that follows. Accounts that treat ethnic armed conflict as a consequence of the 1962 coup, or of the 2021 coup, have the chronology backwards.",
-    "focus": { "center": [97.6, 17.5], "zoom": 1.8 },
-    "actors": ["knu", "cpb"],
-    "sources": ["icg-myanmar"],
+    "focus": {
+      "center": [
+        97.6,
+        17.5
+      ],
+      "zoom": 1.8
+    },
+    "actors": [
+      "knu",
+      "cpb"
+    ],
+    "sources": [
+      "icg-myanmar"
+    ],
     "uncertainty": "Territorial control in this period is poorly documented. Areas of insurgent activity can be described; front lines cannot."
   },
   {
@@ -57,9 +267,19 @@
     "title": "Ne Win takes power",
     "mode": "system",
     "summary": "The army dissolved parliament and governed directly. The Burmese Way to Socialism nationalised the economy and closed the country.",
-    "focus": { "center": [96.13, 19.75], "zoom": 2.4 },
-    "actors": ["tatmadaw"],
-    "sources": ["icg-myanmar"]
+    "focus": {
+      "center": [
+        96.13,
+        19.75
+      ],
+      "zoom": 2.4
+    },
+    "actors": [
+      "tatmadaw"
+    ],
+    "sources": [
+      "icg-myanmar"
+    ]
   },
   {
     "id": "ii-citizenship",
@@ -70,8 +290,47 @@
     "mode": "system",
     "summary": "A new law sorted the population into tiers of citizenship built around recognised national races. Rohingya were not among them.",
     "detail": "The law is the legal mechanism behind Rohingya statelessness. Its categories still govern who can hold which documents, and therefore who can move, study, marry and vote.",
-    "focus": { "center": [92.9, 20.8], "zoom": 2.2 },
-    "sources": ["ohchr-myanmar", "icg-myanmar"]
+    "focus": {
+      "center": [
+        92.9,
+        20.8
+      ],
+      "zoom": 2.2
+    },
+    "sources": [
+      "ohchr-myanmar",
+      "icg-myanmar"
+    ]
+  },
+  {
+    "id": "ii-demonetisation",
+    "chapter": "ii-consolidate",
+    "date": "1987-09-05",
+    "dateLabel": "5 September 1987",
+    "title": "The state cancels the money",
+    "mode": "system",
+    "summary": "Without warning or compensation, the government voided the 25, 35 and 75 kyat notes: around four-fifths of the cash in the country. Savings held in banknotes simply ceased to exist.",
+    "detail": "It was the third such move, after 1964 and 1985, but the earlier ones had compensated holders. This one did not. Students lost the money sent from home for fees and food. Within weeks there were protests in Yangon, and within a year the largest uprising in the country's history.",
+    "focus": {
+      "center": [
+        96.16,
+        16.87
+      ],
+      "zoom": 2.2
+    },
+    "actors": [
+      "ne-win",
+      "bspp"
+    ],
+    "sources": [
+      "irrawaddy-demonetisation",
+      "charney-2009"
+    ],
+    "uncertainty": "The share of currency voided is usually given as about 80 per cent. Figures for this period come from a state that published very little, so treat the magnitude as well established and the precise percentage as approximate.",
+    "stat": {
+      "value": "~80%",
+      "caption": "of the banknotes in circulation, voided overnight without compensation"
+    }
   },
   {
     "id": "iii-8888",
@@ -81,11 +340,27 @@
     "title": "8-8-88",
     "mode": "people",
     "summary": "Demonstrations spread from Yangon through the country and were put down by the army. Thousands are believed to have been killed.",
-    "detail": "What happened next set a pattern. Activists who could not stay in the cities went to the borderlands, where established ethnic armed organisations already held ground. The All Burma Students Democratic Front was formed there in November.",
-    "focus": { "center": [96.16, 16.87], "zoom": 2.4 },
-    "actors": ["absdf", "knu"],
-    "layers": ["protest-spread", "flight-to-border"],
-    "sources": ["icg-myanmar", "ohchr-myanmar"],
+    "detail": "The trigger was economic as much as political. Ten months earlier the state had voided most of the cash in the country. What followed the demonstrations set a pattern: activists who could not stay in the cities went to the borderlands, where established ethnic armed organisations already held ground. The All Burma Students Democratic Front was formed there in November.",
+    "focus": {
+      "center": [
+        96.16,
+        16.87
+      ],
+      "zoom": 2.4
+    },
+    "actors": [
+      "absdf",
+      "knu"
+    ],
+    "layers": [
+      "protest-spread",
+      "flight-to-border"
+    ],
+    "sources": [
+      "sciencespo-8888",
+      "charney-2009",
+      "ohchr-myanmar"
+    ],
     "uncertainty": "There is no agreed death toll for 1988. Estimates vary by an order of magnitude depending on source and method."
   },
   {
@@ -96,10 +371,49 @@
     "title": "An election, and no transfer of power",
     "mode": "system",
     "summary": "The NLD won overwhelmingly. The result was not honoured and power was not transferred.",
-    "focus": { "center": [96.5, 19.5], "zoom": 1 },
-    "actors": ["nld"],
-    "sources": ["idea-myanmar", "icg-myanmar"],
+    "focus": {
+      "center": [
+        96.5,
+        19.5
+      ],
+      "zoom": 1
+    },
+    "actors": [
+      "nld"
+    ],
+    "sources": [
+      "idea-myanmar",
+      "icg-myanmar"
+    ],
     "uncertainty": "[DATA NEEDED: verified 1990 seat counts by party from International IDEA or official results before building the seat visualisation]"
+  },
+  {
+    "id": "iii-fuel-2007",
+    "chapter": "iii-1988",
+    "date": "2007-08-15",
+    "dateLabel": "15 August 2007",
+    "title": "Fuel subsidies are withdrawn",
+    "mode": "people",
+    "summary": "The government removed fuel subsidies overnight. Diesel and petrol roughly doubled; compressed natural gas for buses rose around fivefold within a week.",
+    "detail": "For people who had no car, the bus fare was the whole of it. A march by 88 Generation activists on 19 August began the protests that monks joined the following month. It is the same sequence as 1987: an economic shock the state did not explain, then a political movement.",
+    "focus": {
+      "center": [
+        96.16,
+        16.87
+      ],
+      "zoom": 2.4
+    },
+    "layers": [
+      "protest-spread"
+    ],
+    "sources": [
+      "hrw-2007",
+      "charney-2009"
+    ],
+    "stat": {
+      "value": "x5",
+      "caption": "rise in the price of bus fuel within a week"
+    }
   },
   {
     "id": "iii-saffron",
@@ -109,8 +423,17 @@
     "title": "The Saffron Revolution",
     "mode": "people",
     "summary": "Monks led demonstrations through the major cities. The response was again lethal force and mass arrest.",
-    "focus": { "center": [96.0, 19.0], "zoom": 1.6 },
-    "sources": ["ohchr-myanmar", "icg-myanmar"]
+    "focus": {
+      "center": [
+        96.0,
+        19.0
+      ],
+      "zoom": 1.6
+    },
+    "sources": [
+      "ohchr-myanmar",
+      "icg-myanmar"
+    ]
   },
   {
     "id": "iii-nargis",
@@ -120,23 +443,49 @@
     "title": "Cyclone Nargis",
     "mode": "people",
     "summary": "A cyclone devastated the Irrawaddy Delta. The government restricted international relief access while proceeding with a constitutional referendum.",
-    "focus": { "center": [95.3, 16.3], "zoom": 2.6 },
-    "layers": ["cyclone-track"],
-    "sources": ["unocha-myanmar", "icg-myanmar"],
+    "focus": {
+      "center": [
+        95.3,
+        16.3
+      ],
+      "zoom": 2.6
+    },
+    "layers": [
+      "cyclone-track"
+    ],
+    "sources": [
+      "unocha-myanmar",
+      "icg-myanmar"
+    ],
     "uncertainty": "[DATA NEEDED: cyclone track geometry and affected-population figures from a citable meteorological and humanitarian source]"
   },
   {
     "id": "iii-constitution",
     "chapter": "iii-1988",
-    "date": "2008-05",
+    "date": "2008-05-10",
     "dateLabel": "May 2008",
     "title": "The 2008 Constitution",
     "mode": "system",
     "summary": "A quarter of every legislature was reserved for serving officers, the three security ministries were placed under military control, and amending the document was made to require more than three quarters of parliament.",
     "detail": "Read together, those provisions mean the military bloc can block any amendment on its own. Every elected government after 2010 operated inside this frame.",
-    "focus": { "center": [96.13, 19.75], "zoom": 2.4 },
-    "actors": ["tatmadaw"],
-    "sources": ["constitution-2008", "idea-myanmar"]
+    "focus": {
+      "center": [
+        96.13,
+        19.75
+      ],
+      "zoom": 2.4
+    },
+    "actors": [
+      "tatmadaw"
+    ],
+    "sources": [
+      "constitution-2008",
+      "idea-myanmar"
+    ],
+    "stat": {
+      "value": "25%",
+      "caption": "of every legislature reserved for serving officers, plus a veto on amending it"
+    }
   },
   {
     "id": "iv-thein-sein",
@@ -146,8 +495,16 @@
     "title": "A quasi-civilian government",
     "mode": "system",
     "summary": "Thein Sein took office. Censorship relaxed, political prisoners were released, and sanctions began to lift.",
-    "focus": { "center": [96.13, 19.75], "zoom": 2.2 },
-    "sources": ["icg-myanmar"]
+    "focus": {
+      "center": [
+        96.13,
+        19.75
+      ],
+      "zoom": 2.2
+    },
+    "sources": [
+      "icg-myanmar"
+    ]
   },
   {
     "id": "iv-myitsone",
@@ -158,9 +515,20 @@
     "mode": "map",
     "summary": "The government suspended a large Chinese-backed dam in Kachin State after sustained domestic opposition.",
     "detail": "The suspension signalled that the new government would respond to domestic opinion, and it introduced the pattern that runs through the rest of this story: Chinese investment, local objection, and a government caught between them.",
-    "focus": { "center": [97.5, 25.7], "zoom": 2.8 },
-    "actors": ["china", "kio"],
-    "sources": ["icg-myanmar"]
+    "focus": {
+      "center": [
+        97.5,
+        25.7
+      ],
+      "zoom": 2.8
+    },
+    "actors": [
+      "china",
+      "kio"
+    ],
+    "sources": [
+      "icg-myanmar"
+    ]
   },
   {
     "id": "iv-rakhine-2012",
@@ -170,9 +538,77 @@
     "title": "Violence in Rakhine",
     "mode": "people",
     "summary": "Communal violence displaced tens of thousands, and many Rohingya were moved into camps they were not free to leave.",
-    "focus": { "center": [92.9, 20.5], "zoom": 2.6 },
-    "sources": ["ohchr-myanmar", "icg-myanmar"],
+    "focus": {
+      "center": [
+        92.9,
+        20.5
+      ],
+      "zoom": 2.6
+    },
+    "sources": [
+      "ohchr-myanmar",
+      "icg-myanmar"
+    ],
     "uncertainty": "[DATA NEEDED: displacement figures and camp locations with as-of dates]"
+  },
+  {
+    "id": "iv-telecoms",
+    "chapter": "iv-opening",
+    "date": "2013-06-27",
+    "dateLabel": "2013 - 2014",
+    "title": "A SIM card falls from $2,000 to $1.50",
+    "mode": "system",
+    "summary": "Licences went to two foreign operators and the state monopoly broke. A mobile SIM card had cost more than two thousand US dollars. Within about two years it cost a dollar fifty.",
+    "detail": "Nothing conveys the opening more plainly. A phone went from a form of property to something anyone could hold, and a country that had been deliberately cut off went online in a few years. It is also why the events of 2021 were filmed: the devices that arrived with liberalisation documented the coup that ended it.",
+    "focus": {
+      "center": [
+        96.16,
+        16.87
+      ],
+      "zoom": 2.0
+    },
+    "actors": [
+      "thein-sein"
+    ],
+    "sources": [
+      "bloomberg-sim",
+      "thant-2019"
+    ],
+    "stat": {
+      "value": "$2,000 -> $1.50",
+      "caption": "cost of a mobile SIM card, before and after liberalisation"
+    }
+  },
+  {
+    "id": "iv-growth",
+    "chapter": "iv-opening",
+    "date": "2015-06-30",
+    "dateLabel": "2011 - 2019",
+    "title": "The boom",
+    "mode": "system",
+    "summary": "With sanctions lifting and investment arriving, the economy grew at roughly six per cent a year for most of the decade, and poverty fell.",
+    "detail": "This is the part most easily forgotten after 2021. For about ten years the country was one of the fastest-growing economies in Asia, and a generation grew up expecting that to continue.",
+    "focus": {
+      "center": [
+        96.5,
+        19.5
+      ],
+      "zoom": 1
+    },
+    "actors": [
+      "thein-sein",
+      "nld"
+    ],
+    "sources": [
+      "worldbank-myanmar",
+      "worldbank-gdp",
+      "thant-2019"
+    ],
+    "uncertainty": "Myanmar's national accounts are weak. The direction and rough magnitude are well established; individual annual figures are estimates.",
+    "stat": {
+      "value": "~6% a year",
+      "caption": "average growth, 2011 to 2019"
+    }
   },
   {
     "id": "iv-nca",
@@ -183,10 +619,27 @@
     "mode": "network",
     "summary": "Eight organisations signed. Several of the largest did not, and some were excluded from the talks entirely.",
     "detail": "The word nationwide describes the ambition, not the coverage. Reading the agreement as a national settlement obscures who was left outside it.",
-    "focus": { "center": [96.5, 19.5], "zoom": 1 },
-    "actors": ["knu", "tnla", "ula-aa", "uwsa", "kio"],
-    "layers": ["nca-signatories"],
-    "sources": ["nca-2015", "icg-myanmar"],
+    "focus": {
+      "center": [
+        96.5,
+        19.5
+      ],
+      "zoom": 1
+    },
+    "actors": [
+      "knu",
+      "tnla",
+      "ula-aa",
+      "uwsa",
+      "kio"
+    ],
+    "layers": [
+      "nca-signatories"
+    ],
+    "sources": [
+      "nca-2015",
+      "icg-myanmar"
+    ],
     "uncertainty": "[DATA NEEDED: confirm the full signatory and non-signatory lists, including organisations that signed after 2015, against the agreement text]"
   },
   {
@@ -198,9 +651,22 @@
     "mode": "system",
     "summary": "A decisive NLD victory produced a government that still could not command the army, appoint the security ministers, or amend the constitution.",
     "detail": "Barred from the presidency by a constitutional clause, Aung San Suu Kyi governed as State Counsellor. The arrangement is the clearest illustration of the hybrid: an elected majority operating around a reserved military domain rather than over it.",
-    "focus": { "center": [96.5, 19.5], "zoom": 1 },
-    "actors": ["nld", "usdp", "tatmadaw"],
-    "sources": ["idea-myanmar", "constitution-2008"],
+    "focus": {
+      "center": [
+        96.5,
+        19.5
+      ],
+      "zoom": 1
+    },
+    "actors": [
+      "nld",
+      "usdp",
+      "tatmadaw"
+    ],
+    "sources": [
+      "idea-myanmar",
+      "constitution-2008"
+    ],
     "uncertainty": "[DATA NEEDED: verified 2015 seat counts by party and chamber before building the comparative seat visualisation]"
   },
   {
@@ -212,10 +678,23 @@
     "mode": "people",
     "summary": "Military operations in northern Rakhine drove several hundred thousand Rohingya across the border into Bangladesh within weeks.",
     "detail": "The displacement concentrated around Cox's Bazar, which became one of the largest refugee settlements in the world. UN human rights bodies documented the conduct of the operations; Myanmar has rejected their characterisation.",
-    "focus": { "center": [92.4, 21.2], "zoom": 3.0 },
-    "layers": ["rohingya-flow"],
-    "actors": ["tatmadaw"],
-    "sources": ["ohchr-myanmar", "unhcr-rohingya"],
+    "focus": {
+      "center": [
+        92.4,
+        21.2
+      ],
+      "zoom": 3.0
+    },
+    "layers": [
+      "rohingya-flow"
+    ],
+    "actors": [
+      "tatmadaw"
+    ],
+    "sources": [
+      "ohchr-myanmar",
+      "unhcr-rohingya"
+    ],
     "uncertainty": "[DATA NEEDED: registered refugee totals with as-of dates from UNHCR, rather than the round figures in general circulation]"
   },
   {
@@ -226,8 +705,16 @@
     "title": "The Gambia goes to the ICJ",
     "mode": "system",
     "summary": "The Gambia filed proceedings against Myanmar under the Genocide Convention. Aung San Suu Kyi appeared at The Hague to contest the case.",
-    "focus": { "center": [96.5, 19.5], "zoom": 1 },
-    "sources": ["icj-gambia"],
+    "focus": {
+      "center": [
+        96.5,
+        19.5
+      ],
+      "zoom": 1
+    },
+    "sources": [
+      "icj-gambia"
+    ],
     "uncertainty": "The case record establishes that proceedings exist and their procedural history. It is not a finding on the merits."
   },
   {
@@ -239,12 +726,23 @@
     "mode": "system",
     "summary": "The NLD increased its majority. The military-aligned USDP rejected the result and alleged large-scale fraud.",
     "detail": "Election observers and the election commission did not find irregularities on anything approaching the scale alleged. The fraud claim became the stated justification for what happened twelve weeks later.",
-    "focus": { "center": [96.5, 19.5], "zoom": 1 },
-    "actors": ["nld", "usdp"],
-    "sources": ["idea-myanmar", "icg-myanmar"],
+    "focus": {
+      "center": [
+        96.5,
+        19.5
+      ],
+      "zoom": 1
+    },
+    "actors": [
+      "nld",
+      "usdp"
+    ],
+    "sources": [
+      "idea-myanmar",
+      "icg-myanmar"
+    ],
     "uncertainty": "[DATA NEEDED: verified 2020 seat counts by party and chamber, plus the list of townships where voting was cancelled]"
   },
-
   {
     "id": "vi-coup",
     "chapter": "vi-spring",
@@ -254,10 +752,25 @@
     "mode": "system",
     "summary": "Hours before the newly elected parliament was to convene, the army detained Aung San Suu Kyi, President Win Myint and others, declared a state of emergency, and handed power to the Commander-in-Chief.",
     "detail": "The elected legislature never sat. A State Administration Council was announced the following day. The justification offered was the fraud allegation that observers had not substantiated.",
-    "focus": { "center": [96.13, 19.75], "zoom": 2.8 },
-    "actors": ["tatmadaw", "min-aung-hlaing", "nld"],
-    "layers": ["rupture"],
-    "sources": ["icg-myanmar", "ohchr-myanmar"]
+    "focus": {
+      "center": [
+        96.13,
+        19.75
+      ],
+      "zoom": 2.8
+    },
+    "actors": [
+      "tatmadaw",
+      "min-aung-hlaing",
+      "nld"
+    ],
+    "layers": [
+      "rupture"
+    ],
+    "sources": [
+      "icg-myanmar",
+      "ohchr-myanmar"
+    ]
   },
   {
     "id": "vi-cdm",
@@ -268,10 +781,23 @@
     "mode": "people",
     "summary": "Hospital staff refused to work under the new authorities. Within weeks teachers, railway workers, bank staff and civil servants had joined them.",
     "detail": "The Civil Disobedience Movement went after the state's capacity to function rather than its capacity for violence. A government that cannot run its railways, clear its payments or staff its ministries is a government with a problem no amount of force solves.",
-    "focus": { "center": [96.5, 19.5], "zoom": 1.2 },
-    "actors": ["cdm"],
-    "layers": ["cdm-sectors"],
-    "sources": ["icg-myanmar", "ohchr-myanmar"],
+    "focus": {
+      "center": [
+        96.5,
+        19.5
+      ],
+      "zoom": 1.2
+    },
+    "actors": [
+      "cdm"
+    ],
+    "layers": [
+      "cdm-sectors"
+    ],
+    "sources": [
+      "icg-myanmar",
+      "ohchr-myanmar"
+    ],
     "uncertainty": "Participation was never reliably counted. Sector-level accounts are well documented; national totals are estimates."
   },
   {
@@ -282,9 +808,20 @@
     "title": "The parliament that was not allowed to sit",
     "mode": "system",
     "summary": "MPs elected in November formed a committee asserting that they, not the council in Naypyidaw, were the lawful legislature.",
-    "focus": { "center": [96.13, 19.75], "zoom": 2.4 },
-    "actors": ["crph"],
-    "sources": ["federal-democracy-charter", "icg-myanmar"]
+    "focus": {
+      "center": [
+        96.13,
+        19.75
+      ],
+      "zoom": 2.4
+    },
+    "actors": [
+      "crph"
+    ],
+    "sources": [
+      "federal-democracy-charter",
+      "icg-myanmar"
+    ]
   },
   {
     "id": "vi-protests",
@@ -294,10 +831,23 @@
     "title": "The streets",
     "mode": "people",
     "summary": "Demonstrations spread through Yangon, Mandalay, Naypyidaw and towns across the country, drawing in people with no previous political involvement.",
-    "focus": { "center": [96.3, 19.0], "zoom": 1.4 },
-    "actors": ["cdm"],
-    "layers": ["protest-spread"],
-    "sources": ["icg-myanmar", "ohchr-myanmar"]
+    "focus": {
+      "center": [
+        96.3,
+        19.0
+      ],
+      "zoom": 1.4
+    },
+    "actors": [
+      "cdm"
+    ],
+    "layers": [
+      "protest-spread"
+    ],
+    "sources": [
+      "icg-myanmar",
+      "ohchr-myanmar"
+    ]
   },
   {
     "id": "vi-crackdown",
@@ -308,10 +858,25 @@
     "mode": "people",
     "summary": "Security forces moved from arrests to live fire. March 2021 included some of the deadliest days since 1988.",
     "detail": "AAPP, which counts only cases it can individually verify, maintained the most-cited running tally. Its figures are explicitly a documented floor rather than an estimate of the true total.",
-    "focus": { "center": [96.3, 19.0], "zoom": 1.4 },
-    "actors": ["tatmadaw", "cdm"],
-    "layers": ["protest-spread", "repression"],
-    "sources": ["aappb", "ohchr-myanmar"],
+    "focus": {
+      "center": [
+        96.3,
+        19.0
+      ],
+      "zoom": 1.4
+    },
+    "actors": [
+      "tatmadaw",
+      "cdm"
+    ],
+    "layers": [
+      "protest-spread",
+      "repression"
+    ],
+    "sources": [
+      "aappb",
+      "ohchr-myanmar"
+    ],
     "uncertainty": "[DATA NEEDED: AAPP documented killings and detentions with the as-of date attached, rather than a figure quoted without one]"
   },
   {
@@ -323,9 +888,20 @@
     "mode": "system",
     "summary": "The opposition published a framework that abolished the 2008 constitution on its own terms and set out an interim federal structure.",
     "detail": "The charter is the document that turns a protest movement into a constitutional project. It creates the consultative council, the interim executive, and the language of federal democracy that the rest of the period argues about.",
-    "focus": { "center": [96.5, 19.5], "zoom": 1 },
-    "actors": ["crph", "nucc"],
-    "sources": ["federal-democracy-charter"]
+    "focus": {
+      "center": [
+        96.5,
+        19.5
+      ],
+      "zoom": 1
+    },
+    "actors": [
+      "crph",
+      "nucc"
+    ],
+    "sources": [
+      "federal-democracy-charter"
+    ]
   },
   {
     "id": "vi-nug",
@@ -336,10 +912,25 @@
     "mode": "network",
     "summary": "An interim executive was announced, drawn from elected MPs together with ethnic and civil society figures.",
     "detail": "The NUG is the most internationally visible face of the opposition. It is not, however, the command structure of the resistance, and treating it as one is the most common way of misreading what follows.",
-    "focus": { "center": [96.5, 19.5], "zoom": 1 },
-    "actors": ["nug", "crph", "nucc"],
-    "layers": ["opposition-network"],
-    "sources": ["federal-democracy-charter", "icg-myanmar"]
+    "focus": {
+      "center": [
+        96.5,
+        19.5
+      ],
+      "zoom": 1
+    },
+    "actors": [
+      "nug",
+      "crph",
+      "nucc"
+    ],
+    "layers": [
+      "opposition-network"
+    ],
+    "sources": [
+      "federal-democracy-charter",
+      "icg-myanmar"
+    ]
   },
   {
     "id": "vi-pdf",
@@ -349,10 +940,24 @@
     "title": "The People's Defence Force",
     "mode": "network",
     "summary": "The NUG announced an armed force. In practice the name covered a very large number of locally raised groups with varying relationships to it.",
-    "focus": { "center": [95.2, 22.5], "zoom": 2.0 },
-    "actors": ["pdf", "nug", "ldo"],
-    "layers": ["opposition-network"],
-    "sources": ["icg-myanmar"],
+    "focus": {
+      "center": [
+        95.2,
+        22.5
+      ],
+      "zoom": 2.0
+    },
+    "actors": [
+      "pdf",
+      "nug",
+      "ldo"
+    ],
+    "layers": [
+      "opposition-network"
+    ],
+    "sources": [
+      "icg-myanmar"
+    ],
     "uncertainty": "Strength estimates differ by an order of magnitude depending on whether locally raised units are counted."
   },
   {
@@ -364,10 +969,26 @@
     "mode": "people",
     "summary": "People who could not stay in the cities travelled to the borderlands, where established armed organisations trained them. The route was the one taken in 1988.",
     "detail": "The parallel is structural rather than exact. In 1988 those who left were overwhelmingly students; after 2021 they included doctors, engineers, police and civil servants, and the organisations receiving them had thirty more years of institutional depth.",
-    "focus": { "center": [97.2, 19.5], "zoom": 1.6 },
-    "actors": ["knu", "kio", "kndf", "absdf"],
-    "layers": ["flight-to-border"],
-    "sources": ["icg-myanmar", "unocha-myanmar"],
+    "focus": {
+      "center": [
+        97.2,
+        19.5
+      ],
+      "zoom": 1.6
+    },
+    "actors": [
+      "knu",
+      "kio",
+      "kndf",
+      "absdf"
+    ],
+    "layers": [
+      "flight-to-border"
+    ],
+    "sources": [
+      "icg-myanmar",
+      "unocha-myanmar"
+    ],
     "uncertainty": "Routes are shown as directional flows between regions, not as tracked journeys. Individual movements are not documented at that resolution."
   },
   {
@@ -378,11 +999,56 @@
     "title": "A people's defensive war",
     "mode": "map",
     "summary": "The NUG declared a defensive war. Fighting was already widespread in Sagaing, Magway, Chin and Karenni.",
-    "focus": { "center": [95.5, 22.0], "zoom": 1.8 },
-    "actors": ["nug", "pdf", "tatmadaw"],
-    "layers": ["conflict-intensity"],
-    "sources": ["icg-myanmar", "acled-myanmar"],
+    "focus": {
+      "center": [
+        95.5,
+        22.0
+      ],
+      "zoom": 1.8
+    },
+    "actors": [
+      "nug",
+      "pdf",
+      "tatmadaw"
+    ],
+    "layers": [
+      "conflict-intensity"
+    ],
+    "sources": [
+      "icg-myanmar",
+      "acled-myanmar"
+    ],
     "uncertainty": "Conflict events indicate where fighting occurred. They do not indicate who held the ground, and are not used here to infer control."
+  },
+  {
+    "id": "vi-economy",
+    "chapter": "vi-spring",
+    "date": "2021-10-01",
+    "dateLabel": "2021",
+    "title": "The decade is undone in a year",
+    "mode": "system",
+    "summary": "Output fell by roughly eighteen per cent in the year after the coup. Banking seized, the currency slid, and much of the previous decade of gains was erased.",
+    "detail": "The strike movement was part of this by design, since it was aimed at the state's ability to function, but the cost fell on everyone. Growth of about six per cent a year for a decade, against a contraction of roughly a fifth in a single year, is the clearest measure of what February 2021 did.",
+    "focus": {
+      "center": [
+        96.16,
+        16.87
+      ],
+      "zoom": 1.6
+    },
+    "actors": [
+      "tatmadaw",
+      "cdm"
+    ],
+    "sources": [
+      "worldbank-myanmar",
+      "worldbank-gdp"
+    ],
+    "uncertainty": "Post-coup national statistics are produced under an authority with an interest in the result, and independent verification is limited. The scale of the fall is agreed across sources; the exact figure is not.",
+    "stat": {
+      "value": "-18%",
+      "caption": "output in the year following the coup"
+    }
   },
   {
     "id": "vi-network",
@@ -393,10 +1059,34 @@
     "mode": "network",
     "summary": "Not one organisation. A consultative council, an interim executive, hundreds of local defence groups, and ethnic armed organisations older than the state itself.",
     "detail": "The relationships between them are negotiated and variable. Some units answer to the NUG. Some answer to an ethnic armed organisation. Some answer to their township. Drawing this as a hierarchy would be simpler and would be wrong.",
-    "focus": { "center": [96.5, 19.5], "zoom": 1 },
-    "actors": ["nug", "nucc", "crph", "pdf", "ldo", "knu", "kio", "kndf", "knpp", "ula-aa", "uwsa"],
-    "layers": ["opposition-network"],
-    "sources": ["icg-myanmar", "isp-myanmar", "federal-democracy-charter"]
+    "focus": {
+      "center": [
+        96.5,
+        19.5
+      ],
+      "zoom": 1
+    },
+    "actors": [
+      "nug",
+      "nucc",
+      "crph",
+      "pdf",
+      "ldo",
+      "knu",
+      "kio",
+      "kndf",
+      "knpp",
+      "ula-aa",
+      "uwsa"
+    ],
+    "layers": [
+      "opposition-network"
+    ],
+    "sources": [
+      "icg-myanmar",
+      "isp-myanmar",
+      "federal-democracy-charter"
+    ]
   },
   {
     "id": "vi-bottom-up",
@@ -407,13 +1097,28 @@
     "mode": "system",
     "summary": "Where military administration withdrew, something had to replace it. Townships organised schooling, clinics and dispute resolution, and in places those arrangements grew into state-level executives.",
     "detail": "This is the part of the post-coup period that armed-conflict coverage tends to miss. The revolution has been an experiment in building administration as much as a military campaign, and Karenni is the clearest case.",
-    "focus": { "center": [97.2, 19.3], "zoom": 3.0 },
-    "actors": ["kscc", "iec", "kndf", "knpp"],
-    "layers": ["governance-stack"],
-    "sources": ["isp-myanmar", "icg-myanmar"],
+    "focus": {
+      "center": [
+        97.2,
+        19.3
+      ],
+      "zoom": 3.0
+    },
+    "actors": [
+      "kscc",
+      "iec",
+      "kndf",
+      "knpp"
+    ],
+    "layers": [
+      "governance-stack"
+    ],
+    "sources": [
+      "isp-myanmar",
+      "icg-myanmar"
+    ],
     "uncertainty": "How far these administrations reach, and how contested their authority is, varies by township and is not uniformly documented."
   },
-
   {
     "id": "vii-1027",
     "chapter": "vii-initiative",
@@ -423,10 +1128,28 @@
     "mode": "map",
     "summary": "Three allied organisations attacked across northern Shan State, taking towns, bases and border crossings on the route to China.",
     "detail": "The significance was not only territorial. It demonstrated that coordinated action could take and hold fixed positions, and it put the most valuable overland trade corridor to China into play.",
-    "focus": { "center": [97.9, 23.3], "zoom": 3.2 },
-    "actors": ["brotherhood", "mndaa", "tnla", "ula-aa", "tatmadaw", "china"],
-    "layers": ["operation-1027"],
-    "sources": ["icg-myanmar", "iiss-conflict-map"],
+    "focus": {
+      "center": [
+        97.9,
+        23.3
+      ],
+      "zoom": 3.2
+    },
+    "actors": [
+      "brotherhood",
+      "mndaa",
+      "tnla",
+      "ula-aa",
+      "tatmadaw",
+      "china"
+    ],
+    "layers": [
+      "operation-1027"
+    ],
+    "sources": [
+      "icg-myanmar",
+      "iiss-conflict-map"
+    ],
     "uncertainty": "[DATA NEEDED: township-level control changes with dates and confidence levels, from IISS or SAC-M rather than from press reports of individual battles]"
   },
   {
@@ -438,8 +1161,16 @@
     "mode": "people",
     "summary": "A major earthquake struck central Myanmar, with severe damage around Sagaing and Mandalay, in the middle of an active war.",
     "detail": "Disaster response in a contested country is a political act: who is allowed to deliver aid, and to whom, becomes part of the conflict.",
-    "focus": { "center": [96.0, 21.8], "zoom": 2.6 },
-    "sources": ["unocha-myanmar"],
+    "focus": {
+      "center": [
+        96.0,
+        21.8
+      ],
+      "zoom": 2.6
+    },
+    "sources": [
+      "unocha-myanmar"
+    ],
     "uncertainty": "[DATA NEEDED: magnitude, epicentre, affected-population and casualty figures from USGS and UN OCHA with as-of dates]"
   },
   {
@@ -451,8 +1182,16 @@
     "mode": "system",
     "summary": "[DATA NEEDED: this site is built to a May 2026 knowledge boundary. The conditions, phases, participating parties, areas where voting occurred, results, and the competing characterisations of the vote all require sourcing before this step is written.]",
     "detail": "This step is deliberately left empty. Writing a plausible account of an election whose results are not verified here would be exactly the failure this project is built to avoid.",
-    "focus": { "center": [96.5, 19.5], "zoom": 1 },
-    "sources": ["idea-myanmar"],
+    "focus": {
+      "center": [
+        96.5,
+        19.5
+      ],
+      "zoom": 1
+    },
+    "sources": [
+      "idea-myanmar"
+    ],
     "uncertainty": "[DATA NEEDED: everything in this step]"
   }
 ]

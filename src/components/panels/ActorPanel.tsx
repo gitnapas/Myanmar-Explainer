@@ -1,5 +1,6 @@
 "use client";
 
+import ActorBubble from "@/components/ActorBubble";
 import SlideOver from "./SlideOver";
 import type { Actor, Relationship, RelationshipKind, Source } from "@/lib/types";
 
@@ -13,6 +14,7 @@ const TYPE_LABEL: Record<Actor["type"], string> = {
   "civil-society": "Civil society movement",
   "foreign-state": "Foreign state",
   bloc: "Alliance",
+  person: "Individual",
 };
 
 /**
@@ -65,11 +67,16 @@ export default function ActorPanel({
     <SlideOver open={!!actor} title="Actor" onClose={onClose}>
       {actor && (
         <div className="mt-5">
-          <p className="label">{TYPE_LABEL[actor.type]}</p>
-          <h3 className="display mt-2 text-[1.45rem] leading-tight">{actor.name}</h3>
-          {actor.abbr && (
-            <p className="mt-1 font-mono text-[0.78rem] text-ink-muted">{actor.abbr}</p>
-          )}
+          <div className="flex items-start gap-3.5">
+            <ActorBubble actor={actor} size={56} className="mt-1" />
+            <div>
+              <p className="label">{TYPE_LABEL[actor.type]}</p>
+              <h3 className="display mt-1.5 text-[1.45rem] leading-tight">{actor.name}</h3>
+              {actor.abbr && (
+                <p className="mt-1 font-mono text-[0.78rem] text-ink-muted">{actor.abbr}</p>
+              )}
+            </div>
+          </div>
 
           <dl className="mt-5 space-y-3 border-t border-rule pt-4 text-[0.85rem]">
             <Field label="Founded" value={actor.founded} />

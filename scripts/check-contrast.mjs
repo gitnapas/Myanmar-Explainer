@@ -150,6 +150,48 @@ for (const [mode, tokens] of [
   }
 }
 
+/**
+ * Map layer separation.
+ *
+ * The first version of this palette rendered land and water at 1.00:1 -- the
+ * same luminance to three decimal places. The map drew perfectly and was
+ * simply not there to look at. Restraint that removes all tonal structure is
+ * not restraint, so the separations a map needs to be readable are asserted
+ * rather than judged by eye.
+ *
+ * These are separation targets, not WCAG text thresholds: large adjacent
+ * fields of colour need far less contrast than type does, but they need more
+ * than nothing.
+ */
+const MAP_PAIRS = [
+  ["--map-land", "--map-water", 1.6, "land vs water"],
+  ["--map-land-edge", "--map-land", 2.2, "boundary vs land"],
+  ["--map-neighbour", "--map-land", 1.25, "neighbour vs land"],
+  ["--map-river", "--map-water", 1.5, "river vs water"],
+  ["--map-land", "--paper-base", 1.12, "land vs page"],
+];
+
+for (const [mode, tokens] of [
+  ["light", light],
+  ["dark", dark],
+]) {
+  // --map-land is declared as var(--map-land-base); resolve it before use.
+  const resolve = (name) => {
+    const raw = tokens[name];
+    return raw?.startsWith("var(") ? tokens[raw.slice(4, -1)] : raw;
+  };
+
+  for (const [a, b, min, label] of MAP_PAIRS) {
+    const ratio = contrast(hex(resolve(a)), hex(resolve(b)));
+    rows.push(`  ${mode.padEnd(5)} ${"map".padEnd(10)} ${label.padEnd(20)} ${ratio.toFixed(2)}:1`);
+    if (ratio < min) {
+      failures.push(
+        `${mode} / map: ${label} is ${ratio.toFixed(2)}:1, needs ${min}:1 to be distinguishable`,
+      );
+    }
+  }
+}
+
 if (process.env.VERBOSE) console.log(rows.join("\n"));
 
 if (failures.length) {
@@ -158,5 +200,5 @@ if (failures.length) {
   process.exit(1);
 }
 console.log(
-  `Contrast OK: ${eras.length + 1} surfaces x 2 modes x ${PAIRS.length} ink tiers all legible.`,
+  `Contrast OK: ${eras.length + 1} surfaces x 2 modes x ${PAIRS.length} ink tiers, plus ${MAP_PAIRS.length} map separations per mode.`,
 );

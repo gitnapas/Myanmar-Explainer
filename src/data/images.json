@@ -1,0 +1,128 @@
+[
+  {
+    "actor": "aung-san",
+    "kind": "portrait",
+    "file": "images/aung-san.jpg",
+    "title": "Aung San BIA.jpg",
+    "licence": "Public domain",
+    "author": "Unknown authorUnknown author",
+    "source": "https://commons.wikimedia.org/wiki/File:Aung_San_BIA.jpg"
+  },
+  {
+    "actor": "ne-win",
+    "kind": "portrait",
+    "file": "images/ne-win.jpg",
+    "title": "General Ne Win PM of Burma 1959.jpg",
+    "licence": "Public domain",
+    "author": "Moshe Pridan",
+    "source": "https://commons.wikimedia.org/wiki/File:General_Ne_Win_PM_of_Burma_1959.jpg"
+  },
+  {
+    "actor": "thein-sein",
+    "kind": "portrait",
+    "file": "images/thein-sein.jpg",
+    "title": "Thein Sein.jpg",
+    "licence": "CC BY 2.0",
+    "author": "Government of Thailand",
+    "source": "https://commons.wikimedia.org/wiki/File:Thein_Sein.jpg"
+  },
+  {
+    "actor": "min-aung-hlaing",
+    "kind": "portrait",
+    "file": "images/min-aung-hlaing.jpg",
+    "title": "Min Aung Hlaing.jpg",
+    "licence": "CC BY 2.0",
+    "author": "Thai Government",
+    "source": "https://commons.wikimedia.org/wiki/File:Min_Aung_Hlaing.jpg"
+  },
+  {
+    "actor": "nld",
+    "kind": "emblem",
+    "file": "images/nld.png",
+    "title": "Flag of National League for Democracy.svg",
+    "licence": "Public domain",
+    "author": "National League for Democracy",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_National_League_for_Democracy.svg"
+  },
+  {
+    "actor": "tatmadaw",
+    "kind": "emblem",
+    "file": "images/tatmadaw.png",
+    "title": "Emblem of the Myanmar Armed Forces.svg",
+    "licence": "Public domain",
+    "author": "Tatmadaw (Myanmar Armed Forces)",
+    "source": "https://commons.wikimedia.org/wiki/File:Emblem_of_the_Myanmar_Armed_Forces.svg"
+  },
+  {
+    "actor": "knu",
+    "kind": "emblem",
+    "file": "images/knu.png",
+    "title": "Flag of the Karen National Union.svg",
+    "licence": "CC BY-SA 4.0",
+    "author": "Sshu94",
+    "source": "https://commons.wikimedia.org/wiki/File:Flag_of_the_Karen_National_Union.svg"
+  },
+  {
+    "actor": "kio",
+    "kind": "emblem",
+    "file": "images/kio.png",
+    "title": "Kachin Independence Army flag.svg",
+    "licence": "Public domain",
+    "author": "odder",
+    "source": "https://commons.wikimedia.org/wiki/File:Kachin_Independence_Army_flag.svg"
+  },
+  {
+    "actor": "ula-aa",
+    "kind": "emblem",
+    "file": "images/ula-aa.png",
+    "title": "United League of Arakan flag.svg",
+    "licence": "CC0",
+    "author": "Albert Poliakoff",
+    "source": "https://commons.wikimedia.org/wiki/File:United_League_of_Arakan_flag.svg"
+  },
+  {
+    "actor": "uwsa",
+    "kind": "emblem",
+    "file": "images/uwsa.png",
+    "title": "United Wa State Army flag.svg",
+    "licence": "CC0",
+    "author": "Nrg800",
+    "source": "https://commons.wikimedia.org/wiki/File:United_Wa_State_Army_flag.svg"
+  },
+  {
+    "actor": "cnf",
+    "kind": "emblem",
+    "file": "images/cnf.jpg",
+    "title": "Chin National Front (CNF).jpg",
+    "licence": "CC BY-SA 4.0",
+    "author": "Chin National Front",
+    "source": "https://commons.wikimedia.org/wiki/File:Chin_National_Front_(CNF).jpg"
+  },
+  {
+    "actor": "knpp",
+    "kind": "emblem",
+    "file": "images/knpp.png",
+    "title": "Karenni National Progressive Party flag.png",
+    "licence": "Public domain",
+    "author": "Jolle",
+    "source": "https://commons.wikimedia.org/wiki/File:Karenni_National_Progressive_Party_flag.png"
+  },
+  {
+    "actor": "cpb",
+    "kind": "emblem",
+    "file": "images/cpb.png",
+    "title": "Communist Party of Burma flag (1939-1946) and (1946-1970).svg",
+    "licence": "Public domain",
+    "author": "unknown",
+    "source": "https://commons.wikimedia.org/wiki/File:Communist_Party_of_Burma_flag_(1939-1946)_and_(1946-1970).svg"
+  },
+  {
+    "actor": "bia",
+    "kind": "emblem",
+    "file": "images/bia.jpg",
+    "title": "Burma Independence Army.jpg",
+    "licence": "Public domain",
+    "author": "Unknown authorUnknown author",
+    "source": "https://commons.wikimedia.org/wiki/File:Burma_Independence_Army.jpg"
+  }
+]

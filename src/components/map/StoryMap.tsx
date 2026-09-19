@@ -301,6 +301,34 @@ function CityMark({ city, x, y }: { city: City; x: number; y: number }) {
   );
 }
 
+/**
+ * Circles wherever the camera has moved in to.
+ *
+ * The radius shrinks as the camera tightens, so the ring keeps marking an
+ * area rather than growing into a border around the whole frame.
+ */
+function FocusRing({ camera }: { camera: Camera }) {
+  const x = VIEW.width / 2;
+  const y = VIEW.height / 2;
+  const r = Math.max(74, 190 / camera.zoom);
+  return (
+    <g filter="url(#rough)" opacity={0.85} style={{ pointerEvents: "none" }}>
+      <ellipse
+        cx={x}
+        cy={y}
+        rx={r}
+        ry={r * 0.84}
+        fill="none"
+        stroke="var(--series-1)"
+        strokeWidth={2.4}
+        strokeLinecap="round"
+        strokeDasharray={`${r * 5.2} ${r * 1.1}`}
+        style={{ animation: "ring-draw 900ms ease-out both" }}
+      />
+    </g>
+  );
+}
+
 export default function StoryMap({
   focus,
   layers = [],
@@ -328,6 +356,15 @@ export default function StoryMap({
       aria-label="Map of Myanmar"
     >
       <defs>
+        {/*
+          A little turbulence on the annotation stroke. A perfectly smooth
+          ring reads as interface chrome; a slightly broken one reads as
+          someone circling a place on a printed map, which is the point.
+        */}
+        <filter id="rough">
+          <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7" />
+          <feDisplacementMap in="SourceGraphic" scale="3.2" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
         {[1, 2, 3].map((slot) => (
           <pattern
             key={slot}
@@ -360,6 +397,11 @@ export default function StoryMap({
       </g>
 
       {/* Overlays sit outside the camera transform so marks keep their size. */}
+      {/*
+        When a step moves in on somewhere specific, say so on the map rather
+        than leaving the reader to infer which shape the paragraph means.
+      */}
+      {camera.zoom > 1.7 && <FocusRing camera={camera} />}
       {has("protest-spread") && <ProtestLayer camera={camera} />}
       {has("flight-to-border") && <FlowLayer stepId={stepId} camera={camera} />}
       <CityLabels camera={camera} />

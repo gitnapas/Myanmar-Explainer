@@ -1,5 +1,118 @@
 [
   {
+    "id": "charney-2009",
+    "publisher": "Cambridge University Press",
+    "title": "Michael W. Charney, A History of Modern Burma",
+    "date": "2009",
+    "url": "https://www.cambridge.org/core/books/history-of-modern-burma/562A6325208999E01BEAF22FD5076EE1",
+    "kind": "academic",
+    "note": "The standard single-volume scholarly history, running from the fall of the Konbaung dynasty to 2008. Used here as the general spine for the colonial and post-independence chapters."
+  },
+  {
+    "id": "naw-2001",
+    "publisher": "Silkworm Books",
+    "title": "Angelene Naw, Aung San and the Struggle for Burmese Independence",
+    "date": "2001",
+    "url": "https://silkwormbooks.com/products/aung-san-and-the-struggle",
+    "kind": "academic",
+    "note": "Biography built on British archival records and interviews. The detailed source for Aung San, the Thakin movement and the independence negotiations. Also readable at archive.org/details/aungsanstrugglef0000nawa."
+  },
+  {
+    "id": "callahan-2003",
+    "publisher": "Cornell University Press",
+    "title": "Mary P. Callahan, Making Enemies: War and State Building in Burma",
+    "date": "2003",
+    "url": "https://jsis.washington.edu/publication/making-enemies/",
+    "kind": "academic",
+    "note": "Argues the army's dominance grew out of war and state formation between 1826 and 1962. Callahan was the first researcher given access to the Burmese military archives, which is why this is the reference for how the Tatmadaw became the state."
+  },
+  {
+    "id": "thant-2019",
+    "publisher": "W. W. Norton",
+    "title": "Thant Myint-U, The Hidden History of Burma",
+    "date": "2019",
+    "url": "https://wwnorton.com/books/the-hidden-history-of-burma",
+    "kind": "academic",
+    "note": "Account of the 2011-2020 opening and its collapse, by a historian who worked inside the reform process. Partisan in the sense that the author was a participant, and read here as informed testimony rather than neutral survey."
+  },
+  {
+    "id": "dobama-okayama",
+    "publisher": "Okayama University Scholarly Repository",
+    "title": "Emergence of the Dobama Asiayone and the Thakins",
+    "url": "https://ousar.lib.okayama-u.ac.jp/files/public/1/15053/20160527210356738847/027_103_121.pdf",
+    "kind": "academic",
+    "note": "Open-access study of how the Dobama Asiayone formed and why its members adopted the title Thakin. Establishes the movement's origins and composition."
+  },
+  {
+    "id": "cheesman-2017",
+    "publisher": "Journal of Contemporary Asia 47(3)",
+    "title": "Nick Cheesman, How in Myanmar 'National Races' Came to Surpass Citizenship and Exclude Rohingya",
+    "date": "2017",
+    "url": "https://doi.org/10.1080/00472336.2017.1297476",
+    "kind": "academic",
+    "note": "Shows that taingyintha ('national races') as a political category is a relatively recent invention that the post-1962 state made the basis of citizenship. This is the analytical source for the 1982 law. Paywalled."
+  },
+  {
+    "id": "panglong-1947",
+    "publisher": "United Nations Peacemaker",
+    "title": "Panglong Agreement, 12 February 1947",
+    "date": "1947-02-12",
+    "url": "https://peacemaker.un.org/sites/default/files/document/files/2024/05/mm470212panglong20agreement.pdf",
+    "kind": "primary",
+    "note": "The agreement text itself. Establishes exactly what was signed and by whom -- which is the point, because what Panglong is remembered as promising is considerably more than what it says."
+  },
+  {
+    "id": "hrw-2007",
+    "publisher": "Human Rights Watch",
+    "title": "Crackdown: Repression of the 2007 Popular Protests in Burma",
+    "date": "2007-12-06",
+    "url": "https://www.hrw.org/report/2007/12/06/crackdown/repression-2007-popular-protests-burma",
+    "kind": "report",
+    "note": "Documents the August 2007 fuel price rise, the protests that followed, and the crackdown on them."
+  },
+  {
+    "id": "irrawaddy-demonetisation",
+    "publisher": "The Irrawaddy",
+    "title": "The Day Three Myanmar Banknotes Suddenly Became Worthless",
+    "date": "1987-09-05",
+    "url": "https://www.irrawaddy.com/specials/on-this-day/day-three-myanmar-banknotes-suddenly-became-worthless.html",
+    "kind": "journalism",
+    "note": "Account of the 5 September 1987 demonetisation, which voided the 25, 35 and 75 kyat notes without compensation. The Irrawaddy is an exile-founded outlet, long critical of the military."
+  },
+  {
+    "id": "sciencespo-8888",
+    "publisher": "Sciences Po, Mass Violence and Resistance Research Network",
+    "title": "The repression of the 8-8-88 uprising in Burma/Myanmar",
+    "url": "https://www.sciencespo.fr/mass-violence-war-massacre-resistance/en/document/repression-august-8-12-1988-8-8-88-uprising-burmamyanmar.html",
+    "kind": "academic",
+    "note": "Scholarly reconstruction of the August 1988 crackdown. Explicit that no agreed death toll exists."
+  },
+  {
+    "id": "worldbank-myanmar",
+    "publisher": "World Bank",
+    "title": "Myanmar country overview and economic monitoring",
+    "url": "https://www.worldbank.org/ext/en/country/myanmar",
+    "kind": "data",
+    "note": "Source for growth averaging about 6 per cent a year from 2011 to 2019, and for the roughly 18 per cent contraction in the year following the coup."
+  },
+  {
+    "id": "worldbank-gdp",
+    "publisher": "World Bank Open Data",
+    "title": "GDP growth (annual %) - Myanmar",
+    "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?locations=MM",
+    "kind": "data",
+    "note": "The underlying annual series. Myanmar's national accounts are weak and post-2021 figures are estimates built on limited reporting, so the shape of the curve is more reliable than any single year."
+  },
+  {
+    "id": "bloomberg-sim",
+    "publisher": "Bloomberg Businessweek",
+    "title": "Myanmar Opens Its Mobile Phone Market",
+    "date": "2014-09-29",
+    "url": "https://www.bloomberg.com/news/articles/2014-09-29/myanmar-opens-its-mobile-phone-market-cuing-carrier-frenzy",
+    "kind": "journalism",
+    "note": "Reports SIM cards falling from over 2,000 US dollars to 1.50 after the 2013 licensing of Telenor and Ooredoo. The single clearest consumer-level measure of what liberalisation changed."
+  },
+  {
     "id": "constitution-2008",
     "publisher": "Republic of the Union of Myanmar",
     "title": "Constitution of the Republic of the Union of Myanmar (2008)",
@@ -30,7 +143,7 @@
     "date": "2022-09",
     "url": "https://specialadvisorycouncil.org/",
     "kind": "report",
-    "note": "Assesses territorial control by township and sets out an explicit methodology. Produced by a body sympathetic to the opposition, which is why its figures are presented here as one assessment among several rather than as settled fact."
+    "note": "Assesses territorial control by township with an explicit methodology. Produced by a body sympathetic to the opposition, which is why its figures appear here as one assessment among several rather than as settled fact."
   },
   {
     "id": "icg-myanmar",

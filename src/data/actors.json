@@ -5,12 +5,23 @@
     "abbr": "Tatmadaw / Sit-Tat",
     "type": "military",
     "founded": "1945",
-    "geography": ["Naypyidaw", "Yangon", "Mandalay", "Bago", "Ayeyarwady", "Magway"],
+    "geography": [
+      "Naypyidaw",
+      "Yangon",
+      "Mandalay",
+      "Bago",
+      "Ayeyarwady",
+      "Magway"
+    ],
     "objective": "Preserve the armed forces as the guarantor of a unitary state, and retain the constitutional position secured in 2008.",
     "politicalWing": "State Administration Council (formed 2 February 2021); Union Solidarity and Development Party is aligned but formally separate",
     "significance": "Has held power directly or through constitutional reservation for most of the period since 1962. The 2008 constitution gives it a quarter of every legislature, the three security ministries, and a veto over its own amendment.",
     "currentRole": "Governing authority in Naypyidaw and the central lowlands, contesting control elsewhere.",
-    "sources": ["constitution-2008", "icg-myanmar", "ohchr-myanmar"],
+    "sources": [
+      "constitution-2008",
+      "icg-myanmar",
+      "ohchr-myanmar"
+    ],
     "unresolved": [
       "Naming is contested. Opponents use Sit-Tat to deny the honorific sense of Tatmadaw; this site uses the neutral English form in body text."
     ]
@@ -22,7 +33,10 @@
     "objective": "Retain command of the armed forces and lead the post-coup state.",
     "significance": "Commander-in-Chief since 2011. Led the 1 February 2021 coup and chaired the State Administration Council.",
     "currentRole": "[DATA NEEDED: verify current titles and constitutional position as of September 2026]",
-    "sources": ["icg-myanmar", "ohchr-myanmar"],
+    "sources": [
+      "icg-myanmar",
+      "ohchr-myanmar"
+    ],
     "unresolved": [
       "Titles have changed repeatedly since 2021 (SAC chair, Prime Minister, acting President). The precise current configuration needs checking against a dated source."
     ]
@@ -36,7 +50,10 @@
     "objective": "Assert that the legislature elected in November 2020 remains the lawful one.",
     "significance": "Formed within days of the coup by MPs elected in 2020 who were prevented from taking their seats. It is the legal thread the later opposition institutions hang from.",
     "currentRole": "Legislative body within the opposition structure.",
-    "sources": ["federal-democracy-charter", "icg-myanmar"]
+    "sources": [
+      "federal-democracy-charter",
+      "icg-myanmar"
+    ]
   },
   {
     "id": "nug",
@@ -48,7 +65,11 @@
     "armedWing": "People's Defence Force (announced 5 May 2021)",
     "significance": "The most internationally visible opposition body, formed out of the CRPH together with ethnic and civil society representatives.",
     "currentRole": "Interim executive claiming national authority. Its practical reach varies sharply by region and it does not command all anti-coup armed organisations.",
-    "sources": ["federal-democracy-charter", "icg-myanmar", "isp-myanmar"],
+    "sources": [
+      "federal-democracy-charter",
+      "icg-myanmar",
+      "isp-myanmar"
+    ],
     "unresolved": [
       "The relationship between the NUG and individual resistance organisations is negotiated and uneven. Treating every anti-coup group as subordinate to it would misdescribe the landscape."
     ]
@@ -62,7 +83,10 @@
     "objective": "Provide the consultative forum where the future federal settlement is negotiated among political, ethnic and civil society actors.",
     "significance": "Created under the Federal Democracy Charter as the deliberative counterpart to the NUG. It is where the constitutional question -- what kind of union -- is argued, rather than an executive.",
     "currentRole": "Consultative and charter-drafting body.",
-    "sources": ["federal-democracy-charter", "isp-myanmar"]
+    "sources": [
+      "federal-democracy-charter",
+      "isp-myanmar"
+    ]
   },
   {
     "id": "pdf",
@@ -73,7 +97,10 @@
     "objective": "Armed resistance to the post-coup military authorities.",
     "significance": "Announced by the NUG as a national force, but in practice a label covering a very large number of locally raised groups with varying relationships to the NUG chain of command.",
     "currentRole": "Armed resistance across much of the country, especially the northwest.",
-    "sources": ["icg-myanmar", "sac-m-effective-control"],
+    "sources": [
+      "icg-myanmar",
+      "sac-m-effective-control"
+    ],
     "unresolved": [
       "PDF is not one organisation. Some units answer to the NUG Ministry of Defence, some to local defence organisations, and some to ethnic armed organisations. Counts of PDF strength differ by which definition is used."
     ]
@@ -87,7 +114,10 @@
     "objective": "Defend particular townships and communities.",
     "significance": "Much of the post-coup armed resistance is organised at township scale and predates or sits outside formal PDF structures.",
     "currentRole": "Local armed defence, and in some areas local administration.",
-    "sources": ["icg-myanmar", "isp-myanmar"]
+    "sources": [
+      "icg-myanmar",
+      "isp-myanmar"
+    ]
   },
   {
     "id": "knu",
@@ -95,12 +125,19 @@
     "abbr": "KNU",
     "type": "eao",
     "founded": "1947",
-    "geography": ["Kayin", "Bago", "Tanintharyi"],
+    "geography": [
+      "Kayin",
+      "Bago",
+      "Tanintharyi"
+    ],
     "objective": "Self-determination for the Karen people within a federal settlement.",
     "armedWing": "Karen National Liberation Army (KNLA)",
     "significance": "One of the oldest continuously active armed organisations in the world. Its conflict with the state began in 1949, the year after independence, which is why the war cannot be described as a consequence of the 2021 coup.",
     "currentRole": "Administers areas of the southeast and hosts post-coup resistance forces.",
-    "sources": ["icg-myanmar", "nca-2015"]
+    "sources": [
+      "icg-myanmar",
+      "nca-2015"
+    ]
   },
   {
     "id": "kio",
@@ -108,12 +145,17 @@
     "abbr": "KIO",
     "type": "eao",
     "founded": "1961",
-    "geography": ["Kachin", "Shan"],
+    "geography": [
+      "Kachin",
+      "Shan"
+    ],
     "objective": "Self-determination for Kachin State within a federal union.",
     "armedWing": "Kachin Independence Army (KIA)",
     "significance": "Held a ceasefire with the state from 1994 until it broke down in 2011, an episode often cited as evidence that ceasefires without political settlement do not hold.",
     "currentRole": "Administers areas of Kachin State and has trained post-coup resistance recruits.",
-    "sources": ["icg-myanmar"],
+    "sources": [
+      "icg-myanmar"
+    ],
     "unresolved": [
       "Its headquarters at Laiza has no entry in the open gazetteers this project uses, so it carries no map pin."
     ]
@@ -124,13 +166,19 @@
     "abbr": "ULA/AA",
     "type": "eao",
     "founded": "2009",
-    "geography": ["Rakhine", "Chin"],
+    "geography": [
+      "Rakhine",
+      "Chin"
+    ],
     "objective": "Self-determination for Rakhine, articulated as a confederal relationship rather than secession.",
     "armedWing": "Arakan Army (AA)",
     "politicalWing": "United League of Arakan (ULA)",
     "significance": "Grew from a force founded in Kachin State in 2009 into the organisation that runs the most developed parallel administration in the country.",
     "currentRole": "Territorial and administrative authority across much of Rakhine State.",
-    "sources": ["icg-myanmar", "iiss-conflict-map"],
+    "sources": [
+      "icg-myanmar",
+      "iiss-conflict-map"
+    ],
     "unresolved": [
       "Its relationship with the Rohingya population is contested and is addressed separately rather than summarised here."
     ]
@@ -141,11 +189,15 @@
     "abbr": "MNDAA",
     "type": "eao",
     "founded": "1989",
-    "geography": ["Shan"],
+    "geography": [
+      "Shan"
+    ],
     "objective": "Control of the Kokang self-administered zone.",
     "significance": "Formed when the Communist Party of Burma fractured in 1989. Its members are largely Kokang, an ethnically Chinese population on the border.",
     "currentRole": "Member of the Three Brotherhood Alliance; active in northern Shan State.",
-    "sources": ["icg-myanmar"]
+    "sources": [
+      "icg-myanmar"
+    ]
   },
   {
     "id": "tnla",
@@ -153,11 +205,16 @@
     "abbr": "TNLA",
     "type": "eao",
     "founded": "2009",
-    "geography": ["Shan"],
+    "geography": [
+      "Shan"
+    ],
     "objective": "Self-determination for the Ta'ang (Palaung) people.",
     "significance": "Was excluded from the 2015 Nationwide Ceasefire Agreement, one of the exclusions that makes the word nationwide misleading.",
     "currentRole": "Member of the Three Brotherhood Alliance; active in northern Shan State.",
-    "sources": ["icg-myanmar", "nca-2015"]
+    "sources": [
+      "icg-myanmar",
+      "nca-2015"
+    ]
   },
   {
     "id": "uwsa",
@@ -165,22 +222,31 @@
     "abbr": "UWSA",
     "type": "eao",
     "founded": "1989",
-    "geography": ["Shan"],
+    "geography": [
+      "Shan"
+    ],
     "objective": "Maintain de facto autonomous Wa self-administration.",
     "significance": "The largest non-state armed force in the country. It has held a ceasefire with the state since 1989 and runs a self-administered territory on the Chinese border.",
     "currentRole": "Maintains its own administration and has largely stayed out of the post-coup fighting.",
-    "sources": ["icg-myanmar"]
+    "sources": [
+      "icg-myanmar"
+    ]
   },
   {
     "id": "brotherhood",
     "name": "Three Brotherhood Alliance",
     "type": "bloc",
     "founded": "2019",
-    "geography": ["Shan", "Rakhine"],
+    "geography": [
+      "Shan",
+      "Rakhine"
+    ],
     "objective": "Coordinated military action by its three member organisations.",
     "significance": "An alliance of the MNDAA, TNLA and Arakan Army. It launched Operation 1027 in northern Shan State on 27 October 2023.",
     "currentRole": "Military coalition.",
-    "sources": ["icg-myanmar"],
+    "sources": [
+      "icg-myanmar"
+    ],
     "unresolved": [
       "The three members have distinct and sometimes divergent political objectives; the alliance is operational rather than a merger."
     ]
@@ -191,12 +257,17 @@
     "abbr": "CNF",
     "type": "eao",
     "founded": "1988",
-    "geography": ["Chin"],
+    "geography": [
+      "Chin"
+    ],
     "objective": "Self-determination for Chin State within a federal union.",
     "armedWing": "Chin National Army (CNA)",
     "significance": "Formed in the aftermath of the 1988 uprising, one of several organisations founded by people who left the cities for the borderlands.",
     "currentRole": "Active in Chin State alongside newer Chin resistance organisations.",
-    "sources": ["icg-myanmar", "nca-2015"]
+    "sources": [
+      "icg-myanmar",
+      "nca-2015"
+    ]
   },
   {
     "id": "knpp",
@@ -204,12 +275,16 @@
     "abbr": "KNPP",
     "type": "eao",
     "founded": "1957",
-    "geography": ["Kayah"],
+    "geography": [
+      "Kayah"
+    ],
     "objective": "Self-determination for Karenni State.",
     "armedWing": "Karenni Army (KA)",
     "significance": "The long-established Karenni armed organisation, now operating alongside post-coup formations.",
     "currentRole": "Armed organisation and participant in Karenni interim governance.",
-    "sources": ["icg-myanmar"]
+    "sources": [
+      "icg-myanmar"
+    ]
   },
   {
     "id": "kndf",
@@ -217,11 +292,16 @@
     "abbr": "KNDF",
     "type": "resistance",
     "founded": "2021-05",
-    "geography": ["Kayah"],
+    "geography": [
+      "Kayah"
+    ],
     "objective": "Armed resistance in Karenni State.",
     "significance": "Formed after the coup as an umbrella for Karenni defence forces, and a central actor in the Karenni interim arrangements.",
     "currentRole": "Armed resistance and participant in Karenni interim governance.",
-    "sources": ["icg-myanmar", "isp-myanmar"]
+    "sources": [
+      "icg-myanmar",
+      "isp-myanmar"
+    ]
   },
   {
     "id": "kscc",
@@ -229,11 +309,16 @@
     "abbr": "KSCC",
     "type": "interim-government",
     "founded": "2021",
-    "geography": ["Kayah"],
+    "geography": [
+      "Kayah"
+    ],
     "objective": "Coordinate Karenni political, armed and civil society actors.",
     "significance": "One of the earliest attempts to build a state-level consultative body out of the post-coup resistance rather than from the centre.",
     "currentRole": "Consultative body in Karenni State.",
-    "sources": ["isp-myanmar", "icg-myanmar"]
+    "sources": [
+      "isp-myanmar",
+      "icg-myanmar"
+    ]
   },
   {
     "id": "iec",
@@ -241,11 +326,16 @@
     "abbr": "IEC",
     "type": "interim-government",
     "founded": "2023",
-    "geography": ["Kayah"],
+    "geography": [
+      "Kayah"
+    ],
     "objective": "Provide executive administration for Karenni State during the interim period.",
     "significance": "The clearest example of the post-coup revolution producing a functioning administration rather than only an armed campaign.",
     "currentRole": "Interim executive authority in Karenni State.",
-    "sources": ["isp-myanmar", "icg-myanmar"],
+    "sources": [
+      "isp-myanmar",
+      "icg-myanmar"
+    ],
     "unresolved": [
       "The extent of its administrative reach across Karenni townships needs a dated source before any map shading is attempted."
     ]
@@ -259,7 +349,10 @@
     "objective": "Civilian democratic government.",
     "significance": "Won the 1990, 2015 and 2020 elections by large margins. Its 1990 victory was not honoured and its 2020 victory was annulled by the coup.",
     "currentRole": "[DATA NEEDED: verify the party's registration status and legal position as of September 2026]",
-    "sources": ["idea-myanmar", "icg-myanmar"]
+    "sources": [
+      "idea-myanmar",
+      "icg-myanmar"
+    ]
   },
   {
     "id": "usdp",
@@ -270,7 +363,10 @@
     "objective": "Electoral politics aligned with the armed forces.",
     "significance": "Successor to the military-era mass organisation. Governed after the 2010 election and lost heavily in 2015 and 2020.",
     "currentRole": "Military-aligned political party.",
-    "sources": ["idea-myanmar", "icg-myanmar"]
+    "sources": [
+      "idea-myanmar",
+      "icg-myanmar"
+    ]
   },
   {
     "id": "cpb",
@@ -281,7 +377,9 @@
     "objective": "Communist revolution.",
     "significance": "Went into armed revolt in 1948, months after independence. Its collapse in 1989 produced several of the armed organisations still active on the Chinese border, including the UWSA and MNDAA.",
     "currentRole": "Historical. Its fragmentation shaped the present border landscape.",
-    "sources": ["icg-myanmar"]
+    "sources": [
+      "icg-myanmar"
+    ]
   },
   {
     "id": "absdf",
@@ -292,7 +390,9 @@
     "objective": "Armed opposition to military rule, formed by students who left the cities after 1988.",
     "significance": "The organisational form taken by the 1988 generation's flight to the borderlands -- the precedent that the post-2021 movement consciously echoes.",
     "currentRole": "Small armed organisation; historically significant.",
-    "sources": ["icg-myanmar"]
+    "sources": [
+      "icg-myanmar"
+    ]
   },
   {
     "id": "cdm",
@@ -303,7 +403,10 @@
     "objective": "Deny the coup authorities a functioning state by withdrawing labour.",
     "significance": "Began with hospital staff within days of the coup and spread through teaching, railways, banking and the civil service. It attacked the administrative capacity of the state rather than its forces.",
     "currentRole": "Continuing withdrawal of labour, at significant personal cost to participants.",
-    "sources": ["icg-myanmar", "ohchr-myanmar"],
+    "sources": [
+      "icg-myanmar",
+      "ohchr-myanmar"
+    ],
     "unresolved": [
       "Participation has never been reliably counted. Any specific figure should be treated as an estimate with a method attached."
     ]
@@ -312,13 +415,114 @@
     "id": "china",
     "name": "China",
     "type": "foreign-state",
-    "geography": ["China"],
+    "geography": [
+      "China"
+    ],
     "objective": "Border stability, protection of infrastructure and investment, and influence over outcomes.",
     "significance": "Holds relationships with the military authorities and with several armed organisations on its border simultaneously, and has brokered ceasefires between them.",
     "currentRole": "The most consequential external actor.",
-    "sources": ["icg-myanmar"],
+    "sources": [
+      "icg-myanmar"
+    ],
     "unresolved": [
       "Influence, pressure, mediation and control are different things. Evidence supports the first three far more readily than the fourth."
+    ]
+  },
+  {
+    "id": "aung-san",
+    "name": "Aung San",
+    "type": "person",
+    "founded": "1915",
+    "objective": "Full independence from Britain, and a union holding the lowlands and the uplands together.",
+    "significance": "Student leader, then Thakin, then commander of the Burma Independence Army, then the negotiator who secured the independence agreement. He switched sides twice in the war and was assassinated six months before the independence he had negotiated.",
+    "currentRole": "Historical. Both the army and its opponents claim his legacy, which is part of why the argument he left open has never closed.",
+    "sources": [
+      "naw-2001",
+      "charney-2009"
+    ]
+  },
+  {
+    "id": "dobama",
+    "name": "Dobama Asiayone",
+    "abbr": "We Burmans Association",
+    "type": "civil-society",
+    "founded": "1930",
+    "objective": "End British rule and restore Burmese self-respect and self-government.",
+    "significance": "The nationalist association whose members took the title Thakin -- master -- the word Burmese had been required to use for the British. Claiming it was the whole argument in one word.",
+    "currentRole": "Historical. Nearly every major political figure of the independence generation came through it.",
+    "sources": [
+      "dobama-okayama",
+      "naw-2001",
+      "charney-2009"
+    ]
+  },
+  {
+    "id": "bia",
+    "name": "Burma Independence Army",
+    "abbr": "BIA",
+    "type": "military",
+    "founded": "1941-12",
+    "objective": "Expel the British with Japanese backing.",
+    "significance": "Formed in Bangkok in December 1941 around the Thirty Comrades, who had trained under the Japanese. It is the direct ancestor of today's Myanmar armed forces, which is why the army dates its own founding to the independence struggle.",
+    "currentRole": "Historical. Its lineage is the basis of the modern army's claim to have made the nation.",
+    "sources": [
+      "naw-2001",
+      "callahan-2003",
+      "charney-2009"
+    ]
+  },
+  {
+    "id": "afpfl",
+    "name": "Anti-Fascist People's Freedom League",
+    "abbr": "AFPFL",
+    "type": "political-party",
+    "founded": "1944",
+    "objective": "Drive out the Japanese, then negotiate independence from Britain.",
+    "significance": "The coalition Aung San built to turn against Japan and then to bargain with London. It won the 1947 elections and governed after independence before splitting in 1958.",
+    "currentRole": "Historical.",
+    "sources": [
+      "naw-2001",
+      "charney-2009"
+    ]
+  },
+  {
+    "id": "ne-win",
+    "name": "Ne Win",
+    "type": "person",
+    "founded": "1910",
+    "objective": "A centralised state under army control, insulated from foreign influence.",
+    "significance": "One of the Thirty Comrades. Took power in 1962 and governed for 26 years through the Burma Socialist Programme Party. His demonetisations destroyed household savings and helped produce the 1988 uprising that ended his rule.",
+    "currentRole": "Historical.",
+    "sources": [
+      "callahan-2003",
+      "charney-2009",
+      "irrawaddy-demonetisation"
+    ]
+  },
+  {
+    "id": "bspp",
+    "name": "Burma Socialist Programme Party",
+    "abbr": "BSPP",
+    "type": "political-party",
+    "founded": "1962",
+    "objective": "Govern Burma as a one-party socialist state.",
+    "significance": "The vehicle for the Burmese Way to Socialism: nationalisation, isolation and a command economy that ended in shortages and a currency the state voided three times.",
+    "currentRole": "Historical. Dissolved after 1988.",
+    "sources": [
+      "charney-2009",
+      "irrawaddy-demonetisation"
+    ]
+  },
+  {
+    "id": "thein-sein",
+    "name": "Thein Sein",
+    "type": "person",
+    "objective": "Manage a controlled opening from military to quasi-civilian rule.",
+    "significance": "President from 2011. Released political prisoners, relaxed censorship, suspended the Myitsone dam and licensed foreign telecoms -- the reforms that made the 2010s boom possible.",
+    "currentRole": "Historical.",
+    "sources": [
+      "thant-2019",
+      "charney-2009"
     ]
   }
 ]
