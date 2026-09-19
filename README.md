@@ -88,3 +88,38 @@ Built by `scripts/build-geo.mjs` from open sources, with full attribution in
 - **GeoNames** cities500 and the Myanmar country dump (CC BY 4.0) — places
 
 Historical and territorial layers are *not* derived from these sources.
+
+## Deployment
+
+Live at **https://gitnapas.github.io/my-app/**
+
+The site is currently published by pushing the static export to the `gh-pages`
+branch, because the GitHub token in use lacks the `workflow` scope needed to add a
+GitHub Actions workflow to the repository.
+
+To redeploy by hand:
+
+```bash
+NEXT_PUBLIC_BASE_PATH=/my-app npm run build   # PowerShell: $env:NEXT_PUBLIC_BASE_PATH="/my-app"
+cd out && git add -A && git commit -m "Deploy" && git push -f origin gh-pages
+```
+
+To switch to automatic deploys on every push to `master`, grant the scope once and
+commit the workflow that is already prepared at `.github/workflows/deploy.yml`:
+
+```bash
+gh auth refresh -s workflow
+git add .github/workflows/deploy.yml
+git commit -m "Add Pages deploy workflow"
+git push
+```
+
+Then set Pages to build from GitHub Actions rather than the `gh-pages` branch:
+
+```bash
+gh api -X PUT repos/gitnapas/my-app/pages -f build_type=workflow
+```
+
+`basePath` comes from `NEXT_PUBLIC_BASE_PATH`, so local development still works at
+`http://localhost:3000/` with no prefix, and renaming the repository only means
+changing that one value (the workflow reads it from `actions/configure-pages`).
