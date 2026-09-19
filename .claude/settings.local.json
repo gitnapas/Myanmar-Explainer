@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(gh auth status --active:$false 2>$null; \"---- all accounts above ----\")",
+      "PowerShell($h = \"$env:USERPROFILE\\\\.config\\\\gh\\\\hosts.yml\"; if \\(Test-Path $h\\) { Get-Content $h } else { \"no hosts.yml \\(credentials in keyring only\\)\" })",
+      "PowerShell(gh auth *)"
+    ]
+  }
+}
