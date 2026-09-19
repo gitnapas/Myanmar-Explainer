@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# geodata download cache (regenerate with: node scripts/build-geo.mjs)
+/.geocache/
+
+# claude code worktrees
+/.claude/worktrees/

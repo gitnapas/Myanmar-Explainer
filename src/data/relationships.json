@@ -1,0 +1,230 @@
+[
+  {
+    "from": "crph",
+    "to": "nug",
+    "kind": "cooperates-with",
+    "since": "2021-04",
+    "note": "The NUG was formed out of the CRPH. The CRPH continues as the legislative side of the same structure.",
+    "confidence": "documented",
+    "sources": ["federal-democracy-charter"]
+  },
+  {
+    "from": "nucc",
+    "to": "nug",
+    "kind": "cooperates-with",
+    "since": "2021",
+    "note": "The NUCC is the consultative forum, the NUG the executive. They are parts of one framework, not a hierarchy with the NUG on top.",
+    "confidence": "documented",
+    "sources": ["federal-democracy-charter"]
+  },
+  {
+    "from": "nug",
+    "to": "pdf",
+    "kind": "cooperates-with",
+    "since": "2021-05",
+    "note": "The NUG announced the PDF and some units answer to its Ministry of Defence. Command over units using the PDF name is uneven and in many areas nominal.",
+    "confidence": "contested",
+    "sources": ["icg-myanmar"]
+  },
+  {
+    "from": "pdf",
+    "to": "ldo",
+    "kind": "aligned-on-some-objectives",
+    "note": "Locally raised defence organisations share the anti-coup objective without necessarily sharing a chain of command.",
+    "confidence": "documented",
+    "sources": ["icg-myanmar", "isp-myanmar"]
+  },
+  {
+    "from": "nug",
+    "to": "knu",
+    "kind": "aligned-on-some-objectives",
+    "note": "The KNU has sheltered and trained post-coup resistance forces while retaining its own decades-old political programme and command.",
+    "confidence": "documented",
+    "sources": ["icg-myanmar"]
+  },
+  {
+    "from": "nug",
+    "to": "kio",
+    "kind": "aligned-on-some-objectives",
+    "note": "The KIO has trained post-coup recruits. It is not subordinate to the NUG.",
+    "confidence": "documented",
+    "sources": ["icg-myanmar"]
+  },
+  {
+    "from": "nug",
+    "to": "ula-aa",
+    "kind": "politically-distinct",
+    "note": "The ULA/AA pursues its own Arakan project and has not placed itself under the NUG. Depicting Rakhine as NUG-aligned territory would be wrong.",
+    "confidence": "documented",
+    "sources": ["icg-myanmar"]
+  },
+  {
+    "from": "nug",
+    "to": "iec",
+    "kind": "politically-distinct",
+    "note": "Karenni built its interim executive from state-level actors. It coordinates with the NUG without deriving authority from it.",
+    "confidence": "probable",
+    "sources": ["isp-myanmar"]
+  },
+  {
+    "from": "kscc",
+    "to": "iec",
+    "kind": "cooperates-with",
+    "since": "2023",
+    "note": "The consultative council and the interim executive are two halves of the Karenni arrangement.",
+    "confidence": "documented",
+    "sources": ["isp-myanmar"]
+  },
+  {
+    "from": "knpp",
+    "to": "kndf",
+    "kind": "cooperates-with",
+    "note": "An established ethnic armed organisation operating alongside a post-coup formation in the same state.",
+    "confidence": "documented",
+    "sources": ["icg-myanmar"]
+  },
+  {
+    "from": "cdm",
+    "to": "nug",
+    "kind": "aligned-on-some-objectives",
+    "note": "The strike movement predates the NUG and is not directed by it.",
+    "confidence": "documented",
+    "sources": ["icg-myanmar"]
+  },
+  {
+    "from": "nld",
+    "to": "nug",
+    "kind": "aligned-on-some-objectives",
+    "note": "Many NUG figures are NLD members, but the NUG was constituted more broadly than the party.",
+    "confidence": "documented",
+    "sources": ["icg-myanmar"]
+  },
+  {
+    "from": "tatmadaw",
+    "to": "usdp",
+    "kind": "aligned-on-some-objectives",
+    "note": "Formally separate; politically aligned.",
+    "confidence": "documented",
+    "sources": ["idea-myanmar"]
+  },
+  {
+    "from": "tatmadaw",
+    "to": "knu",
+    "kind": "conflict",
+    "since": "1949",
+    "confidence": "documented",
+    "sources": ["icg-myanmar"]
+  },
+  {
+    "from": "tatmadaw",
+    "to": "kio",
+    "kind": "conflict",
+    "since": "2011",
+    "note": "A ceasefire held from 1994 until it collapsed in 2011.",
+    "confidence": "documented",
+    "sources": ["icg-myanmar"]
+  },
+  {
+    "from": "tatmadaw",
+    "to": "pdf",
+    "kind": "conflict",
+    "since": "2021",
+    "confidence": "documented",
+    "sources": ["icg-myanmar", "ohchr-myanmar"]
+  },
+  {
+    "from": "tatmadaw",
+    "to": "brotherhood",
+    "kind": "conflict",
+    "since": "2023-10",
+    "note": "Operation 1027 opened the alliance's coordinated offensive in northern Shan State.",
+    "confidence": "documented",
+    "sources": ["icg-myanmar"]
+  },
+  {
+    "from": "tatmadaw",
+    "to": "ula-aa",
+    "kind": "competitive",
+    "note": "The relationship has moved between open fighting and informal ceasefire more than once. A single label would misrepresent it.",
+    "confidence": "contested",
+    "sources": ["icg-myanmar", "iiss-conflict-map"]
+  },
+  {
+    "from": "tatmadaw",
+    "to": "uwsa",
+    "kind": "ceasefire",
+    "since": "1989",
+    "note": "A ceasefire without political settlement that has nonetheless held for decades.",
+    "confidence": "documented",
+    "sources": ["icg-myanmar"]
+  },
+  {
+    "from": "china",
+    "to": "tatmadaw",
+    "kind": "cooperates-with",
+    "note": "State-to-state relations, border trade and infrastructure. Cooperation here does not imply endorsement of any particular internal outcome.",
+    "confidence": "documented",
+    "sources": ["icg-myanmar"]
+  },
+  {
+    "from": "china",
+    "to": "brotherhood",
+    "kind": "uncertain",
+    "note": "China has interests with, leverage over and a mediating role among border organisations. Evidence supports influence and pressure; it does not support describing these organisations as Chinese proxies.",
+    "confidence": "contested",
+    "sources": ["icg-myanmar"]
+  },
+  {
+    "from": "china",
+    "to": "uwsa",
+    "kind": "cooperates-with",
+    "note": "Long-standing economic and border relationship.",
+    "confidence": "probable",
+    "sources": ["icg-myanmar"]
+  },
+  {
+    "from": "cpb",
+    "to": "uwsa",
+    "kind": "historical",
+    "since": "1989",
+    "note": "The UWSA formed from the Wa units of the collapsing Communist Party of Burma.",
+    "confidence": "documented",
+    "sources": ["icg-myanmar"]
+  },
+  {
+    "from": "cpb",
+    "to": "mndaa",
+    "kind": "historical",
+    "since": "1989",
+    "note": "The MNDAA emerged from the same fragmentation.",
+    "confidence": "documented",
+    "sources": ["icg-myanmar"]
+  },
+  {
+    "from": "absdf",
+    "to": "knu",
+    "kind": "historical",
+    "since": "1988",
+    "note": "Students who left the cities after 1988 reached KNU-held areas on the Thai border. The same route reappears after 2021.",
+    "confidence": "documented",
+    "sources": ["icg-myanmar"]
+  },
+  {
+    "from": "mndaa",
+    "to": "tnla",
+    "kind": "cooperates-with",
+    "since": "2019",
+    "note": "Co-members of the Three Brotherhood Alliance.",
+    "confidence": "documented",
+    "sources": ["icg-myanmar"]
+  },
+  {
+    "from": "tnla",
+    "to": "ula-aa",
+    "kind": "cooperates-with",
+    "since": "2019",
+    "note": "Co-members of the Three Brotherhood Alliance, with distinct political objectives.",
+    "confidence": "documented",
+    "sources": ["icg-myanmar"]
+  }
+]

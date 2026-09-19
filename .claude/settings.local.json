@@ -3,7 +3,11 @@
     "allow": [
       "PowerShell(gh auth status --active:$false 2>$null; \"---- all accounts above ----\")",
       "PowerShell($h = \"$env:USERPROFILE\\\\.config\\\\gh\\\\hosts.yml\"; if \\(Test-Path $h\\) { Get-Content $h } else { \"no hosts.yml \\(credentials in keyring only\\)\" })",
-      "PowerShell(gh auth *)"
+      "PowerShell(gh auth *)",
+      "PowerShell(Get-ChildItem -Recurse src, public -File -ErrorAction SilentlyContinue | Select-Object -ExpandProperty FullName | ForEach-Object { $_.Replace\\(\"$PWD\\\\\",\"\"\\) }; \"---NEXTCONFIG---\"; Get-Content next.config.ts -Raw)",
+      "PowerShell(npm install *)",
+      "PowerShell(node scripts/build-geo.mjs)",
+      "PowerShell(node -e \"const t=require\\('./src/data/geo/boundaries.topo.json'\\);console.log\\('STATES:'\\);console.log\\(t.objects.states.geometries.map\\(g=>g.properties.name+' ['+g.properties.kind+']'\\).join\\('\\\\n'\\)\\);const r=require\\('./src/data/geo/rivers.topo.json'\\);console.log\\('\\\\nRIVERS:',r.objects.rivers.geometries.map\\(g=>g.properties.name\\).join\\(', '\\)\\);\")"
     ]
   }
 }

@@ -1,26 +1,271 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/*
+ * MYANMAR: A STATE UNFINISHED -- design tokens
+ *
+ * The aesthetic target is a historical atlas crossed with an investigative
+ * feature: paper rather than white, ink rather than black, hairlines rather
+ * than shadows, and no rounded cards. Maps carry the argument; type stays out
+ * of the way.
+ *
+ * The three series hues are not decorative. They were validated with the
+ * data-viz palette checker against these exact surfaces, on the all-pairs
+ * list (the territorial map shows every actor at once), and clear the
+ * lightness band, chroma floor, CVD separation, normal-vision floor and 3:1
+ * contrast in BOTH modes. Do not nudge them by eye -- re-run the validator.
+ *   light: #9c3327,#1a9b7a,#6a4fa3 on #f5f2ec
+ *   dark:  #bf4a3c,#19a483,#8b74d2 on #16150f
+ */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+:root {
+  color-scheme: light;
+
+  /* Surfaces: warm paper, not white. */
+  --paper: #f5f2ec;
+  --paper-raised: #faf8f3;
+  --paper-sunk: #ebe7dd;
+
+  /* Ink */
+  --ink: #14130f;
+  --ink-secondary: #4a4740;
+  --ink-muted: #7d7a70;
+
+  /* Hairlines do the work that borders and shadows would elsewhere. */
+  --rule: #ddd8cc;
+  --rule-strong: #c3bdae;
+
+  /*
+   * Series slots. Assigned per view by the legend, never cycled:
+   *   territorial -- 1 military, 2 resistance-aligned, 3 ULA/AA
+   *   electoral   -- 1 NLD, 2 USDP, 3 other parties
+   * The two contexts never share a screen, so the reuse is unambiguous.
+   */
+  --series-1: #9c3327;
+  --series-2: #1a9b7a;
+  --series-3: #6a4fa3;
+
+  /* Washes for territory fills, which sit under labels and must stay legible. */
+  --series-1-wash: #9c332733;
+  --series-2-wash: #1a9b7a33;
+  --series-3-wash: #6a4fa333;
+
+  /*
+   * Uncertainty is a neutral, never a hue. Inventing a colour for "we do not
+   * know" would make absence of evidence look like a finding.
+   */
+  --unclear: #a9a396;
+  --contested: #6f6a5e;
+
+  /* Map base geography. */
+  --map-land: #e8e3d7;
+  --map-land-edge: #cfc8b7;
+  --map-neighbour: #efece4;
+  --map-neighbour-edge: #dcd6c8;
+  --map-water: #dfe4e4;
+  --map-river: #b9c4c6;
+  --map-graticule: #e3ded1;
+
+  --focus: #1a5fb4;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+
+    --paper: #16150f;
+    --paper-raised: #1e1d16;
+    --paper-sunk: #100f0a;
+
+    --ink: #f2efe6;
+    --ink-secondary: #b8b3a5;
+    --ink-muted: #8a867a;
+
+    --rule: #2e2c24;
+    --rule-strong: #46433a;
+
+    --series-1: #bf4a3c;
+    --series-2: #19a483;
+    --series-3: #8b74d2;
+
+    --series-1-wash: #bf4a3c3d;
+    --series-2-wash: #19a4833d;
+    --series-3-wash: #8b74d23d;
+
+    --unclear: #6b665b;
+    --contested: #8b8578;
+
+    --map-land: #24221a;
+    --map-land-edge: #3c3830;
+    --map-neighbour: #1b1a14;
+    --map-neighbour-edge: #2a2820;
+    --map-water: #15191c;
+    --map-river: #38444a;
+    --map-graticule: #242219;
+
+    --focus: #7aa7e8;
   }
 }
 
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-raised: var(--paper-raised);
+  --color-paper-sunk: var(--paper-sunk);
+  --color-ink: var(--ink);
+  --color-ink-secondary: var(--ink-secondary);
+  --color-ink-muted: var(--ink-muted);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
+  --color-series-1: var(--series-1);
+  --color-series-2: var(--series-2);
+  --color-series-3: var(--series-3);
+  --color-unclear: var(--unclear);
+  --color-contested: var(--contested);
+
+  --font-display: var(--font-serif), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-grotesk), system-ui, sans-serif;
+  --font-mono: var(--font-mono-face), ui-monospace, monospace;
+}
+
+html {
+  background: var(--paper);
+  color: var(--ink);
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  /* Long-form reading: slightly open leading, no synthetic smoothing tricks. */
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/*
+ * Era treatments. Each chapter shifts the paper a few percent rather than
+ * restyling the page -- the colonial chapters warm toward archival stock, the
+ * socialist era cools and flattens, and the post-coup chapters darken. The
+ * shift should register as mood, not as a theme change.
+ */
+[data-era="colonial"] {
+  --paper: #f2ece0;
+  --paper-raised: #f8f3e9;
+  --rule: #ded5c2;
+  --map-land: #e6dfcd;
+}
+
+[data-era="socialist"] {
+  --paper: #eeeeea;
+  --paper-raised: #f5f5f1;
+  --rule: #d8d8d2;
+  --map-land: #e2e2dc;
+}
+
+[data-era="opening"] {
+  --paper: #f7f5f0;
+  --paper-raised: #fdfcf8;
+  --map-land: #ebe7db;
+}
+
+[data-era="rupture"] {
+  --paper: #edeae3;
+  --paper-raised: #f4f1ea;
+  --rule: #d3cec2;
+}
+
+/* Typographic primitives ---------------------------------------------------- */
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.021em;
+  line-height: 1.04;
+  text-wrap: balance;
+}
+
+/*
+ * Small caps labels carry section and layer names. Tracking is widened because
+ * uppercase at small sizes closes up badly.
+ */
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.prose-narrow {
+  max-width: 34rem;
+  font-size: 1.0625rem;
+}
+
+.prose-narrow p + p {
+  margin-top: 0.85em;
+}
+
+/* Hairline rule used instead of card borders. */
+.rule-top {
+  border-top: 1px solid var(--rule);
+}
+
+/* Figures that must align in columns. */
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+:where(a, button, [tabindex]):focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 1px;
+}
+
+/*
+ * Animation communicates change here (territory shifting, people moving), so
+ * it is not decoration -- but it must never be the only channel, and it must
+ * yield completely when the reader asks it to.
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Map motion -------------------------------------------------------------- */
+
+/*
+ * Direction of travel on the movement arcs. The dash marches from origin to
+ * destination, which is the only cue distinguishing an arc from a border.
+ */
+@keyframes flow-dash {
+  to {
+    stroke-dashoffset: -16;
+  }
+}
+
+/* Demonstrations appearing city by city rather than all at once. */
+@keyframes protest-bloom {
+  from {
+    transform: scale(0.35);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Sectors of the strike appearing in the order they stopped. */
+@keyframes sector-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

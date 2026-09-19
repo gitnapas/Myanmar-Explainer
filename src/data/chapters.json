@@ -1,0 +1,74 @@
+[
+  {
+    "id": "i-assembled",
+    "numeral": "I",
+    "title": "A Country Assembled",
+    "period": "Colonial period - 1948",
+    "era": "colonial",
+    "standfirst": "Britain conquered Burma in three wars and administered its centre and its uplands as different places. Independence inherited one border drawn around many political communities, and an unfinished argument about what the union was."
+  },
+  {
+    "id": "ii-consolidate",
+    "numeral": "II",
+    "title": "The Union Struggles to Consolidate",
+    "period": "1948 - 1988",
+    "era": "socialist",
+    "standfirst": "Insurgency began within months of independence, not decades later. Parliamentary government gave way to a 1962 coup, a command economy, and a citizenship law whose categories still determine who counts as a citizen."
+  },
+  {
+    "id": "iii-1988",
+    "numeral": "III",
+    "title": "1988 and Military Rule",
+    "period": "1988 - 2010",
+    "era": "socialist",
+    "standfirst": "An uprising, a crackdown, and an exodus from the cities to the borderlands. An election was won and not honoured. Two decades later a constitution wrote the army's position into law."
+  },
+  {
+    "id": "iv-opening",
+    "numeral": "IV",
+    "title": "The Opening",
+    "period": "2011 - 2020",
+    "era": "opening",
+    "standfirst": "Censorship eased, prisoners were released, and foreign capitals returned. What emerged was not a democracy but a hybrid: an elected government sharing power with an army it could not command."
+  },
+  {
+    "id": "v-rohingya",
+    "numeral": "V",
+    "title": "Rakhine and the End of the Transition",
+    "period": "2016 - 2021",
+    "era": "opening",
+    "standfirst": "Military operations in northern Rakhine drove the fastest mass displacement in the region's recent history, and put Myanmar in front of the International Court of Justice. Then the election of 2020, and the coup that annulled it."
+  },
+  {
+    "id": "vi-spring",
+    "numeral": "VI",
+    "title": "The Spring Revolution",
+    "period": "2021 - 2023",
+    "era": "rupture",
+    "standfirst": "The coup produced a strike that attacked the state's ability to function, a protest movement that was met with lethal force, and then something the generals did not expect: a resistance that built institutions as well as armies."
+  },
+  {
+    "id": "vii-initiative",
+    "numeral": "VII",
+    "title": "The Military Loses the Initiative",
+    "period": "2023 - 2025",
+    "era": "rupture",
+    "standfirst": "On 27 October 2023 three allied organisations attacked in northern Shan State. Within months the map of who held what looked different from any point since 1962."
+  },
+  {
+    "id": "viii-limits",
+    "numeral": "VIII",
+    "title": "The Revolution Meets Its Limits",
+    "period": "2025 - 2026",
+    "era": "present",
+    "standfirst": "An earthquake, a funding collapse, and a military that adapted. Territorial gain did not translate into political settlement, and the story stopped being a straight line."
+  },
+  {
+    "id": "now",
+    "numeral": "IX",
+    "title": "Where Myanmar Stands",
+    "period": "September 2026",
+    "era": "present",
+    "standfirst": "Territory, governance, population and diplomacy, layered one at a time. Control, administration and legitimacy do not describe the same map."
+  }
+]

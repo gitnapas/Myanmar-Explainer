@@ -1,0 +1,116 @@
+[
+  {
+    "id": "constitution-2008",
+    "publisher": "Republic of the Union of Myanmar",
+    "title": "Constitution of the Republic of the Union of Myanmar (2008)",
+    "date": "2008",
+    "kind": "primary",
+    "note": "Primary text. Establishes the reserved military seats, the three security ministries and the amendment threshold."
+  },
+  {
+    "id": "nca-2015",
+    "publisher": "Government of Myanmar and signatory ethnic armed organisations",
+    "title": "Nationwide Ceasefire Agreement",
+    "date": "2015-10-15",
+    "kind": "primary",
+    "note": "Primary text. Establishes who signed and what was agreed; it does not establish who was excluded or why."
+  },
+  {
+    "id": "federal-democracy-charter",
+    "publisher": "Committee Representing Pyidaungsu Hluttaw / National Unity Consultative Council",
+    "title": "Federal Democracy Charter",
+    "date": "2021-03-31",
+    "kind": "primary",
+    "note": "Primary text of the post-coup opposition's constitutional framework. States intentions and structures, not their implementation."
+  },
+  {
+    "id": "sac-m-effective-control",
+    "publisher": "Special Advisory Council for Myanmar",
+    "title": "Briefing Paper: Effective Control in Myanmar",
+    "date": "2022-09",
+    "url": "https://specialadvisorycouncil.org/",
+    "kind": "report",
+    "note": "Assesses territorial control by township and sets out an explicit methodology. Produced by a body sympathetic to the opposition, which is why its figures are presented here as one assessment among several rather than as settled fact."
+  },
+  {
+    "id": "icg-myanmar",
+    "publisher": "International Crisis Group",
+    "title": "Myanmar country analysis",
+    "url": "https://www.crisisgroup.org/asia/south-east-asia/myanmar",
+    "kind": "report",
+    "note": "Ongoing reporting on the armed conflict, the resistance organisations and regional diplomacy."
+  },
+  {
+    "id": "ohchr-myanmar",
+    "publisher": "UN Human Rights Office (OHCHR)",
+    "title": "Reports on the human rights situation in Myanmar",
+    "url": "https://www.ohchr.org/en/countries/myanmar",
+    "kind": "report",
+    "note": "UN human rights reporting, including post-coup documentation."
+  },
+  {
+    "id": "unocha-myanmar",
+    "publisher": "UN Office for the Coordination of Humanitarian Affairs",
+    "title": "Myanmar Humanitarian Update",
+    "url": "https://www.unocha.org/myanmar",
+    "kind": "data",
+    "note": "Displacement and humanitarian access figures. Figures are periodically revised, so any number taken from here must carry its as-of date."
+  },
+  {
+    "id": "unhcr-rohingya",
+    "publisher": "UNHCR",
+    "title": "Rohingya emergency",
+    "url": "https://www.unhcr.org/emergencies/rohingya-emergency",
+    "kind": "data",
+    "note": "Registered refugee populations in Bangladesh."
+  },
+  {
+    "id": "icj-gambia",
+    "publisher": "International Court of Justice",
+    "title": "Application of the Genocide Convention (The Gambia v. Myanmar)",
+    "date": "2019",
+    "url": "https://www.icj-cij.org/case/178",
+    "kind": "legal",
+    "note": "Case record. Establishes the existence and procedural history of the proceedings, not findings on the merits."
+  },
+  {
+    "id": "aappb",
+    "publisher": "Assistance Association for Political Prisoners (Burma)",
+    "title": "Daily briefing and post-coup casualty documentation",
+    "url": "https://aappb.org/",
+    "kind": "data",
+    "note": "The most-cited running tally of post-coup killings and detentions. AAPP counts only cases it can verify, so its figures are explicitly a documented floor rather than an estimate of the total."
+  },
+  {
+    "id": "acled-myanmar",
+    "publisher": "Armed Conflict Location and Event Data Project",
+    "title": "Myanmar conflict event data",
+    "url": "https://acleddata.com/",
+    "kind": "data",
+    "note": "Records that a conflict event occurred at a location. It does NOT establish who controls that location, and is not used here to infer control."
+  },
+  {
+    "id": "iiss-conflict-map",
+    "publisher": "International Institute for Strategic Studies",
+    "title": "Myanmar Conflict Map",
+    "url": "https://myanmar.iiss.org/",
+    "kind": "data",
+    "note": "Territorial control assessment with a published methodology and its own stated uncertainty."
+  },
+  {
+    "id": "isp-myanmar",
+    "publisher": "Institute for Strategy and Policy - Myanmar",
+    "title": "Myanmar research and analysis",
+    "url": "https://ispmyanmar.com/",
+    "kind": "report",
+    "note": "Myanmar-based research on governance, administration and the post-coup political landscape."
+  },
+  {
+    "id": "idea-myanmar",
+    "publisher": "International IDEA",
+    "title": "Myanmar electoral and constitutional analysis",
+    "url": "https://www.idea.int/",
+    "kind": "report",
+    "note": "Electoral system and constitutional process analysis."
+  }
+]

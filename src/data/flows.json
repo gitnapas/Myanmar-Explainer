@@ -1,0 +1,74 @@
+[
+  {
+    "id": "f-1988-yangon-thai",
+    "from": "Yangon",
+    "to": "Mae Sot",
+    "label": "Students to the Thai border",
+    "kind": "flight",
+    "steps": ["iii-8888"],
+    "sources": ["icg-myanmar"]
+  },
+  {
+    "id": "f-1988-mandalay-kachin",
+    "from": "Mandalay",
+    "to": "Myitkyina",
+    "label": "North to Kachin areas",
+    "kind": "flight",
+    "steps": ["iii-8888"],
+    "sources": ["icg-myanmar"]
+  },
+  {
+    "id": "f-2017-rakhine-bangladesh",
+    "from": "Maungdaw",
+    "to": "Cox's Bazar",
+    "label": "Northern Rakhine into Bangladesh",
+    "kind": "refugee",
+    "steps": ["v-2017"],
+    "sources": ["unhcr-rohingya", "ohchr-myanmar"]
+  },
+  {
+    "id": "f-2021-yangon-thai",
+    "from": "Yangon",
+    "to": "Mae Sot",
+    "label": "To the southeastern border",
+    "kind": "flight",
+    "steps": ["vi-borderlands"],
+    "sources": ["icg-myanmar"]
+  },
+  {
+    "id": "f-2021-yangon-karenni",
+    "from": "Yangon",
+    "to": "Loikaw",
+    "label": "To Karenni",
+    "kind": "flight",
+    "steps": ["vi-borderlands"],
+    "sources": ["icg-myanmar"]
+  },
+  {
+    "id": "f-2021-mandalay-kachin",
+    "from": "Mandalay",
+    "to": "Myitkyina",
+    "label": "To Kachin areas",
+    "kind": "flight",
+    "steps": ["vi-borderlands"],
+    "sources": ["icg-myanmar"]
+  },
+  {
+    "id": "f-2021-sagaing-chin",
+    "from": "Monywa",
+    "to": "Mindat",
+    "label": "Into the Chin hills",
+    "kind": "flight",
+    "steps": ["vi-borderlands"],
+    "sources": ["icg-myanmar"]
+  },
+  {
+    "id": "f-2021-sagaing-india",
+    "from": "Monywa",
+    "to": "Champhai",
+    "label": "Across the Indian border",
+    "kind": "refugee",
+    "steps": ["vi-borderlands"],
+    "sources": ["unocha-myanmar"]
+  }
+]

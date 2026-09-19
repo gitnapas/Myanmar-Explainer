@@ -1,0 +1,47 @@
+[
+  {
+    "id": "t-central-military-2023",
+    "asOf": "2023-12-31",
+    "actor": "tatmadaw",
+    "areas": ["Yangon", "Mandalay", "Bago", "Ayeyarwady", "Magway"],
+    "confidence": "documented",
+    "basis": "Administrative control of the central lowlands and the major cities is not disputed by any party, including the opposition bodies. Shown at whole-state resolution; it does not mean uncontested control of every township within these units.",
+    "sources": ["sac-m-effective-control", "iiss-conflict-map"]
+  },
+  {
+    "id": "t-sagaing-contested-2023",
+    "asOf": "2023-12-31",
+    "actor": "pdf",
+    "areas": ["Sagaing", "Magway", "Chin"],
+    "confidence": "contested",
+    "basis": "Sustained armed resistance and disrupted military administration across much of the northwest. Both sides operate throughout; neither holds it cleanly. Contested is the honest category here, not a hedge.",
+    "sources": ["sac-m-effective-control", "icg-myanmar"]
+  },
+  {
+    "id": "t-karenni-2023",
+    "asOf": "2023-12-31",
+    "actor": "kndf",
+    "areas": ["Kayah"],
+    "confidence": "probable",
+    "basis": "Resistance organisations operate across most of the state and an interim executive was established in 2023. State-wide shading overstates the uniformity of that reach and should be read alongside the Karenni case study.",
+    "sources": ["isp-myanmar", "sac-m-effective-control"]
+  },
+  {
+    "id": "t-rakhine-aa-2024",
+    "asOf": "2024-12-31",
+    "actor": "ula-aa",
+    "areas": ["Rakhine"],
+    "confidence": "probable",
+    "basis": "The ULA/AA expanded territorial and administrative control across much of Rakhine State. Specific townships, and the position in Sittwe and Kyaukpyu, require separate township-level sourcing.",
+    "sources": ["icg-myanmar", "iiss-conflict-map"]
+  },
+  {
+    "id": "t-wa-2023",
+    "asOf": "2023-12-31",
+    "actor": "uwsa",
+    "areas": ["Shan"],
+    "confidence": "documented",
+    "basis": "The UWSA has administered a self-governing territory on the Chinese border since 1989. It occupies a portion of Shan State only; whole-state shading is a limitation of the ADM1 resolution used here, not a claim about the whole state.",
+    "sources": ["icg-myanmar"]
+  }
+]

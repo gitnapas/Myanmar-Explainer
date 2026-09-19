@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Myanmar: A State Unfinished
 
-## Getting Started
+An interactive history of how Myanmar went from a colonial state to today's fragmented
+political and military landscape.
 
-First, run the development server:
+A scroll-driven map and timeline. The map is the constant: it stays pinned while the
+narrative moves past it, so the reader watches one continuous country change rather than
+meeting a new illustration every screen.
+
+**Status: prototype.** Chapter VI (The Spring Revolution, 2021–2023) is built out as the
+reference chapter. The remaining seven chapters have their spine and major moments
+anchored. Open data gaps are declared in the interface rather than filled.
+
+## Running it
 
 ```bash
+npm install
+npm run geo     # download and build the base geography (once)
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+| Script | What it does |
+| --- | --- |
+| `npm run geo` | Downloads open geodata and builds the simplified map layers into `src/data/geo/`. |
+| `npm run check` | Referential integrity across the narrative data. |
+| `npm run build` | Runs `check`, then produces a static export into `out/`. |
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## How this is built
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Next.js with `output: "export"` — the result is a static site with no server, no database
+and no runtime API calls. Maps are SVG drawn with `d3-geo` over TopoJSON; there is no tile
+layer and nothing is fetched at runtime.
 
-## Learn More
+The camera is an SVG transform over geometry that is projected once at module load, so
+moving between steps costs a transform update rather than reprojecting every boundary each
+frame. Zoom interpolates geometrically, because linear zoom reads as a lurch.
 
-To learn more about Next.js, take a look at the following resources:
+### Data
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+All narrative content lives in `src/data/` and the UI renders from it:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| File | Contents |
+| --- | --- |
+| `chapters.json` | The eight chapters and their era treatment. |
+| `steps.json` | Individual moments: date, visual mode, map framing, sources. |
+| `actors.json` | Organisations, with named unresolved questions. |
+| `relationships.json` | Typed edges between actors. |
+| `sources.json` | The citation registry. |
+| `territory.json` | Territorial claims, each with a confidence level and an as-of date. |
+| `flows.json` | Directional movement of people between places. |
+| `gaps.json` | Declared holes in the evidence. |
 
-## Deploy on Vercel
+`npm run check` fails the build on a dangling source id, an unsourced claim, an undated
+territorial claim, or a territory entry naming a region that does not exist. The rule that
+substantive claims are traceable is only real if breaking it breaks the build.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Editorial rules
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+These are the constraints the project works to; the reasoning is in
+[`/methodology`](src/app/methodology/page.tsx).
+
+- **Territory is mapped at whole state and region resolution, never below it.** There is no
+  verified township-level control dataset here, and drawing a precise front line from
+  imprecise reporting produces something that looks like evidence and is not.
+- **Uncertainty is texture, never a hue.** A hatched area means weaker evidence, not a
+  different actor. Given its own colour, "we don't know" would look like a finding.
+- **Conflict events do not imply control.** Event data describes where fighting occurred
+  and is used for nothing else.
+- **Proxies are labelled where they are used.** Protest circles are sized by city
+  population, not crowd size. Movement arcs show direction, not routes.
+- **Gaps are declared, not filled.** This prototype was assembled against a May 2026
+  knowledge boundary; anything later is left explicitly empty.
+
+## Palette
+
+The three series hues were validated against both light and dark surfaces on the
+all-pairs list — the territorial map shows every actor at once — and clear the lightness
+band, chroma floor, colour-vision separation, normal-vision floor and 3:1 contrast in both
+modes. They are documented in `src/app/globals.css`. Do not adjust them by eye.
+
+## Base geography
+
+Built by `scripts/build-geo.mjs` from open sources, with full attribution in
+`src/data/geo/ATTRIBUTION.json`:
+
+- **geoBoundaries** gbOpen MMR ADM1 (CC BY 4.0) — states and regions
+- **Natural Earth** 1:50m countries and 1:10m rivers (public domain)
+- **GeoNames** cities500 and the Myanmar country dump (CC BY 4.0) — places
+
+Historical and territorial layers are *not* derived from these sources.
