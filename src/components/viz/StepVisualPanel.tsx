@@ -100,7 +100,7 @@ function ParliamentSeats({ data, total }: { data: GraphicDatum[]; total: number 
   const dots = ringCounts.flatMap((count, ring) => Array.from({ length: count }, (_, index) => {
     const angle = Math.PI + (Math.PI * (index + 0.5)) / count;
     const radius = 54 + ring * 24;
-    const dot = { x: 180 + Math.cos(angle) * radius, y: 174 + Math.sin(angle) * radius, tone: tones[seatIndex], key: seatIndex };
+    const dot = { x: Math.round((180 + Math.cos(angle) * radius) * 1000) / 1000, y: Math.round((174 + Math.sin(angle) * radius) * 1000) / 1000, tone: tones[seatIndex], key: seatIndex };
     seatIndex += 1;
     return dot;
   }));
