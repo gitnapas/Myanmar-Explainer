@@ -6,6 +6,6 @@
  * unprefixed "/images/x.png" resolves to the domain root and 404s. Everything
  * that reaches for a file in public/ goes through here.
  */
-const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? (process.env.NODE_ENV === "production" ? "/Myanmar-Explainer" : "");
 
 export const asset = (path: string) => `${BASE}/${path.replace(/^\//, "")}`;

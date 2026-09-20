@@ -5,7 +5,7 @@ import type { NextConfig } from "next";
  * needs that prefix. CI sets NEXT_PUBLIC_BASE_PATH; local dev leaves it empty
  * so the site still works at http://localhost:3000/.
  */
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? (process.env.NODE_ENV === "production" ? "/Myanmar-Explainer" : "");
 
 const nextConfig: NextConfig = {
   // Pages is a plain static host: no server, no runtime rendering.
