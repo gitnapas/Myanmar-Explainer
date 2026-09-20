@@ -44,8 +44,7 @@ export default function Opening() {
 
       <div className="relative flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
         <p className="prose-narrow max-w-[46ch] text-[1.05rem] text-ink-secondary">
-          How did Myanmar go from a colonial state to today&rsquo;s fragmented political and
-          military landscape &mdash; and what political order is emerging from it?
+          Work in Progress, facts need to be adjusted and layout and map may be inaccurate
         </p>
         <a href="#story" className="begin-link">Explore the history <span aria-hidden>↓</span></a>
       </div>
