@@ -12,7 +12,9 @@ import CdmSectors from "@/components/viz/CdmSectors";
 import MapLegend from "@/components/MapLegend";
 import SourcePanel from "@/components/panels/SourcePanel";
 import ActorPanel from "@/components/panels/ActorPanel";
-import type { Actor, Chapter, Relationship, Source, Step } from "@/lib/types";
+import StepVisualPanel from "@/components/viz/StepVisualPanel";
+import storyVisualsData from "@/data/storyVisuals.json";
+import type { Actor, Chapter, Relationship, Source, Step, StepVisual } from "@/lib/types";
 
 interface StoryProps {
   chapters: Chapter[];
@@ -23,6 +25,8 @@ interface StoryProps {
 }
 
 const HOME = { center: [96.5, 19.5] as [number, number], zoom: 1 };
+const storyVisuals = storyVisualsData as StepVisual[];
+const visualByStep = new Map(storyVisuals.map((visual) => [visual.step, visual]));
 
 export default function Story({
   chapters,
@@ -45,6 +49,7 @@ export default function Story({
 
   const step = steps[activeIndex];
   const chapter = chapterById.get(step.chapter);
+  const visual = visualByStep.get(step.id);
 
   /**
    * The active step is whichever one is crossing the middle of the viewport.
@@ -93,10 +98,13 @@ export default function Story({
               layers={layers}
               stepId={step.id}
               territoryAsOf={layers.includes("conflict-intensity") ? step.date : undefined}
+              actors={actors}
+              visual={visual}
+              onSelectActor={setOpenActor}
             />
 
             {/* Mode-specific overlays sit on top of the map rather than replacing it. */}
-            {layers.includes("opposition-network") && (
+            {layers.includes("opposition-network") && !visual?.map && (
               <OppositionNetwork
                 actors={actors}
                 relationships={relationships}
@@ -157,6 +165,10 @@ export default function Story({
                         );
                       })}
                     </div>
+                  )}
+
+                  {visualByStep.get(s.id)?.graphic && (
+                    <StepVisualPanel graphic={visualByStep.get(s.id)!.graphic!} />
                   )}
 
                   {s.stat && <StatCallout value={s.stat.value} caption={s.stat.caption} />}

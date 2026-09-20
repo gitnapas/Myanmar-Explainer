@@ -119,5 +119,23 @@ function buildEntries(layers: string[]): Entry[] {
     });
   }
 
+  if (layers.includes("cyclone-track")) {
+    entries.push({
+      term: "Cyclone Nargis best track",
+      caveat:
+        "The animated line samples NOAA IBTrACS positions. It shows direction, not the width of the wind field or damage.",
+      swatch: <Dash color="var(--series-3)" />,
+    });
+  }
+
+  if (layers.includes("current-control-reference")) {
+    entries.push({
+      term: "Control map snapshot · 11 July 2026",
+      caveat:
+        "CC0 community cartography with its own revision history. Control is fluid and often differs between towns, roads, administration and night-time access.",
+      swatch: <Hatched />,
+    });
+  }
+
   return entries;
 }

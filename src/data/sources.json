@@ -225,5 +225,76 @@
     "url": "https://www.idea.int/",
     "kind": "report",
     "note": "Electoral system and constitutional process analysis."
+  },
+  {
+    "id": "ipu-1990",
+    "publisher": "Inter-Parliamentary Union",
+    "title": "Myanmar 1990 election and elected parliamentarians",
+    "date": "1999-04-16",
+    "url": "https://archive.ipu.org/conf-e/101.pdf",
+    "kind": "report",
+    "note": "Records the NLD winning 392 of 485 declared seats and the authorities' refusal to transfer power or convene the elected parliament."
+  },
+  {
+    "id": "uec-2026",
+    "publisher": "Myanmar Union Election Commission",
+    "title": "Announcement 34/2026: Secured votes in the 2025 multiparty general election",
+    "date": "2026-02-09",
+    "url": "https://www.mdn.gov.mm/newspaper/public/ebooks/download/11893",
+    "kind": "primary",
+    "note": "Official results published through the state-run Global New Light of Myanmar. Used for the commission's vote totals and geographic scope, not as independent validation of the election."
+  },
+  {
+    "id": "ap-2026-election",
+    "publisher": "Associated Press",
+    "title": "Myanmar's military-backed party wins election amid opposition exclusion",
+    "date": "2026-02-04",
+    "url": "https://apnews.com/article/myanmar-election-usdp-party-min-aung-hlaing-ce432b0d344e11b54a537d5f2c7b5dd9",
+    "kind": "journalism",
+    "note": "Independent account of the election conditions, opposition exclusion, areas without voting and the continuing constitutional military bloc."
+  },
+  {
+    "id": "isp-control-2026",
+    "publisher": "ISP-Myanmar",
+    "title": "Resistance Forces' Control Areas Expanded After Operation 1027",
+    "date": "2026-06-05",
+    "url": "https://ispmyanmar.com/2026mp021/",
+    "kind": "report",
+    "note": "Estimates that 39.34 per cent of national landmass was outside Myanmar Armed Forces control. The figure is a dated assessment, not a live territorial ledger."
+  },
+  {
+    "id": "commons-control-2026",
+    "publisher": "Wikimedia Commons",
+    "title": "Myanmar civil war simplified.svg",
+    "date": "2026-07-11",
+    "url": "https://commons.wikimedia.org/wiki/File:Myanmar_civil_war_simplified.svg",
+    "kind": "data",
+    "note": "CC0 community-maintained cartography used as a dated visual reference for the closing map. Its revision history and source discussions are part of the evidence and the map should not be treated as authoritative."
+  },
+  {
+    "id": "usgs-earthquake-2025",
+    "publisher": "U.S. Geological Survey",
+    "title": "M 7.7 - 2025 Mandalay, Burma (Myanmar) Earthquake",
+    "date": "2025-03-28",
+    "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000pn9s/impact",
+    "kind": "data",
+    "note": "Primary event parameters and impact compilation: epicentre, depth, intensity, confirmed surface rupture and the casualty, injury and missing-person totals used here."
+  },
+  {
+    "id": "worldbank-earthquake-2025",
+    "publisher": "World Bank",
+    "title": "Myanmar Economic Monitor: Economic Aftershocks",
+    "date": "2025-06-30",
+    "url": "https://documents.worldbank.org/en/publication/documents-reports/documentdetail/099061125205014652",
+    "kind": "report",
+    "note": "Estimates 17 million people affected, nine million severely, more than 207,000 displaced, and US$11 billion in direct physical damage, equivalent to 14 per cent of GDP."
+  },
+  {
+    "id": "noaa-ibtracs",
+    "publisher": "NOAA National Centers for Environmental Information",
+    "title": "International Best Track Archive for Climate Stewardship (IBTrACS)",
+    "url": "https://www.ncei.noaa.gov/products/international-best-track-archive",
+    "kind": "data",
+    "note": "The merged global best-track archive used for the simplified Cyclone Nargis path. The interface deliberately samples the track and does not infer the storm's wind field or damage footprint from it."
   }
 ]

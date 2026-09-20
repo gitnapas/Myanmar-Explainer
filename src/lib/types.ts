@@ -147,6 +147,70 @@ export interface Step {
   stat?: { value: string; caption: string };
 }
 
+export type VisualTone =
+  | "colonial"
+  | "occupation"
+  | "independence"
+  | "military"
+  | "resistance"
+  | "civilian"
+  | "warning"
+  | "neutral";
+
+export interface StepMapFill {
+  /** ADM1 name, neighbouring country name, or the special value `Myanmar`. */
+  areas: string[];
+  tone: VisualTone;
+  label?: string;
+  opacity?: number;
+}
+
+export interface StepMapActor {
+  actor?: string;
+  label: string;
+  coordinates: [number, number];
+  status?: "active" | "assassinated" | "detained" | "deposed" | "excluded";
+}
+
+export interface StepMapAnnotation {
+  label: string;
+  coordinates: [number, number];
+  detail?: string;
+  tone?: VisualTone;
+}
+
+export interface GraphicDatum {
+  label: string;
+  value: number;
+  display?: string;
+  tone?: VisualTone;
+}
+
+export interface StepGraphic {
+  type: "bars" | "election" | "parliament" | "media";
+  eyebrow?: string;
+  title: string;
+  subtitle?: string;
+  unit?: string;
+  total?: number;
+  data?: GraphicDatum[];
+  overlay?: string;
+  file?: string;
+  href?: string;
+  caption?: string;
+  credit?: string;
+}
+
+export interface StepVisual {
+  step: string;
+  map?: {
+    fills?: StepMapFill[];
+    actors?: StepMapActor[];
+    annotations?: StepMapAnnotation[];
+  };
+  graphic?: StepGraphic;
+}
+
 export interface Chapter {
   id: ChapterId;
   numeral: string;

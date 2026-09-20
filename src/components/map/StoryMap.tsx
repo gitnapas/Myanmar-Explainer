@@ -2,6 +2,10 @@
 
 import { memo, useMemo } from "react";
 
+import ActorBubble from "@/components/ActorBubble";
+import type { Actor, StepMapFill, StepVisual, VisualTone } from "@/lib/types";
+import { asset } from "@/lib/asset";
+
 import {
   VIEW,
   cameraTransform,
@@ -40,6 +44,12 @@ export interface StoryMapProps {
   stepId?: string;
   /** Territory claims are only drawn when a step asks for them. */
   territoryAsOf?: string;
+  /** Actor records used by the on-map portrait bubbles. */
+  actors?: Actor[];
+  /** Per-step fills, actor positions and annotations. */
+  visual?: StepVisual;
+  /** Opens the existing actor evidence panel. */
+  onSelectActor?: (id: string) => void;
 }
 
 const cityByName = new Map(cities.map((c) => [c.name, c]));
@@ -169,6 +179,184 @@ function TerritoryLayer({ asOf }: { asOf: string }) {
   );
 }
 
+const fillForTone: Record<VisualTone, string> = {
+  colonial: "var(--series-1)",
+  occupation: "var(--series-3)",
+  independence: "#d6a928",
+  military: "var(--series-1)",
+  resistance: "var(--series-2)",
+  civilian: "var(--series-3)",
+  warning: "#d27a19",
+  neutral: "var(--ink-muted)",
+};
+
+/** Historically meaningful colour fields supplied by the active story step. */
+function HistoricalFillLayer({ fills }: { fills: StepMapFill[] }) {
+  return (
+    <g pointerEvents="none">
+      {fills.flatMap((fill, fillIndex) => {
+        const stateMarks = states.features
+          .filter(
+            (feature) =>
+              fill.areas.includes("Myanmar") || fill.areas.includes(feature.properties.name),
+          )
+          .map((feature) => (
+            <path
+              key={`state-${fillIndex}-${feature.properties.name}`}
+              d={toPath(feature)}
+              fill={fillForTone[fill.tone]}
+              fillOpacity={fill.opacity ?? 0.45}
+              stroke={fillForTone[fill.tone]}
+              strokeWidth={1.2}
+              vectorEffect="non-scaling-stroke"
+              className="story-area-fill"
+            />
+          ));
+
+        const neighbourMarks = neighbours.features
+          .filter((feature) => fill.areas.includes(feature.properties.name))
+          .map((feature) => (
+            <path
+              key={`neighbour-${fillIndex}-${feature.properties.name}`}
+              d={toPath(feature)}
+              fill={fillForTone[fill.tone]}
+              fillOpacity={fill.opacity ?? 0.45}
+              stroke={fillForTone[fill.tone]}
+              strokeWidth={1.2}
+              vectorEffect="non-scaling-stroke"
+              className="story-area-fill"
+            />
+          ));
+
+        return [...stateMarks, ...neighbourMarks];
+      })}
+    </g>
+  );
+}
+
+function AnnotationLayer({
+  annotations,
+  camera,
+}: {
+  annotations: NonNullable<NonNullable<StepVisual["map"]>["annotations"]>;
+  camera: Camera;
+}) {
+  return (
+    <g pointerEvents="none">
+      {annotations.map((annotation, index) => {
+        const [x, y] = screenPoint(annotation.coordinates, camera.center, camera.zoom);
+        const colour = fillForTone[annotation.tone ?? "neutral"];
+        return (
+          <g
+            key={`${annotation.label}-${index}`}
+            transform={`translate(${x} ${y})`}
+            className="map-annotation"
+          >
+            <circle r={8} fill="var(--paper)" stroke={colour} strokeWidth={2.2} />
+            <circle r={2.5} fill={colour} />
+            <line x1={8} y1={0} x2={18} y2={0} stroke={colour} strokeWidth={1.3} />
+            <text
+              x={22}
+              y={-2}
+              fontSize={12}
+              fontWeight={700}
+              fill="var(--ink)"
+              stroke="var(--paper)"
+              strokeWidth={4}
+              paintOrder="stroke"
+            >
+              {annotation.label}
+            </text>
+            {annotation.detail && (
+              <text
+                x={22}
+                y={13}
+                fontSize={9.5}
+                fill="var(--ink-secondary)"
+                stroke="var(--paper)"
+                strokeWidth={3}
+                paintOrder="stroke"
+              >
+                {annotation.detail}
+              </text>
+            )}
+          </g>
+        );
+      })}
+    </g>
+  );
+}
+
+function ActorMapLayer({
+  marks,
+  actors,
+  camera,
+  onSelectActor,
+}: {
+  marks: NonNullable<NonNullable<StepVisual["map"]>["actors"]>;
+  actors: Actor[];
+  camera: Camera;
+  onSelectActor?: (id: string) => void;
+}) {
+  const actorById = new Map(actors.map((actor) => [actor.id, actor]));
+
+  return (
+    <g>
+      {marks.map((mark, index) => {
+        const [x, y] = screenPoint(mark.coordinates, camera.center, camera.zoom);
+        const actor = mark.actor ? actorById.get(mark.actor) : undefined;
+        const initials = mark.label
+          .split(/\s+/)
+          .slice(0, 2)
+          .map((word) => word[0])
+          .join("");
+        const inactive = mark.status && mark.status !== "active";
+
+        return (
+          <g
+            key={mark.actor ?? `${mark.label}-${index}`}
+            transform={`translate(${x} ${y})`}
+            className="actor-map-mark"
+          >
+            <foreignObject x={-30} y={-30} width={190} height={82} overflow="visible">
+              <div className={`flex items-center gap-2 ${inactive ? "opacity-60 grayscale" : ""}`}>
+                <button
+                  type="button"
+                  disabled={!actor}
+                  onClick={() => actor && onSelectActor?.(actor.id)}
+                  aria-label={actor ? `Open ${actor.name}` : mark.label}
+                  className="relative shrink-0 rounded-full disabled:cursor-default"
+                >
+                  {actor ? (
+                    <ActorBubble actor={actor} size={52} />
+                  ) : (
+                    <span className="inline-flex h-[52px] w-[52px] items-center justify-center rounded-full border-2 border-rule-strong bg-paper-raised font-mono text-[0.72rem] font-bold text-ink">
+                      {initials}
+                    </span>
+                  )}
+                  {inactive && (
+                    <span className="absolute inset-0 flex items-center justify-center text-[3.4rem] font-light leading-none text-series-1">
+                      ×
+                    </span>
+                  )}
+                </button>
+                <span className="max-w-[7.5rem] bg-paper/90 px-1.5 py-1 text-[0.7rem] font-semibold leading-tight text-ink shadow-[0_0_0_1px_var(--rule)]">
+                  {mark.label}
+                  {mark.status && mark.status !== "active" && (
+                    <small className="mt-0.5 block font-mono text-[0.58rem] uppercase tracking-wide text-series-1">
+                      {mark.status}
+                    </small>
+                  )}
+                </span>
+              </div>
+            </foreignObject>
+          </g>
+        );
+      })}
+    </g>
+  );
+}
+
 /**
  * Directional movement of people.
  *
@@ -216,6 +404,46 @@ function FlowLayer({ stepId, camera }: { stepId: string; camera: Camera }) {
           </g>
         );
       })}
+    </g>
+  );
+}
+
+/**
+ * Nargis track, simplified from NOAA IBTrACS to the points that explain the
+ * eastward turn and Delta landfall. The animation shows sequence, not wind
+ * field or storm size.
+ */
+function CycloneTrackLayer({ camera }: { camera: Camera }) {
+  const track: [number, number][] = [
+    [88.0, 12.4],
+    [89.5, 13.4],
+    [91.2, 14.7],
+    [92.8, 15.4],
+    [94.2, 15.8],
+    [95.1, 16.1],
+    [96.0, 16.55],
+    [97.0, 17.0],
+  ];
+  const points = track.map((point) => screenPoint(point, camera.center, camera.zoom));
+  const path = points.map(([x, y], index) => `${index === 0 ? "M" : "L"} ${x} ${y}`).join(" ");
+  const [landX, landY] = screenPoint([95.1, 16.1], camera.center, camera.zoom);
+
+  return (
+    <g pointerEvents="none" className="cyclone-track">
+      <path
+        d={path}
+        fill="none"
+        stroke="var(--series-3)"
+        strokeWidth={4}
+        strokeLinecap="round"
+        strokeDasharray="10 9"
+        className="cyclone-track-line"
+      />
+      <circle cx={landX} cy={landY} r={13} fill="none" stroke="var(--series-3)" strokeWidth={2} />
+      <circle cx={landX} cy={landY} r={4} fill="var(--series-3)" />
+      <text x={landX + 18} y={landY - 8} fontSize={12} fontWeight={700} fill="var(--ink)">
+        Delta landfall
+      </text>
     </g>
   );
 }
@@ -366,6 +594,9 @@ export default function StoryMap({
   layers = [],
   stepId = "",
   territoryAsOf,
+  actors = [],
+  visual,
+  onSelectActor,
 }: StoryMapProps) {
   const camera = useCameraTween(focus);
 
@@ -429,6 +660,7 @@ export default function StoryMap({
       <g transform={transform}>
         <BaseGeography />
         <AdminUnits highlighted={highlighted} />
+        {visual?.map?.fills && <HistoricalFillLayer fills={visual.map.fills} />}
         <Rivers />
         {/* Drawn over the states so the country reads as one shape first and
             a set of administrative units second. */}
@@ -450,8 +682,33 @@ export default function StoryMap({
       */}
       {camera.zoom > 1.7 && <FocusRing camera={camera} />}
       {has("protest-spread") && <ProtestLayer camera={camera} />}
-      {has("flight-to-border") && <FlowLayer stepId={stepId} camera={camera} />}
+      {(has("flight-to-border") || has("rohingya-flow")) && (
+        <FlowLayer stepId={stepId} camera={camera} />
+      )}
+      {has("cyclone-track") && <CycloneTrackLayer camera={camera} />}
       <CityLabels camera={camera} />
+      {has("current-control-reference") && (
+        <image
+          href={asset("images/myanmar-control-2026-07-11.svg")}
+          x={205}
+          y={10}
+          width={590}
+          height={1130}
+          preserveAspectRatio="xMidYMid meet"
+          className="map-reference-layer"
+        />
+      )}
+      {visual?.map?.annotations && (
+        <AnnotationLayer annotations={visual.map.annotations} camera={camera} />
+      )}
+      {visual?.map?.actors && (
+        <ActorMapLayer
+          marks={visual.map.actors}
+          actors={actors}
+          camera={camera}
+          onSelectActor={onSelectActor}
+        />
+      )}
     </svg>
   );
 }

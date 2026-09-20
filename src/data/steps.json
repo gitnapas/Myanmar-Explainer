@@ -269,8 +269,8 @@
     "summary": "The army dissolved parliament and governed directly. The Burmese Way to Socialism nationalised the economy and closed the country.",
     "focus": {
       "center": [
-        96.13,
-        19.75
+        96.16,
+        16.87
       ],
       "zoom": 2.4
     },
@@ -292,10 +292,10 @@
     "detail": "The law is the legal mechanism behind Rohingya statelessness. Its categories still govern who can hold which documents, and therefore who can move, study, marry and vote.",
     "focus": {
       "center": [
-        92.9,
-        20.8
+        96.5,
+        19.5
       ],
-      "zoom": 2.2
+      "zoom": 1
     },
     "sources": [
       "ohchr-myanmar",
@@ -382,10 +382,10 @@
       "nld"
     ],
     "sources": [
+      "ipu-1990",
       "idea-myanmar",
       "icg-myanmar"
-    ],
-    "uncertainty": "[DATA NEEDED: verified 1990 seat counts by party from International IDEA or official results before building the seat visualisation]"
+    ]
   },
   {
     "id": "iii-fuel-2007",
@@ -454,10 +454,11 @@
       "cyclone-track"
     ],
     "sources": [
+      "noaa-ibtracs",
       "unocha-myanmar",
       "icg-myanmar"
     ],
-    "uncertainty": "[DATA NEEDED: cyclone track geometry and affected-population figures from a citable meteorological and humanitarian source]"
+    "uncertainty": "The animated line is a simplified selection of NOAA IBTrACS best-track points. It shows the storm's direction and Delta landfall, not the width of its wind field or the boundary of damage."
   },
   {
     "id": "iii-constitution",
@@ -1159,8 +1160,8 @@
     "dateLabel": "28 March 2025",
     "title": "The earthquake",
     "mode": "people",
-    "summary": "A major earthquake struck central Myanmar, with severe damage around Sagaing and Mandalay, in the middle of an active war.",
-    "detail": "Disaster response in a contested country is a political act: who is allowed to deliver aid, and to whom, becomes part of the conflict.",
+    "summary": "A shallow magnitude 7.7 earthquake ruptured the Sagaing Fault near Mandalay, exposing millions of people to violent shaking in the middle of an active war.",
+    "detail": "At least 3,791 people were killed, 5,106 injured and 88 remained missing in USGS reporting. The World Bank estimated that 17 million people were affected, nine million severely, and more than 207,000 displaced. Disaster response in a contested country is also political: who is allowed to deliver aid, and to whom, becomes part of the conflict.",
     "focus": {
       "center": [
         96.0,
@@ -1169,19 +1170,20 @@
       "zoom": 2.6
     },
     "sources": [
+      "usgs-earthquake-2025",
+      "worldbank-earthquake-2025",
       "unocha-myanmar"
-    ],
-    "uncertainty": "[DATA NEEDED: magnitude, epicentre, affected-population and casualty figures from USGS and UN OCHA with as-of dates]"
+    ]
   },
   {
     "id": "viii-election",
     "chapter": "viii-limits",
-    "date": "2026",
-    "dateLabel": "[DATE NEEDED]",
+    "date": "2026-01-25",
+    "dateLabel": "28 Dec 2025 - 25 Jan 2026",
     "title": "The military-run election",
     "mode": "system",
-    "summary": "[DATA NEEDED: this site is built to a May 2026 knowledge boundary. The conditions, phases, participating parties, areas where voting occurred, results, and the competing characterisations of the vote all require sourcing before this step is written.]",
-    "detail": "This step is deliberately left empty. Writing a plausible account of an election whose results are not verified here would be exactly the failure this project is built to avoid.",
+    "summary": "The military authorities held voting in three phases across 263 of 330 townships. The military-backed USDP dominated after the NLD was dissolved and major opposition forces were excluded.",
+    "detail": "Official figures gave the USDP 44.19 per cent of votes across the election and 739 winning candidates across national, state, regional and ethnic-affairs contests. A quarter of national parliamentary seats remained reserved for military appointees. Parliament elected Min Aung Hlaing president on 3 April 2026, converting direct military rule into a military-dominated constitutional government.",
     "focus": {
       "center": [
         96.5,
@@ -1189,9 +1191,42 @@
       ],
       "zoom": 1
     },
+    "actors": [
+      "usdp",
+      "tatmadaw",
+      "min-aung-hlaing"
+    ],
     "sources": [
+      "uec-2026",
+      "ap-2026-election",
       "idea-myanmar"
     ],
-    "uncertainty": "[DATA NEEDED: everything in this step]"
+    "uncertainty": "Vote totals are the military-appointed election commission's figures. Independent observers and opposition organisations disputed the conditions and legitimacy of the process; 67 townships did not vote."
+  },
+  {
+    "id": "now-control",
+    "chapter": "now",
+    "date": "2026-09-20",
+    "dateLabel": "The territorial picture in 2026",
+    "title": "No single authority controls Myanmar",
+    "mode": "map",
+    "summary": "The military holds the principal cities, air power and important transport corridors. Resistance forces and ethnic armed organisations administer or contest wide areas, especially along the borders and across the northwest.",
+    "detail": "This closing map is a dated reference, not a permanent verdict. Control can mean a town, a road, a garrison, taxation, courts or the ability to operate at night, and those do not always belong to the same actor. The CC0 community map shown here was updated on 11 July 2026; ISP-Myanmar separately estimated in June that 39.34 per cent of landmass lay outside military control.",
+    "focus": {
+      "center": [
+        96.5,
+        19.5
+      ],
+      "zoom": 1
+    },
+    "layers": [
+      "current-control-reference"
+    ],
+    "sources": [
+      "isp-control-2026",
+      "commons-control-2026",
+      "iiss-conflict-map"
+    ],
+    "uncertainty": "There is no authoritative, real-time ledger of territorial control. This map is a dated synthesis and should be read alongside its source history and the project's state-level methodology limits."
   }
 ]

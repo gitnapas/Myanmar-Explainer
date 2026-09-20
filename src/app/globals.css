@@ -312,3 +312,73 @@ body {
     opacity: 1;
   }
 }
+
+/* Historical fills fade on as the reader crosses into a new political order. */
+.story-area-fill {
+  animation: area-fill-in 800ms ease-out both;
+}
+
+@keyframes area-fill-in {
+  from {
+    fill-opacity: 0;
+  }
+}
+
+/* Actor bubbles rise out of the map instead of appearing as static pins. */
+.actor-map-mark {
+  animation: actor-bubble-in 620ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  transition: transform 900ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@keyframes actor-bubble-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.72);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.map-annotation {
+  animation: annotation-in 520ms ease-out both;
+}
+
+@keyframes annotation-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/*
+ * Keep the SVG geographic transform authoritative. Animating CSS transform on
+ * the group would temporarily move every bubble back to the SVG origin.
+ */
+.actor-map-mark {
+  transition: opacity 500ms ease;
+}
+
+@keyframes actor-bubble-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.cyclone-track-line {
+  animation: cyclone-track-move 1.3s linear infinite;
+}
+
+@keyframes cyclone-track-move {
+  from {
+    stroke-dashoffset: 38;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
