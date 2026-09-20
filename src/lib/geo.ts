@@ -1,9 +1,15 @@
 import { geoMercator, geoPath } from "d3-geo";
-import { feature } from "topojson-client";
-import type { Topology, GeometryCollection } from "topojson-specification";
+import { feature, merge } from "topojson-client";
+import type {
+  Topology,
+  GeometryCollection,
+  Polygon as TopoPolygon,
+  MultiPolygon as TopoMultiPolygon,
+} from "topojson-specification";
 import type { Feature, FeatureCollection, Geometry } from "geojson";
 
 import boundariesTopo from "@/data/geo/boundaries.topo.json";
+import neighboursTopo from "@/data/geo/neighbours.topo.json";
 import riversTopo from "@/data/geo/rivers.topo.json";
 import citiesData from "@/data/geo/cities.json";
 
@@ -50,23 +56,52 @@ export interface City {
   coordinates: [number, number];
 }
 
-type Topo = Topology<{
-  states: GeometryCollection<StateProps>;
-  neighbours: GeometryCollection<NeighbourProps>;
-  outline: GeometryCollection<{ name: string }>;
-}>;
+/**
+ * Myanmar and its neighbours are separate topologies on purpose.
+ *
+ * Simplification takes a single weight threshold per topology, derived from
+ * every arc in it. With China and Myanmar's townships in the same file, the
+ * threshold lands high enough to collapse the small rings, and d3-geo then
+ * reads the wreckage as inverted polygons and floods the frame with them.
+ * Keeping each scale in its own file keeps each threshold honest.
+ */
+type Topo = Topology<{ states: GeometryCollection<StateProps> }>;
+type NbrTopo = Topology<{ neighbours: GeometryCollection<NeighbourProps> }>;
 
 const topo = boundariesTopo as unknown as Topo;
+const nbrTopo = neighboursTopo as unknown as NbrTopo;
 
 export const states = feature(topo, topo.objects.states) as FeatureCollection<
   Geometry,
   StateProps
 >;
-export const neighbours = feature(topo, topo.objects.neighbours) as FeatureCollection<
+export const neighbours = feature(nbrTopo, nbrTopo.objects.neighbours) as FeatureCollection<
   Geometry,
   NeighbourProps
 >;
-const outline = feature(topo, topo.objects.outline) as FeatureCollection<Geometry>;
+
+/**
+ * The national border, dissolved from the states rather than taken from a
+ * second source. Two datasets of the same coastline never quite agree, and the
+ * disagreement shows up as slivers along the edge of the country.
+ */
+export const outline: FeatureCollection<Geometry> = {
+  type: "FeatureCollection",
+  features: [
+    {
+      type: "Feature",
+      properties: { name: "Myanmar" },
+      // merge() only accepts areal geometries; the collection's element type is
+      // the broader GeometryObject, so it is narrowed here.
+      geometry: merge(
+        topo,
+        topo.objects.states.geometries as Array<
+          TopoPolygon<StateProps> | TopoMultiPolygon<StateProps>
+        >,
+      ),
+    },
+  ],
+};
 
 const riverTopo = riversTopo as unknown as Topology<{
   rivers: GeometryCollection<{ name: string }>;

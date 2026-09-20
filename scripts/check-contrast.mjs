@@ -164,11 +164,13 @@ for (const [mode, tokens] of [
  * than nothing.
  */
 const MAP_PAIRS = [
-  ["--map-land", "--map-water", 1.6, "land vs water"],
-  ["--map-land-edge", "--map-land", 2.2, "boundary vs land"],
-  ["--map-neighbour", "--map-land", 1.25, "neighbour vs land"],
-  ["--map-river", "--map-water", 1.5, "river vs water"],
-  ["--map-land", "--paper-base", 1.12, "land vs page"],
+  ["--map-land", "--map-water", 1.8, "land vs water"],
+  ["--map-land", "--map-neighbour", 1.7, "Myanmar vs neighbours"],
+  ["--map-outline", "--map-land", 4.0, "national outline vs land"],
+  ["--map-land-edge", "--map-land", 2.6, "state boundary vs land"],
+  ["--map-water", "--map-neighbour", 1.25, "water vs neighbours"],
+  ["--map-river", "--map-water", 1.4, "river vs water"],
+  ["--map-land", "--paper-base", 1.15, "land vs page"],
 ];
 
 for (const [mode, tokens] of [

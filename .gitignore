@@ -45,3 +45,6 @@ next-env.d.ts
 
 # claude code worktrees
 /.claude/worktrees/
+
+# screenshot output
+/.shots/

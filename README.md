@@ -123,3 +123,16 @@ gh api -X PUT repos/gitnapas/Myanmar-Explainer/pages -f build_type=workflow
 `basePath` comes from `NEXT_PUBLIC_BASE_PATH`, so local development still works at
 `http://localhost:3000/` with no prefix, and renaming the repository only means
 changing that one value (the workflow reads it from `actions/configure-pages`).
+
+### Looking at it
+
+```bash
+npm run build
+node scripts/shoot.mjs local   # screenshots out/ into .shots/
+node scripts/shoot.mjs         # screenshots the live site
+```
+
+Uses the system Edge through playwright-core, so no browser download. Both the
+blank-page bug and the invisible-map bug shipped because the colour maths was
+checked and the rendered result never was; the computed checks only catch what
+they are told to measure.

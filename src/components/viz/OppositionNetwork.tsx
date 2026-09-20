@@ -279,16 +279,11 @@ export default function OppositionNetwork({
                     />
                   </>
                 ) : (
-                  <text
-                    x={p.x}
-                    y={p.y + 4}
-                    textAnchor="middle"
-                    className="font-mono"
-                    fontSize={11}
-                    fill="var(--ink-muted)"
-                  >
-                    {label.slice(0, 5)}
-                  </text>
+                  /* No freely-licensed emblem exists for this organisation.
+                     A plain disc rather than initials, because the name is
+                     already directly below and repeating it twice in one mark
+                     just made the diagram noisier. */
+                  <circle cx={p.x} cy={p.y} r={R - 6} fill="var(--paper-sunk)" />
                 )}
                 <circle
                   cx={p.x}

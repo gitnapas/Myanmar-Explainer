@@ -7,6 +7,7 @@ import {
   cameraTransform,
   cities,
   neighbours,
+  outline,
   rivers,
   screenPoint,
   states,
@@ -61,14 +62,29 @@ const BaseGeography = memo(function BaseGeography() {
           vectorEffect="non-scaling-stroke"
         />
       ))}
+    </g>
+  );
+});
+
+/**
+ * Rivers, drawn after the land rather than before it.
+ *
+ * They were previously part of the base layer and the state polygons painted
+ * straight over them, so the Irrawaddy -- the spine the whole country is
+ * organised around -- was invisible on its own map.
+ */
+const Rivers = memo(function Rivers() {
+  return (
+    <g>
       {rivers.features.map((f, i) => (
         <path
           key={`${f.properties.name}-${i}`}
           d={toPath(f)}
           fill="none"
           stroke="var(--map-river)"
-          strokeWidth={1.1}
+          strokeWidth={1.3}
           strokeLinecap="round"
+          strokeOpacity={0.85}
           vectorEffect="non-scaling-stroke"
         />
       ))}
@@ -262,11 +278,27 @@ function CityLabels({ camera }: { camera: Camera }) {
     );
   }, [camera.zoom]);
 
+  /*
+   * Greedy de-collision. Cities arrive sorted by population, so when two
+   * labels would overlap the larger place keeps its name and the smaller one
+   * is dropped. Without this, Yangon was painted over by the halo of
+   * Hlaingthaya, one of its own townships.
+   */
+  const placed: { x: number; y: number; w: number }[] = [];
+
   return (
     <g>
       {shown.map((city) => {
         const [x, y] = screenPoint(city.coordinates, camera.center, camera.zoom);
         if (x < -40 || x > VIEW.width + 40 || y < -40 || y > VIEW.height + 40) return null;
+
+        const w = city.name.length * 7 + 14;
+        const clash = placed.some(
+          (p) => Math.abs(p.y - y) < 15 && x < p.x + p.w && x + w > p.x,
+        );
+        if (clash) return null;
+        placed.push({ x, y, w });
+
         return <CityMark key={city.name} city={city} x={x} y={y} />;
       })}
     </g>
@@ -352,6 +384,10 @@ export default function StoryMap({
     <svg
       viewBox={`0 0 ${VIEW.width} ${VIEW.height}`}
       className="h-full w-full"
+      /* Fill the stage rather than letterbox inside it. The frame is taller
+         than most viewports, so "meet" left wide bands of empty page down
+         both sides and the map never looked like a map. */
+      preserveAspectRatio="xMidYMid slice"
       role="img"
       aria-label="Map of Myanmar"
     >
@@ -393,6 +429,17 @@ export default function StoryMap({
       <g transform={transform}>
         <BaseGeography />
         <AdminUnits highlighted={highlighted} />
+        <Rivers />
+        {/* Drawn over the states so the country reads as one shape first and
+            a set of administrative units second. */}
+        <path
+          d={toPath(outline)}
+          fill="none"
+          stroke="var(--map-outline)"
+          strokeWidth={2.2}
+          strokeLinejoin="round"
+          vectorEffect="non-scaling-stroke"
+        />
         {territoryAsOf && <TerritoryLayer asOf={territoryAsOf} />}
       </g>
 

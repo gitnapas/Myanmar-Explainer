@@ -26,7 +26,8 @@ import { fileURLToPath } from "node:url";
 
 import { topology } from "topojson-server";
 import { presimplify, simplify, quantile } from "topojson-simplify";
-import { quantize } from "topojson-client";
+import { quantize, feature } from "topojson-client";
+import { geoBounds } from "d3-geo";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const CACHE = resolve(ROOT, ".geocache");
@@ -228,12 +229,90 @@ const readJSON = async (path) => JSON.parse(await readFile(path, "utf8"));
  * Converts features to TopoJSON and drops the smallest arcs by area-weight.
  * Shared borders stay welded together, so simplifying states never opens gaps
  * between them -- which a per-feature simplifier would do.
+ *
+ * Layers of different scale must NOT share a topology. simplify() takes one
+ * weight threshold for the whole thing, and quantile() derives it from every
+ * arc present: put China in with Myanmar's states and the threshold lands so
+ * high that the small state rings collapse to degenerate geometry. d3-geo then
+ * reads those rings as inverted and fills the entire world with them, which is
+ * how this map once rendered as a single flat colour.
  */
 function toTopology(layers, { retain = 0.4, quant = 1e5 } = {}) {
   let topo = topology(layers);
   topo = presimplify(topo);
   topo = simplify(topo, quantile(topo, retain));
   return quantize(topo, quant);
+}
+
+/**
+ * Forces ring orientation to what d3-geo requires: exterior rings CLOCKWISE
+ * (negative shoelace area), holes counter-clockwise.
+ *
+ * Note that this is the opposite of RFC 7946, which specifies counter-clockwise
+ * exteriors. d3-geo predates that spec and never changed. Do not "correct"
+ * this to match the GeoJSON spec -- it was verified empirically, by rewinding
+ * both ways and taking the bounds of each:
+ *
+ *   exterior counter-clockwise -> -180,-90 .. 180,90   (the whole planet)
+ *   exterior clockwise         ->  92.2,9.7 .. 101.2,28.5
+ *
+ * It matters because d3-geo clips on a sphere, where a ring has no outside:
+ * an exterior wound the wrong way describes everything on Earth except the
+ * country. geoBoundaries ships counter-clockwise, so every state silently
+ * meant "the world minus this state", d3 filled the frame with each of them in
+ * turn, and the map rendered as one flat colour with Myanmar invisible inside
+ * it. Nothing in the lon/lat values looks wrong, which is why this survived
+ * several rounds of inspecting the data.
+ */
+const ringArea = (ring) => {
+  let sum = 0;
+  for (let i = 0, n = ring.length; i < n - 1; i++) {
+    sum += ring[i][0] * ring[i + 1][1] - ring[i + 1][0] * ring[i][1];
+  }
+  return sum / 2;
+};
+
+const orient = (ring, wantPositive) => {
+  const area = ringArea(ring);
+  return (area < 0) === wantPositive ? [...ring].reverse() : ring;
+};
+
+function rewindGeometry(geometry) {
+  const fixPolygon = (rings) =>
+    rings.map((ring, i) => orient(ring, i !== 0)); // exterior CW, holes CCW
+
+  if (geometry.type === "Polygon") {
+    return { ...geometry, coordinates: fixPolygon(geometry.coordinates) };
+  }
+  if (geometry.type === "MultiPolygon") {
+    return { ...geometry, coordinates: geometry.coordinates.map(fixPolygon) };
+  }
+  return geometry;
+}
+
+const rewind = (fc) => ({
+  ...fc,
+  features: fc.features.map((f) => ({ ...f, geometry: rewindGeometry(f.geometry) })),
+});
+
+/**
+ * Fails the build if a layer claims to span the globe.
+ *
+ * An inverted ring has perfectly ordinary lon/lat values, so bounds are the
+ * only place it shows up before rendering. Checking projected coordinates
+ * instead does not work: fitExtent rescales whatever it is handed, so broken
+ * geometry passes by being normalised into the frame.
+ */
+function assertBounded(fc, label, box) {
+  const [[w, s2], [e, n]] = geoBounds(fc);
+  const ok = w >= box[0] && s2 >= box[1] && e <= box[2] && n <= box[3];
+  if (!ok) {
+    throw new Error(
+      `${label} spans [${w.toFixed(1)}, ${s2.toFixed(1)}] to [${e.toFixed(1)}, ${n.toFixed(1)}], ` +
+      `outside the expected box ${JSON.stringify(box)}. Ring winding is almost certainly inverted.`,
+    );
+  }
+  console.log(`  bounds  ${label}: ${w.toFixed(1)},${s2.toFixed(1)} to ${e.toFixed(1)},${n.toFixed(1)}`);
 }
 
 const write = async (name, data) => {
@@ -292,16 +371,18 @@ async function main() {
     (f) => NEIGHBOURS.has(f.properties.NAME),
     (f) => ({ name: f.properties.NAME, iso: f.properties.ISO_A3 }),
   );
-  const outline = pick(
-    (f) => f.properties.NAME === "Myanmar",
-    () => ({ name: "Myanmar" }),
-  );
   console.log(`  nbrs    ${neighbours.features.length} countries`);
 
-  await write(
-    "boundaries.topo.json",
-    toTopology({ states: adm1, neighbours, outline }, { retain: 0.35 }),
-  );
+  // One topology per scale. The national outline is not shipped separately at
+  // all -- it is merged from these same state polygons at load time, so the
+  // border can never drift out of step with the states that make it up.
+  const boundaries = toTopology({ states: rewind(adm1) }, { retain: 0.5 });
+  assertBounded(feature(boundaries, boundaries.objects.states), "states", [91, 8, 102, 30]);
+  await write("boundaries.topo.json", boundaries);
+
+  const nbrTopo = toTopology({ neighbours: rewind(neighbours) }, { retain: 0.25 });
+  assertBounded(feature(nbrTopo, nbrTopo.objects.neighbours), "neighbours", [60, -12, 140, 60]);
+  await write("neighbours.topo.json", nbrTopo);
 
   // --- Rivers -------------------------------------------------------------
   const riversRaw = await readJSON(paths["rivers.geojson"]);
@@ -375,7 +456,7 @@ async function main() {
         retrieved: today,
       },
       {
-        layer: "boundaries.topo.json#neighbours, #outline",
+        layer: "neighbours.topo.json",
         name: "Natural Earth 1:50m Admin 0 Countries",
         license: "Public domain",
         url: "https://www.naturalearthdata.com/",

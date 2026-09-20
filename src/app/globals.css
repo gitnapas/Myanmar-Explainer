@@ -31,7 +31,7 @@
    */
   --paper-base: #f5f2ec;
   --paper-raised-base: #faf8f3;
-  --map-land-base: #eae3d3;
+  --map-land-base: #ecdfc0;
   --rule-base: #ddd8cc;
 
   --paper: var(--paper-base);
@@ -75,12 +75,15 @@
 
   /* Map base geography. */
   --map-land: var(--map-land-base);
-  --map-land-edge: #978b74;
-  --map-neighbour: #d0c9ba;
-  --map-neighbour-edge: #bdb5a3;
-  --map-water: #9db8c6;
-  --map-river: #5f87a0;
-  --map-graticule: #ddd6c6;
+  --map-land-edge: #948871;
+  /* The national boundary is the strongest line on the map: it is the one
+     shape a reader has to find before anything else means anything. */
+  --map-outline: #5d5340;
+  --map-neighbour: #b3a993;
+  --map-neighbour-edge: #9d9480;
+  --map-water: #6f97b0;
+  --map-river: #3f6d8a;
+  --map-graticule: #c7bda8;
 
   --focus: #1a5fb4;
 }
@@ -91,7 +94,7 @@
 
     --paper-base: #16150f;
     --paper-raised-base: #1e1d16;
-    --map-land-base: #3c3924;
+    --map-land-base: #555132;
     --rule-base: #2e2c24;
     --paper-sunk: #100f0a;
 
@@ -112,12 +115,13 @@
     --unclear: #6b665b;
     --contested: #8b8578;
 
-    --map-land-edge: #7a7059;
-    --map-neighbour: #1e1c16;
-    --map-neighbour-edge: #2f2c24;
-    --map-water: #080c0f;
+    --map-land-edge: #a1957a;
+    --map-outline: #c9bd92;
+    --map-neighbour: #2b2820;
+    --map-neighbour-edge: #3a362c;
+    --map-water: #0a1216;
     --map-river: #4a7286;
-    --map-graticule: #2b2820;
+    --map-graticule: #343026;
 
     --focus: #7aa7e8;
   }

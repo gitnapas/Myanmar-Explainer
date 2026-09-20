@@ -15,7 +15,7 @@ export default function MapLegend({ layers, step }: { layers: string[]; step: St
   if (entries.length === 0) return null;
 
   return (
-    <aside className="pointer-events-none absolute bottom-3 left-3 max-w-[19rem] border border-rule bg-paper/92 p-3 backdrop-blur-sm">
+    <aside className="pointer-events-none absolute bottom-28 left-3 max-w-[19rem] border border-rule bg-paper/92 p-3 backdrop-blur-sm">
       <p className="label mb-2">Reading this map</p>
       <dl className="space-y-2">
         {entries.map((e) => (
