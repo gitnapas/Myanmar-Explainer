@@ -12,7 +12,7 @@ export default function Opening() {
   return (
     <header
       data-era="colonial"
-      className="relative flex min-h-[96vh] flex-col justify-between overflow-hidden border-b border-ink bg-paper px-6 py-12 lg:px-12"
+      className="opening relative flex flex-col justify-between overflow-hidden border-b border-rule bg-paper"
     >
       <svg
         viewBox={`0 0 ${VIEW.width} ${VIEW.height}`}
@@ -47,7 +47,7 @@ export default function Opening() {
           How did Myanmar go from a colonial state to today&rsquo;s fragmented political and
           military landscape &mdash; and what political order is emerging from it?
         </p>
-        <p className="label shrink-0">Scroll to begin &darr;</p>
+        <a href="#story" className="begin-link">Explore the history <span aria-hidden>↓</span></a>
       </div>
     </header>
   );

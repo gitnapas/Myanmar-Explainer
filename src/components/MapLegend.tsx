@@ -15,8 +15,8 @@ export default function MapLegend({ layers, step }: { layers: string[]; step: St
   if (entries.length === 0) return null;
 
   return (
-    <aside className="pointer-events-none absolute bottom-28 left-3 max-w-[19rem] border border-rule bg-paper/92 p-3 backdrop-blur-sm">
-      <p className="label mb-2">Reading this map</p>
+    <details className="map-legend">
+      <summary>Map key <span aria-hidden>＋</span></summary>
       <dl className="space-y-2">
         {entries.map((e) => (
           <div key={e.term} className="flex gap-2.5">
@@ -37,7 +37,7 @@ export default function MapLegend({ layers, step }: { layers: string[]; step: St
           This step has an open data gap. See the methodology note.
         </p>
       )}
-    </aside>
+    </details>
   );
 }
 

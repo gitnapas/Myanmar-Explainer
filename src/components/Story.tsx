@@ -38,6 +38,8 @@ export default function Story({
   const [activeIndex, setActiveIndex] = useState(0);
   const [openSource, setOpenSource] = useState<string | null>(null);
   const [openActor, setOpenActor] = useState<string | null>(null);
+  const [motionPaused, setMotionPaused] = useState(false);
+  const stageRef = useRef<HTMLDivElement>(null);
   const stepRefs = useRef<(HTMLElement | null)[]>([]);
 
   const chapterById = useMemo(
@@ -51,50 +53,63 @@ export default function Story({
   const chapter = chapterById.get(step.chapter);
   const visual = visualByStep.get(step.id);
 
-  /**
-   * The active step is whichever one is crossing the middle of the viewport.
-   *
-   * The negative margins collapse the observer's root to a thin band across
-   * the centre, so exactly one step is intersecting at a time and the map
-   * changes when a passage reaches the reader's eye rather than when it first
-   * appears at the bottom of the screen.
-   */
+  // Keep the reading line below the pinned map on phones.
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (!entry.isIntersecting) continue;
-          const index = Number((entry.target as HTMLElement).dataset.index);
-          if (!Number.isNaN(index)) setActiveIndex(index);
-        }
-      },
-      { rootMargin: "-48% 0px -48% 0px", threshold: 0 },
-    );
-
-    const observed = stepRefs.current.filter(Boolean) as HTMLElement[];
-    observed.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const compact = window.matchMedia("(max-width: 760px)").matches;
+      const line = compact ? (stageRef.current?.getBoundingClientRect().bottom ?? 0) + 72 : window.innerHeight * 0.38;
+      let index = 0;
+      stepRefs.current.forEach((element, i) => {
+        if (element && element.getBoundingClientRect().top <= line) index = i;
+      });
+      setActiveIndex(index);
+    };
+    const schedule = () => { if (!frame) frame = requestAnimationFrame(update); };
+    schedule();
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
+    };
   }, []);
 
   const jumpTo = useCallback((index: number) => {
-    stepRefs.current[index]?.scrollIntoView({ behavior: "smooth", block: "center" });
+    const element = stepRefs.current[index];
+    if (!element) return;
+    const compact = window.matchMedia("(max-width: 760px)").matches;
+    const offset = compact ? (stageRef.current?.offsetHeight ?? 0) + 20 : 36;
+    window.scrollTo({
+      top: window.scrollY + element.getBoundingClientRect().top - offset,
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth",
+    });
   }, []);
 
   const layers = step.layers ?? [];
   const focus = step.focus ?? HOME;
 
   return (
-    <div data-era={chapter?.era} className="bg-paper">
-      <div className="mx-auto grid max-w-[1600px] grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,26rem)]">
+    <div id="story" data-era={chapter?.era} data-motion={motionPaused ? "paused" : "playing"} className="story-shell bg-paper">
+      <div className="story-grid">
         {/*
           The map is the constant. It stays pinned while the text moves past it,
           so a reader is always watching one continuous country change rather
           than meeting a new illustration every screen.
         */}
-        <div className="sticky top-0 z-0 h-[52vh] lg:h-screen">
-          <div className="relative h-full w-full overflow-hidden">
+        <div ref={stageRef} className="story-stage">
+          <div className="stage-heading">
+            <div><span className="label">{step.dateLabel}</span><p>{step.title}</p></div>
+            <button type="button" className="motion-toggle" aria-pressed={motionPaused} onClick={() => setMotionPaused((value) => !value)}>
+              {motionPaused ? "Play motion" : "Pause motion"}
+            </button>
+          </div>
+          <div className="stage-canvas">
             <StoryMap
               focus={focus}
+              motionPaused={motionPaused}
               layers={layers}
               stepId={step.id}
               territoryAsOf={layers.includes("conflict-intensity") ? step.date : undefined}
@@ -117,9 +132,18 @@ export default function Story({
 
             <MapLegend layers={layers} step={step} />
           </div>
+          {!!visual?.map?.actors?.length && (
+            <div className="compact-actor-roster" aria-label="People and organisations on the map">
+              {visual.map.actors.map((mark, index) => (
+                <button key={index} type="button" disabled={!mark.actor} onClick={() => mark.actor && setOpenActor(mark.actor)}>
+                  <span>{index + 1}</span>{mark.label}{mark.status && mark.status !== "active" ? ` · ${mark.status}` : ""}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
-        <div className="relative z-10">
+        <div className="story-reading">
           {steps.map((s, i) => {
             const ch = chapterById.get(s.chapter);
             const isChapterStart = i === 0 || steps[i - 1].chapter !== s.chapter;
@@ -131,13 +155,13 @@ export default function Story({
                   stepRefs.current[i] = el;
                 }}
                 aria-current={i === activeIndex ? "step" : undefined}
-                className="flex min-h-[85vh] flex-col justify-center px-6 py-16 lg:px-12"
+                className="story-step"
               >
                 {isChapterStart && ch && <ChapterHeading chapter={ch} />}
 
                 <article
                   className={`transition-opacity duration-500 ${
-                    i === activeIndex ? "opacity-100" : "opacity-45"
+                    i === activeIndex ? "opacity-100" : "opacity-75"
                   }`}
                 >
                   <p className="label tabular">{s.dateLabel}</p>

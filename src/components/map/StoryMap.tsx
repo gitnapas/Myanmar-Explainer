@@ -1,6 +1,6 @@
 "use client";
 
-import { memo, useMemo } from "react";
+import { memo, useEffect, useRef, useState, useMemo } from "react";
 
 import ActorBubble from "@/components/ActorBubble";
 import type { Actor, StepMapFill, StepMapJourney, StepVisual, VisualTone } from "@/lib/types";
@@ -38,6 +38,7 @@ interface Flow {
 
 export interface StoryMapProps {
   focus: Camera;
+  motionPaused?: boolean;
   /** Named layers switched on by the current step. */
   layers?: string[];
   /** The step being read, used to pick which flows belong on screen. */
@@ -288,22 +289,35 @@ function AnnotationLayer({
 }
 
 function ActorMapLayer({
+  frameTop,
+  frameHeight,
   marks,
   actors,
   camera,
   onSelectActor,
 }: {
+  frameTop: number;
+  frameHeight: number;
   marks: NonNullable<NonNullable<StepVisual["map"]>["actors"]>;
   actors: Actor[];
   camera: Camera;
   onSelectActor?: (id: string) => void;
 }) {
   const actorById = new Map(actors.map((actor) => [actor.id, actor]));
+  const placed: { x: number; y: number }[] = [];
 
   return (
-    <g>
+    <g className="map-actors">
       {marks.map((mark, index) => {
-        const [x, y] = screenPoint(mark.coordinates, camera.center, camera.zoom);
+        const [anchorX, anchorY] = screenPoint(mark.coordinates, camera.center, camera.zoom);
+        let x = Math.max(50, Math.min(790, anchorX - 90));
+        let y = Math.max(frameTop + 65, Math.min(frameTop + frameHeight - 100, anchorY - 65));
+        for (let attempt = 0; attempt < 24; attempt++) {
+          if (!placed.some((point) => Math.abs(point.x - x) < 195 && Math.abs(point.y - y) < 80)) break;
+          y += 85;
+          if (y > frameTop + frameHeight - 80) { y = frameTop + 65; x = Math.min(790, x + 205); }
+        }
+        placed.push({ x, y });
         const actor = mark.actor ? actorById.get(mark.actor) : undefined;
         const initials = mark.label
           .split(/\s+/)
@@ -318,6 +332,9 @@ function ActorMapLayer({
             transform={`translate(${x} ${y})`}
             className="actor-map-mark"
           >
+            <line x1={anchorX - x} y1={anchorY - y} x2={0} y2={0} stroke="var(--ink-muted)" strokeOpacity={0.55} strokeWidth={1} />
+            <circle cx={anchorX - x} cy={anchorY - y} r={3} fill="var(--ink)" />
+            <text className="compact-actor-number" x={0} y={0} fontSize={30} fontWeight={700} fill="var(--ink)" stroke="var(--paper)" strokeWidth={5} paintOrder="stroke">{index + 1}</text>
             <foreignObject x={-30} y={-30} width={190} height={82} overflow="visible">
               <div className={`flex items-center gap-2 ${inactive ? "opacity-60 grayscale" : ""}`}>
                 <button
@@ -330,9 +347,8 @@ function ActorMapLayer({
                   {mark.flag ? (
                     <span
                       className={`inline-flex h-[52px] w-[52px] items-center justify-center overflow-hidden rounded-full border-2 border-rule-strong ${mark.flag === "japan-imperial" ? "imperial-japan-flag" : ""}`}
-                      style={mark.flag === "japan-imperial" ? undefined : { background: `linear-gradient(to bottom, ${worldFlagColours[mark.flag].join(",")})` }}
                       aria-hidden
-                    />
+                    ><svg viewBox="-26 -26 52 52" width={52} height={52}><FlagMark flag={mark.flag} /></svg></span>
                   ) : actor ? (
                     <ActorBubble actor={actor} size={52} />
                   ) : (
@@ -464,10 +480,26 @@ const worldFlagColours = {
 
 function FlagMark({ flag }: { flag: NonNullable<StepMapJourney["stops"][number]["flag"]> }) {
   const colours = worldFlagColours[flag];
+  if (flag === "united-kingdom") {
+    return <svg x={-18} y={-12} width={36} height={24} viewBox="0 0 60 40">
+      <path fill="#012169" d="M0 0h60v40H0z" />
+      <path stroke="#fff" strokeWidth={8} d="m0 0 60 40M60 0 0 40" />
+      <path stroke="#c8102e" strokeWidth={3} d="m0 0 60 40M60 0 0 40" />
+      <path stroke="#fff" strokeWidth={13} d="M30 0v40M0 20h60" />
+      <path stroke="#c8102e" strokeWidth={7} d="M30 0v40M0 20h60" />
+    </svg>;
+  }
   if (flag === "japan-imperial") {
     return <g><rect x={-18} y={-12} width={36} height={24} fill="#fff" stroke="var(--paper)" />{Array.from({ length: 16 }, (_, index) => { const a = (Math.PI * 2 * index) / 16; const b = a + Math.PI / 16; return <path key={index} d={`M 0 0 L ${Math.cos(a) * 18} ${Math.sin(a) * 12} L ${Math.cos(b) * 18} ${Math.sin(b) * 12} Z`} fill="#bc002d" />; })}<circle r={5} fill="#bc002d" /></g>;
   }
   return <g><rect x={-18} y={-12} width={36} height={24} fill={colours[0]} stroke="var(--paper)" /><rect x={-18} y={-4} width={36} height={8} fill={colours[1]} /><rect x={-18} y={4} width={36} height={8} fill={colours[2]} /></g>;
+}
+
+function journeyViewBox(journey: StepMapJourney) {
+  const points = journey.stops.map(stop => worldProjection(stop.coordinates)).filter((point): point is [number, number] => !!point);
+  const left = Math.min(...points.map(point => point[0])) - 65;
+  const top = Math.min(...points.map(point => point[1])) - 100;
+  return `${left} ${top} ${Math.max(280, Math.max(...points.map(point => point[0])) - left + 160)} ${Math.max(220, Math.max(...points.map(point => point[1])) - top + 70)}`;
 }
 
 function WorldJourneyLayer({ journey }: { journey: StepMapJourney }) {
@@ -638,6 +670,7 @@ function FocusRing({ camera }: { camera: Camera }) {
 
 export default function StoryMap({
   focus,
+  motionPaused = false,
   layers = [],
   stepId = "",
   territoryAsOf,
@@ -645,7 +678,21 @@ export default function StoryMap({
   visual,
   onSelectActor,
 }: StoryMapProps) {
-  const camera = useCameraTween(focus);
+  const svgRef = useRef<SVGSVGElement>(null);
+  const [viewport, setViewport] = useState({ height: VIEW.height as number, width: 1000 });
+  useEffect(() => {
+    const svg = svgRef.current;
+    if (!svg) return;
+    const observer = new ResizeObserver(([entry]) => {
+      const { width, height } = entry.contentRect;
+      if (width > 0 && height > 0) setViewport({ width, height: 1000 * height / width });
+    });
+    observer.observe(svg);
+    return () => observer.disconnect();
+  }, []);
+  const fittedFocus = { ...focus, zoom: focus.zoom * Math.min(1, viewport.height / VIEW.height) * 0.92 };
+  const camera = useCameraTween(fittedFocus, motionPaused ? 0 : 750);
+  const frameTop = (VIEW.height - viewport.height) / 2;
 
   const has = (name: string) => layers.includes(name);
 
@@ -660,12 +707,13 @@ export default function StoryMap({
 
   return (
     <svg
-      viewBox={`0 0 ${VIEW.width} ${VIEW.height}`}
+      ref={svgRef}
+      viewBox={`0 0 ${VIEW.width} ${viewport.height}`}
       className="h-full w-full"
       /* Fill the stage rather than letterbox inside it. The frame is taller
          than most viewports, so "meet" left wide bands of empty page down
          both sides and the map never looked like a map. */
-      preserveAspectRatio="xMidYMid slice"
+      preserveAspectRatio="xMidYMid meet"
       role="img"
       aria-label="Map of Myanmar"
     >
@@ -706,12 +754,12 @@ export default function StoryMap({
         </pattern>
       </defs>
 
-      <rect width={VIEW.width} height={VIEW.height} fill="var(--map-water)" />
-
+      <rect width={VIEW.width} height={viewport.height} fill="var(--map-water)" />
+      <g transform={`translate(0 ${-frameTop})`}>
       <g transform={transform}>
         <BaseGeography />
         <AdminUnits highlighted={highlighted} />
-        {visual?.map?.fills && <HistoricalFillLayer fills={visual.map.fills} />}
+        {visual?.map?.fills && <HistoricalFillLayer key={stepId} fills={visual.map.fills} />}
         {has("allied-liberation") && <AlliedLiberationLayer />}
         {has("current-control-trace") && <CurrentControlLayer />}
         <Rivers />
@@ -734,25 +782,28 @@ export default function StoryMap({
         than leaving the reader to infer which shape the paragraph means.
       */}
       {has("focus-ring") && <FocusRing camera={camera} />}
-      {has("protest-spread") && <ProtestLayer camera={camera} />}
-      {has("protest-radio") && <RadioPulseLayer camera={camera} />}
+      {has("protest-spread") && <ProtestLayer key={stepId} camera={camera} />}
+      {has("protest-radio") && <RadioPulseLayer key={stepId} camera={camera} />}
       {(has("flight-to-border") || has("rohingya-flow")) && (
         <FlowLayer stepId={stepId} camera={camera} />
       )}
       {has("cyclone-track") && <CycloneTrackLayer camera={camera} />}
-      {!has("colonial-split") && !visual?.map?.actors?.length && !has("current-control-trace") && !visual?.map?.journey && <CityLabels camera={camera} />}
+      {!has("colonial-split") && !visual?.map?.actors?.length && !visual?.map?.annotations?.length && !has("current-control-trace") && !visual?.map?.journey && <CityLabels camera={camera} />}
       {visual?.map?.annotations && (
         <AnnotationLayer annotations={visual.map.annotations} camera={camera} />
       )}
       {visual?.map?.actors && (
         <ActorMapLayer
           marks={visual.map.actors}
+          frameTop={frameTop}
+          frameHeight={viewport.height}
           actors={actors}
           camera={camera}
           onSelectActor={onSelectActor}
         />
       )}
-      {visual?.map?.journey && <WorldJourneyLayer journey={visual.map.journey} />}
+      </g>
+      {visual?.map?.journey && <svg viewBox={journeyViewBox(visual.map.journey)} width={1000} height={viewport.height} preserveAspectRatio="xMidYMid meet"><WorldJourneyLayer key={stepId} journey={visual.map.journey} /></svg>}
     </svg>
   );
 }

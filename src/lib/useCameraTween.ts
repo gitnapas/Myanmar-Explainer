@@ -24,7 +24,7 @@ const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
  * Interrupting a move resumes from wherever it had reached, so scrolling
  * quickly through steps glides rather than snapping between framings.
  */
-export function useCameraTween(target: Camera, duration = 1400): Camera {
+export function useCameraTween(target: Camera, duration = 750): Camera {
   const [camera, setCamera] = useState<Camera>(target);
   const currentRef = useRef<Camera>(target);
   const frameRef = useRef<number | null>(null);
@@ -37,10 +37,12 @@ export function useCameraTween(target: Camera, duration = 1400): Camera {
 
     // Motion here carries meaning, but a reader who has asked for less of it
     // gets the destination without the journey rather than a faster journey.
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      currentRef.current = goal;
-      setCamera(goal);
-      return;
+    if (duration === 0 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      frameRef.current = requestAnimationFrame(() => {
+        currentRef.current = goal;
+        setCamera(goal);
+      });
+      return () => { if (frameRef.current !== null) cancelAnimationFrame(frameRef.current); };
     }
 
     const from = currentRef.current;
