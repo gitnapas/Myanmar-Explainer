@@ -13,7 +13,7 @@
         96.5,
         19.5
       ],
-      "zoom": 1
+      "zoom": 0.82
     },
     "actors": [],
     "layers": [
@@ -77,7 +77,7 @@
       "ne-win"
     ],
     "layers": [
-      "flight-to-border"
+      "world-route"
     ],
     "sources": [
       "naw-2001",
@@ -135,6 +135,9 @@
       "naw-2001",
       "callahan-2003",
       "charney-2009"
+    ],
+    "layers": [
+      "allied-liberation"
     ]
   },
   {
@@ -433,6 +436,9 @@
     "sources": [
       "ohchr-myanmar",
       "icg-myanmar"
+    ],
+    "layers": [
+      "protest-radio"
     ]
   },
   {
@@ -716,7 +722,10 @@
     "sources": [
       "icj-gambia"
     ],
-    "uncertainty": "The case record establishes that proceedings exist and their procedural history. It is not a finding on the merits."
+    "uncertainty": "The case record establishes that proceedings exist and their procedural history. It is not a finding on the merits.",
+    "layers": [
+      "world-route"
+    ]
   },
   {
     "id": "v-2020-election",
@@ -1211,7 +1220,7 @@
     "title": "No single authority controls Myanmar",
     "mode": "map",
     "summary": "The military holds the principal cities, air power and important transport corridors. Resistance forces and ethnic armed organisations administer or contest wide areas, especially along the borders and across the northwest.",
-    "detail": "This closing map is a dated reference, not a permanent verdict. Control can mean a town, a road, a garrison, taxation, courts or the ability to operate at night, and those do not always belong to the same actor. The CC0 community map shown here was updated on 11 July 2026; ISP-Myanmar separately estimated in June that 39.34 per cent of landmass lay outside military control.",
+    "detail": "This closing map is a dated, programmatically redrawn synthesis rather than a pasted reference image. Control can mean a town, a road, a garrison, taxation, courts or the ability to operate at night, and those do not always belong to the same actor. ISP-Myanmar estimated in June 2026 that 39.34 per cent of landmass lay outside military control.",
     "focus": {
       "center": [
         96.5,
@@ -1220,7 +1229,7 @@
       "zoom": 1
     },
     "layers": [
-      "current-control-reference"
+      "current-control-trace"
     ],
     "sources": [
       "isp-control-2026",

@@ -82,24 +82,40 @@ function BarRows({
 }
 
 function ParliamentSeats({ data, total }: { data: GraphicDatum[]; total: number }) {
-  const seats = Array.from({ length: total }, (_, i) => {
+  const tones = Array.from({ length: total }, (_, i) => {
     let cursor = 0;
-    const owner = data.find((d) => {
-      cursor += d.value;
+    return data.find((datum) => {
+      cursor += datum.value;
       return i < cursor;
-    });
-    return owner?.tone ?? "neutral";
+    })?.tone ?? "neutral";
   });
+  const toneFill: Record<VisualTone, string> = {
+    colonial: "var(--series-1)", occupation: "var(--series-3)", independence: "#d6a928",
+    military: "var(--series-1)", resistance: "var(--series-2)", civilian: "var(--series-3)",
+    warning: "#d27a19", neutral: "var(--ink-muted)",
+  };
+  const ringCounts = total === 100 ? [12, 16, 20, 24, 28] : [Math.ceil(total * 0.12), Math.ceil(total * 0.16), Math.ceil(total * 0.2), Math.ceil(total * 0.24)];
+  if (total !== 100) ringCounts.push(total - ringCounts.reduce((sum, value) => sum + value, 0));
+  let seatIndex = 0;
+  const dots = ringCounts.flatMap((count, ring) => Array.from({ length: count }, (_, index) => {
+    const angle = Math.PI + (Math.PI * (index + 0.5)) / count;
+    const radius = 54 + ring * 24;
+    const dot = { x: 180 + Math.cos(angle) * radius, y: 174 + Math.sin(angle) * radius, tone: tones[seatIndex], key: seatIndex };
+    seatIndex += 1;
+    return dot;
+  }));
 
   return (
-    <div className="mt-4 grid grid-cols-10 gap-1" aria-label={`${total} parliament seats`}>
-      {seats.map((tone, i) => (
-        <span key={i} aria-hidden className={`aspect-square min-h-2 ${toneClass[tone]}`} />
-      ))}
+    <div className="mt-4">
+      <svg viewBox="0 0 360 190" className="w-full" role="img" aria-label={`${total} parliament seats arranged in a hemicycle`}>
+        {dots.map((dot) => <circle key={dot.key} cx={dot.x} cy={dot.y} r={5.2} fill={toneFill[dot.tone]} stroke="var(--paper)" strokeWidth={1} />)}
+      </svg>
+      <div className="-mt-2 space-y-1.5">
+        {data.map((datum) => <div key={datum.label} className="flex items-center justify-between gap-4 text-[0.72rem]"><span className="flex items-center gap-2 text-ink-secondary"><i className={`h-2.5 w-2.5 ${toneClass[datum.tone ?? "neutral"]}`} />{datum.label}</span><b className="font-mono font-normal text-ink">{datum.display ?? datum.value}</b></div>)}
+      </div>
     </div>
   );
 }
-
 function MediaCard({ graphic }: { graphic: StepGraphic }) {
   const content = graphic.file ? (
     // Static export: the base-path helper keeps local media working on Pages.

@@ -4,7 +4,11 @@
     "map": {
       "fills": [
         {
-          "areas": ["Myanmar", "India", "Bangladesh"],
+          "areas": [
+            "Myanmar",
+            "India",
+            "Bangladesh"
+          ],
           "tone": "colonial",
           "label": "British India, including Burma after 1886",
           "opacity": 0.64
@@ -14,7 +18,10 @@
         {
           "label": "Mandalay",
           "detail": "The last Konbaung capital fell in November 1885",
-          "coordinates": [96.0836, 21.9747],
+          "coordinates": [
+            96.0836,
+            21.9747
+          ],
           "tone": "colonial"
         }
       ]
@@ -24,9 +31,30 @@
     "step": "i-thakins",
     "map": {
       "actors": [
-        { "actor": "dobama", "label": "We Burmans Association", "coordinates": [96.12, 16.96] },
-        { "actor": "aung-san", "label": "Aung San", "coordinates": [96.2, 16.84] },
-        { "actor": "ne-win", "label": "Ne Win", "coordinates": [96.04, 16.79] }
+        {
+          "actor": "dobama",
+          "label": "We Burmans Association",
+          "coordinates": [
+            96.12,
+            16.96
+          ]
+        },
+        {
+          "actor": "aung-san",
+          "label": "Aung San",
+          "coordinates": [
+            96.2,
+            16.84
+          ]
+        },
+        {
+          "actor": "ne-win",
+          "label": "Ne Win",
+          "coordinates": [
+            96.04,
+            16.79
+          ]
+        }
       ]
     },
     "graphic": {
@@ -41,24 +69,35 @@
   {
     "step": "i-thirty-comrades",
     "map": {
-      "actors": [
-        { "actor": "aung-san", "label": "Aung San", "coordinates": [110.35, 19.2] },
-        { "actor": "bia", "label": "Thirty Comrades", "coordinates": [100.5014, 13.754] }
-      ],
-      "annotations": [
-        {
-          "label": "Hainan",
-          "detail": "Japanese military training",
-          "coordinates": [110.35, 19.2],
-          "tone": "occupation"
-        },
-        {
-          "label": "Bangkok",
-          "detail": "BIA formed here in December 1941",
-          "coordinates": [100.5014, 13.754],
-          "tone": "occupation"
-        }
-      ]
+      "journey": {
+        "stops": [
+          {
+            "label": "Yangon",
+            "coordinates": [
+              96.1561,
+              16.8053
+            ]
+          },
+          {
+            "label": "Tokyo",
+            "coordinates": [
+              139.6917,
+              35.6895
+            ],
+            "flag": "japan-imperial"
+          },
+          {
+            "label": "Hainan training camps",
+            "coordinates": [
+              110.35,
+              19.2
+            ],
+            "flag": "japan-imperial",
+            "emphasis": true
+          }
+        ],
+        "caption": "Aung San found Japanese backing in 1940; the Thirty Comrades then trained on Hainan. The BIA was formed later in Bangkok."
+      }
     },
     "graphic": {
       "type": "media",
@@ -74,15 +113,31 @@
     "map": {
       "fills": [
         {
-          "areas": ["Myanmar"],
+          "areas": [
+            "Myanmar"
+          ],
           "tone": "occupation",
           "label": "Japanese occupation",
           "opacity": 0.58
         }
       ],
       "actors": [
-        { "label": "Imperial Japan", "coordinates": [96.5, 20.2] },
-        { "actor": "bia", "label": "BIA", "coordinates": [96.1, 17.1] }
+        {
+          "label": "Imperial Japan",
+          "coordinates": [
+            96.5,
+            20.2
+          ],
+          "flag": "japan-imperial"
+        },
+        {
+          "actor": "bia",
+          "label": "BIA",
+          "coordinates": [
+            96.1,
+            17.1
+          ]
+        }
       ]
     }
   },
@@ -91,23 +146,53 @@
     "map": {
       "fills": [
         {
-          "areas": ["Shan"],
+          "areas": [
+            "Shan"
+          ],
           "tone": "civilian",
           "label": "Panglong in the Shan States",
           "opacity": 0.45
         }
       ],
       "actors": [
-        { "actor": "aung-san", "label": "Aung San", "coordinates": [96.98, 20.82] },
-        { "label": "Shan leaders", "coordinates": [97.08, 20.9] },
-        { "label": "Kachin leaders", "coordinates": [96.92, 20.93] },
-        { "label": "Chin leaders", "coordinates": [96.89, 20.77] }
+        {
+          "actor": "aung-san",
+          "label": "Aung San",
+          "coordinates": [
+            96.98,
+            20.82
+          ]
+        },
+        {
+          "label": "Shan leaders",
+          "coordinates": [
+            97.08,
+            20.9
+          ]
+        },
+        {
+          "label": "Kachin leaders",
+          "coordinates": [
+            96.92,
+            20.93
+          ]
+        },
+        {
+          "label": "Chin leaders",
+          "coordinates": [
+            96.89,
+            20.77
+          ]
+        }
       ],
       "annotations": [
         {
           "label": "Panglong",
           "detail": "Agreement signed 12 February 1947",
-          "coordinates": [97.05, 20.78],
+          "coordinates": [
+            97.05,
+            20.78
+          ],
           "tone": "civilian"
         }
       ]
@@ -128,7 +213,10 @@
         {
           "actor": "aung-san",
           "label": "Aung San",
-          "coordinates": [96.16, 16.78],
+          "coordinates": [
+            96.16,
+            16.78
+          ],
           "status": "assassinated"
         }
       ],
@@ -136,7 +224,10 @@
         {
           "label": "Secretariat, Yangon",
           "detail": "Aung San and six cabinet colleagues were killed here",
-          "coordinates": [96.166, 16.774],
+          "coordinates": [
+            96.166,
+            16.774
+          ],
           "tone": "warning"
         }
       ]
@@ -147,7 +238,9 @@
     "map": {
       "fills": [
         {
-          "areas": ["Myanmar"],
+          "areas": [
+            "Myanmar"
+          ],
           "tone": "independence",
           "label": "Independent Burma",
           "opacity": 0.55
@@ -159,17 +252,52 @@
     "step": "ii-karen",
     "map": {
       "fills": [
-        { "areas": ["Kayin"], "tone": "resistance", "label": "Karen insurgency", "opacity": 0.5 },
         {
-          "areas": ["Bago", "Sagaing", "Magway"],
-          "tone": "warning",
-          "label": "Early communist insurgency and activity",
-          "opacity": 0.32
+          "areas": [
+            "Kayin"
+          ],
+          "tone": "resistance",
+          "label": "Karen insurgency",
+          "opacity": 0.5
         }
       ],
       "actors": [
-        { "actor": "knu", "label": "KNU", "coordinates": [97.63, 16.89] },
-        { "actor": "cpb", "label": "CPB", "coordinates": [96.48, 17.34] }
+        {
+          "actor": "knu",
+          "label": "KNU",
+          "coordinates": [
+            97.63,
+            16.89
+          ]
+        },
+        {
+          "actor": "cpb",
+          "label": "CPB",
+          "coordinates": [
+            96.18,
+            18.15
+          ]
+        }
+      ],
+      "annotations": [
+        {
+          "label": "Pegu Yoma",
+          "detail": "CPB stronghold and activity - not a territorial border",
+          "coordinates": [
+            96.15,
+            18.3
+          ],
+          "tone": "warning"
+        },
+        {
+          "label": "Paukkongyi",
+          "detail": "Communist revolt began in Pegu Region in 1948",
+          "coordinates": [
+            96.48,
+            17.75
+          ],
+          "tone": "warning"
+        }
       ]
     }
   },
@@ -177,14 +305,31 @@
     "step": "ii-coup-1962",
     "map": {
       "actors": [
-        { "actor": "ne-win", "label": "Ne Win", "coordinates": [96.18, 16.82] },
-        { "label": "U Nu", "coordinates": [96.11, 16.86], "status": "deposed" }
+        {
+          "actor": "ne-win",
+          "label": "Ne Win",
+          "coordinates": [
+            96.18,
+            16.82
+          ]
+        },
+        {
+          "label": "U Nu",
+          "coordinates": [
+            96.11,
+            16.86
+          ],
+          "status": "deposed"
+        }
       ],
       "annotations": [
         {
           "label": "Rangoon",
           "detail": "The capital in 1962; Nay Pyi Taw did not yet exist",
-          "coordinates": [96.1561, 16.8053],
+          "coordinates": [
+            96.1561,
+            16.8053
+          ],
           "tone": "military"
         }
       ]
@@ -203,7 +348,9 @@
     "map": {
       "fills": [
         {
-          "areas": ["Myanmar"],
+          "areas": [
+            "Myanmar"
+          ],
           "tone": "neutral",
           "label": "A nationwide legal regime, not a law made in Rakhine",
           "opacity": 0.28
@@ -213,7 +360,10 @@
         {
           "label": "National law",
           "detail": "Citizenship categories applied across the country",
-          "coordinates": [96.5, 19.5],
+          "coordinates": [
+            96.5,
+            19.5
+          ],
           "tone": "neutral"
         }
       ]
@@ -229,8 +379,16 @@
       "unit": "%",
       "total": 100,
       "data": [
-        { "label": "Voided without compensation", "value": 80, "tone": "military" },
-        { "label": "Still valid", "value": 20, "tone": "neutral" }
+        {
+          "label": "Voided without compensation",
+          "value": 80,
+          "tone": "military"
+        },
+        {
+          "label": "Still valid",
+          "value": 20,
+          "tone": "neutral"
+        }
       ]
     }
   },
@@ -238,14 +396,30 @@
     "step": "iii-8888",
     "map": {
       "actors": [
-        { "label": "Aung San Suu Kyi", "coordinates": [96.15, 16.8] },
-        { "actor": "absdf", "label": "ABSDF forms at the borders", "coordinates": [98.45, 16.7] }
+        {
+          "label": "Aung San Suu Kyi",
+          "coordinates": [
+            96.15,
+            16.8
+          ]
+        },
+        {
+          "actor": "absdf",
+          "label": "ABSDF forms at the borders",
+          "coordinates": [
+            98.45,
+            16.7
+          ]
+        }
       ],
       "annotations": [
         {
           "label": "Shwedagon Pagoda",
           "detail": "Aung San Suu Kyi addressed a mass rally on 26 August",
-          "coordinates": [96.149, 16.798],
+          "coordinates": [
+            96.149,
+            16.798
+          ],
           "tone": "civilian"
         }
       ]
@@ -260,8 +434,16 @@
       "subtitle": "Seat count recorded by the Inter-Parliamentary Union.",
       "total": 485,
       "data": [
-        { "label": "NLD", "value": 392, "tone": "civilian" },
-        { "label": "All other parties", "value": 93, "tone": "neutral" }
+        {
+          "label": "NLD",
+          "value": 392,
+          "tone": "civilian"
+        },
+        {
+          "label": "All other parties",
+          "value": 93,
+          "tone": "neutral"
+        }
       ],
       "overlay": "Result not honoured · parliament never convened"
     }
@@ -276,9 +458,21 @@
       "unit": "%",
       "total": 500,
       "data": [
-        { "label": "Petrol", "value": 100, "tone": "warning" },
-        { "label": "Diesel", "value": 100, "tone": "warning" },
-        { "label": "Compressed natural gas", "value": 500, "tone": "military" }
+        {
+          "label": "Petrol",
+          "value": 100,
+          "tone": "warning"
+        },
+        {
+          "label": "Diesel",
+          "value": 100,
+          "tone": "warning"
+        },
+        {
+          "label": "Compressed natural gas",
+          "value": 500,
+          "tone": "military"
+        }
       ]
     }
   },
@@ -291,6 +485,42 @@
       "href": "https://commons.wikimedia.org/wiki/File:2007_Myanmar_protests.jpg",
       "caption": "Monks protesting in Myanmar in September 2007.",
       "credit": "Robert Coles / Wikimedia Commons · CC BY 2.0"
+    },
+    "map": {
+      "annotations": [
+        {
+          "label": "Yangon",
+          "coordinates": [
+            96.1561,
+            16.8053
+          ],
+          "tone": "warning"
+        },
+        {
+          "label": "Mandalay",
+          "coordinates": [
+            96.0836,
+            21.9747
+          ],
+          "tone": "warning"
+        },
+        {
+          "label": "Pakokku",
+          "coordinates": [
+            95.0844,
+            21.3349
+          ],
+          "tone": "warning"
+        },
+        {
+          "label": "Sittwe",
+          "coordinates": [
+            92.8983,
+            20.1462
+          ],
+          "tone": "warning"
+        }
+      ]
     }
   },
   {
@@ -302,8 +532,16 @@
       "subtitle": "The remaining seats were elected. Constitutional amendment required more than 75 per cent, giving the military bloc a veto.",
       "total": 100,
       "data": [
-        { "label": "Military appointees", "value": 25, "tone": "military" },
-        { "label": "Elected seats", "value": 75, "tone": "civilian" }
+        {
+          "label": "Military appointees",
+          "value": 25,
+          "tone": "military"
+        },
+        {
+          "label": "Elected seats",
+          "value": 75,
+          "tone": "civilian"
+        }
       ]
     }
   },
@@ -311,20 +549,51 @@
     "step": "iv-myitsone",
     "map": {
       "fills": [
-        { "areas": ["Kachin"], "tone": "warning", "label": "Kachin State", "opacity": 0.42 },
-        { "areas": ["China"], "tone": "occupation", "label": "China", "opacity": 0.28 }
+        {
+          "areas": [
+            "Kachin"
+          ],
+          "tone": "warning",
+          "label": "Kachin State",
+          "opacity": 0.42
+        },
+        {
+          "areas": [
+            "China"
+          ],
+          "tone": "occupation",
+          "label": "China",
+          "opacity": 0.28
+        }
       ],
       "annotations": [
         {
           "label": "Myitsone dam site",
           "detail": "Confluence of the Mali and N'Mai rivers",
-          "coordinates": [97.5, 25.7],
+          "coordinates": [
+            97.5,
+            25.7
+          ],
           "tone": "warning"
         }
       ],
       "actors": [
-        { "actor": "china", "label": "Chinese-backed project", "coordinates": [97.72, 25.84] },
-        { "actor": "kio", "label": "KIO", "coordinates": [97.3, 25.55] }
+        {
+          "actor": "china",
+          "label": "Chinese-backed project",
+          "coordinates": [
+            97.72,
+            25.84
+          ]
+        },
+        {
+          "actor": "kio",
+          "label": "KIO",
+          "coordinates": [
+            97.3,
+            25.55
+          ]
+        }
       ]
     }
   },
@@ -333,7 +602,9 @@
     "map": {
       "fills": [
         {
-          "areas": ["Rakhine"],
+          "areas": [
+            "Rakhine"
+          ],
           "tone": "warning",
           "label": "Rakhine State",
           "opacity": 0.52
@@ -343,7 +614,10 @@
         {
           "label": "Sittwe camps",
           "detail": "Displacement camps established after the 2012 violence",
-          "coordinates": [92.8983, 20.1462],
+          "coordinates": [
+            92.8983,
+            20.1462
+          ],
           "tone": "warning"
         }
       ]
@@ -359,8 +633,18 @@
       "unit": "",
       "total": 2000,
       "data": [
-        { "label": "Before liberalisation", "value": 2000, "display": "$2,000", "tone": "military" },
-        { "label": "After market opening", "value": 1.5, "display": "$1.50", "tone": "resistance" }
+        {
+          "label": "Before liberalisation",
+          "value": 2000,
+          "display": "$2,000",
+          "tone": "military"
+        },
+        {
+          "label": "After market opening",
+          "value": 1.5,
+          "display": "$1.50",
+          "tone": "resistance"
+        }
       ]
     }
   },
@@ -374,15 +658,51 @@
       "unit": "%",
       "total": 10,
       "data": [
-        { "label": "2011", "value": 9.6, "tone": "resistance" },
-        { "label": "2012", "value": 5.6, "tone": "resistance" },
-        { "label": "2013", "value": 7.3, "tone": "resistance" },
-        { "label": "2014", "value": 8.4, "tone": "resistance" },
-        { "label": "2015", "value": 8.0, "tone": "resistance" },
-        { "label": "2016", "value": 7.0, "tone": "resistance" },
-        { "label": "2017", "value": 5.8, "tone": "resistance" },
-        { "label": "2018", "value": 6.4, "tone": "resistance" },
-        { "label": "2019", "value": 6.8, "tone": "resistance" }
+        {
+          "label": "2011",
+          "value": 9.6,
+          "tone": "resistance"
+        },
+        {
+          "label": "2012",
+          "value": 5.6,
+          "tone": "resistance"
+        },
+        {
+          "label": "2013",
+          "value": 7.3,
+          "tone": "resistance"
+        },
+        {
+          "label": "2014",
+          "value": 8.4,
+          "tone": "resistance"
+        },
+        {
+          "label": "2015",
+          "value": 8.0,
+          "tone": "resistance"
+        },
+        {
+          "label": "2016",
+          "value": 7.0,
+          "tone": "resistance"
+        },
+        {
+          "label": "2017",
+          "value": 5.8,
+          "tone": "resistance"
+        },
+        {
+          "label": "2018",
+          "value": 6.4,
+          "tone": "resistance"
+        },
+        {
+          "label": "2019",
+          "value": 6.8,
+          "tone": "resistance"
+        }
       ]
     }
   },
@@ -390,8 +710,21 @@
     "step": "iv-2015-election",
     "map": {
       "actors": [
-        { "actor": "thein-sein", "label": "Thein Sein", "coordinates": [96.08, 19.72] },
-        { "label": "Aung San Suu Kyi / NLD", "coordinates": [96.2, 19.78] }
+        {
+          "actor": "thein-sein",
+          "label": "Thein Sein",
+          "coordinates": [
+            96.08,
+            19.72
+          ]
+        },
+        {
+          "label": "Aung San Suu Kyi / NLD",
+          "coordinates": [
+            96.2,
+            19.78
+          ]
+        }
       ]
     },
     "graphic": {
@@ -401,10 +734,26 @@
       "subtitle": "Combined upper and lower houses, including the constitutionally reserved military bloc.",
       "total": 664,
       "data": [
-        { "label": "NLD", "value": 390, "tone": "civilian" },
-        { "label": "Military appointees", "value": 166, "tone": "military" },
-        { "label": "USDP", "value": 41, "tone": "warning" },
-        { "label": "Other parties", "value": 67, "tone": "neutral" }
+        {
+          "label": "NLD",
+          "value": 390,
+          "tone": "civilian"
+        },
+        {
+          "label": "Military appointees",
+          "value": 166,
+          "tone": "military"
+        },
+        {
+          "label": "USDP",
+          "value": 41,
+          "tone": "warning"
+        },
+        {
+          "label": "Other parties",
+          "value": 67,
+          "tone": "neutral"
+        }
       ]
     }
   },
@@ -412,17 +761,40 @@
     "step": "v-2017",
     "map": {
       "fills": [
-        { "areas": ["Rakhine"], "tone": "military", "label": "Northern Rakhine", "opacity": 0.48 },
-        { "areas": ["Bangladesh"], "tone": "civilian", "label": "Bangladesh", "opacity": 0.35 }
+        {
+          "areas": [
+            "Rakhine"
+          ],
+          "tone": "military",
+          "label": "Northern Rakhine",
+          "opacity": 0.48
+        },
+        {
+          "areas": [
+            "Bangladesh"
+          ],
+          "tone": "civilian",
+          "label": "Bangladesh",
+          "opacity": 0.35
+        }
       ],
       "actors": [
-        { "label": "Rohingya refugees", "coordinates": [92.01, 21.44] }
+        {
+          "label": "Rohingya refugees",
+          "coordinates": [
+            92.01,
+            21.44
+          ]
+        }
       ],
       "annotations": [
         {
           "label": "Cox's Bazar",
           "detail": "The world's largest refugee settlement",
-          "coordinates": [92.0096, 21.4397],
+          "coordinates": [
+            92.0096,
+            21.4397
+          ],
           "tone": "civilian"
         }
       ]
@@ -437,9 +809,21 @@
       "subtitle": "The 498 elected seats declared across both houses; military-appointed seats are separate.",
       "total": 498,
       "data": [
-        { "label": "NLD", "value": 396, "tone": "civilian" },
-        { "label": "USDP", "value": 33, "tone": "warning" },
-        { "label": "Other parties", "value": 69, "tone": "neutral" }
+        {
+          "label": "NLD",
+          "value": 396,
+          "tone": "civilian"
+        },
+        {
+          "label": "USDP",
+          "value": 33,
+          "tone": "warning"
+        },
+        {
+          "label": "Other parties",
+          "value": 69,
+          "tone": "neutral"
+        }
       ],
       "overlay": "Mandate overturned before parliament could sit"
     }
@@ -448,12 +832,53 @@
     "step": "iv-nca",
     "map": {
       "actors": [
-        { "actor": "knu", "label": "KNU · signatory", "coordinates": [97.63, 16.89] },
-        { "label": "RCSS · signatory", "coordinates": [98.2, 20.5] },
-        { "label": "CNF · signatory", "coordinates": [93.61, 22.64] },
-        { "label": "ABSDF · signatory", "coordinates": [98.5, 16.72] },
-        { "actor": "kio", "label": "KIO · did not sign", "coordinates": [97.4, 25.38], "status": "excluded" },
-        { "actor": "uwsa", "label": "UWSA · did not sign", "coordinates": [97.59, 22.33], "status": "excluded" }
+        {
+          "actor": "knu",
+          "label": "KNU · signatory",
+          "coordinates": [
+            97.63,
+            16.89
+          ]
+        },
+        {
+          "label": "RCSS · signatory",
+          "coordinates": [
+            98.2,
+            20.5
+          ]
+        },
+        {
+          "label": "CNF · signatory",
+          "coordinates": [
+            93.61,
+            22.64
+          ]
+        },
+        {
+          "label": "ABSDF · signatory",
+          "coordinates": [
+            98.5,
+            16.72
+          ]
+        },
+        {
+          "actor": "kio",
+          "label": "KIO · did not sign",
+          "coordinates": [
+            97.4,
+            25.38
+          ],
+          "status": "excluded"
+        },
+        {
+          "actor": "uwsa",
+          "label": "UWSA · did not sign",
+          "coordinates": [
+            97.59,
+            22.33
+          ],
+          "status": "excluded"
+        }
       ]
     }
   },
@@ -462,22 +887,51 @@
     "map": {
       "fills": [
         {
-          "areas": ["Sagaing", "Magway", "Chin", "Kayah"],
+          "areas": [
+            "Sagaing",
+            "Magway",
+            "Chin",
+            "Kayah"
+          ],
           "tone": "resistance",
           "label": "Major areas of resistance activity and parallel administration",
           "opacity": 0.3
         }
       ],
       "actors": [
-        { "actor": "pdf", "label": "PDFs", "coordinates": [95.98, 21.88] },
-        { "actor": "nug", "label": "NUG", "coordinates": [95.25, 20.7] },
-        { "actor": "ldo", "label": "Local defence organisations", "coordinates": [93.97, 21.37] }
+        {
+          "actor": "pdf",
+          "label": "PDFs",
+          "coordinates": [
+            95.98,
+            21.88
+          ]
+        },
+        {
+          "actor": "nug",
+          "label": "NUG",
+          "coordinates": [
+            95.25,
+            20.7
+          ]
+        },
+        {
+          "actor": "ldo",
+          "label": "Local defence organisations",
+          "coordinates": [
+            93.97,
+            21.37
+          ]
+        }
       ],
       "annotations": [
         {
           "label": "Contested, not uniformly controlled",
           "detail": "State-level shading shows broad operational geography only",
-          "coordinates": [95.4, 22.6],
+          "coordinates": [
+            95.4,
+            22.6
+          ],
           "tone": "resistance"
         }
       ]
@@ -488,17 +942,49 @@
     "map": {
       "fills": [
         {
-          "areas": ["Kayin", "Kachin", "Kayah", "Chin"],
+          "areas": [
+            "Kayin",
+            "Kachin",
+            "Kayah",
+            "Chin"
+          ],
           "tone": "resistance",
           "label": "Established armed organisations and new resistance bases",
           "opacity": 0.34
         }
       ],
       "actors": [
-        { "actor": "knu", "label": "KNU areas", "coordinates": [97.63, 16.89] },
-        { "actor": "kio", "label": "KIO areas", "coordinates": [97.4, 25.38] },
-        { "actor": "kndf", "label": "Karenni resistance", "coordinates": [97.21, 19.68] },
-        { "label": "Chin resistance", "coordinates": [93.97, 21.37] }
+        {
+          "actor": "knu",
+          "label": "KNU areas",
+          "coordinates": [
+            97.63,
+            16.89
+          ]
+        },
+        {
+          "actor": "kio",
+          "label": "KIO areas",
+          "coordinates": [
+            97.4,
+            25.38
+          ]
+        },
+        {
+          "actor": "kndf",
+          "label": "Karenni resistance",
+          "coordinates": [
+            97.21,
+            19.68
+          ]
+        },
+        {
+          "label": "Chin resistance",
+          "coordinates": [
+            93.97,
+            21.37
+          ]
+        }
       ]
     }
   },
@@ -506,10 +992,39 @@
     "step": "vi-coup",
     "map": {
       "actors": [
-        { "actor": "min-aung-hlaing", "label": "Min Aung Hlaing", "coordinates": [96.13, 19.75] },
-        { "label": "Aung San Suu Kyi", "coordinates": [96.05, 19.69], "status": "detained" },
-        { "label": "Win Myint", "coordinates": [96.2, 19.7], "status": "detained" },
-        { "actor": "nld", "label": "NLD MPs", "coordinates": [96.13, 19.86], "status": "excluded" }
+        {
+          "actor": "min-aung-hlaing",
+          "label": "Min Aung Hlaing",
+          "coordinates": [
+            96.13,
+            19.75
+          ]
+        },
+        {
+          "label": "Aung San Suu Kyi",
+          "coordinates": [
+            96.05,
+            19.69
+          ],
+          "status": "detained"
+        },
+        {
+          "label": "Win Myint",
+          "coordinates": [
+            96.2,
+            19.7
+          ],
+          "status": "detained"
+        },
+        {
+          "actor": "nld",
+          "label": "NLD MPs",
+          "coordinates": [
+            96.13,
+            19.86
+          ],
+          "status": "excluded"
+        }
       ]
     },
     "graphic": {
@@ -530,10 +1045,26 @@
       "unit": "%",
       "total": 18,
       "data": [
-        { "label": "2019", "value": 6.8, "tone": "resistance" },
-        { "label": "2020", "value": 3.2, "tone": "neutral" },
-        { "label": "2021", "value": -18.0, "tone": "military" },
-        { "label": "2022", "value": 1.0, "tone": "neutral" }
+        {
+          "label": "2019",
+          "value": 6.8,
+          "tone": "resistance"
+        },
+        {
+          "label": "2020",
+          "value": 3.2,
+          "tone": "neutral"
+        },
+        {
+          "label": "2021",
+          "value": -18.0,
+          "tone": "military"
+        },
+        {
+          "label": "2022",
+          "value": 1.0,
+          "tone": "neutral"
+        }
       ]
     }
   },
@@ -542,20 +1073,57 @@
     "map": {
       "fills": [
         {
-          "areas": ["Shan"],
+          "areas": [
+            "Shan"
+          ],
           "tone": "resistance",
           "label": "Three Brotherhood Alliance offensive",
           "opacity": 0.5
         }
       ],
       "actors": [
-        { "actor": "mndaa", "label": "MNDAA", "coordinates": [98.76, 23.7] },
-        { "actor": "tnla", "label": "TNLA", "coordinates": [97.03, 22.54] },
-        { "actor": "ula-aa", "label": "Arakan Army", "coordinates": [97.75, 22.94] }
+        {
+          "actor": "mndaa",
+          "label": "MNDAA",
+          "coordinates": [
+            98.76,
+            23.7
+          ]
+        },
+        {
+          "actor": "tnla",
+          "label": "TNLA",
+          "coordinates": [
+            97.03,
+            22.54
+          ]
+        },
+        {
+          "actor": "ula-aa",
+          "label": "Arakan Army",
+          "coordinates": [
+            97.75,
+            22.94
+          ]
+        }
       ],
       "annotations": [
-        { "label": "Laukkai", "coordinates": [98.7621, 23.6961], "tone": "resistance" },
-        { "label": "Muse trade corridor", "coordinates": [97.9011, 23.9974], "tone": "warning" }
+        {
+          "label": "Laukkai",
+          "coordinates": [
+            98.7621,
+            23.6961
+          ],
+          "tone": "resistance"
+        },
+        {
+          "label": "Muse trade corridor",
+          "coordinates": [
+            97.9011,
+            23.9974
+          ],
+          "tone": "warning"
+        }
       ]
     }
   },
@@ -564,7 +1132,13 @@
     "map": {
       "fills": [
         {
-          "areas": ["Sagaing", "Mandalay", "Magway", "Bago", "Naypyitaw"],
+          "areas": [
+            "Sagaing",
+            "Mandalay",
+            "Magway",
+            "Bago",
+            "Naypyitaw"
+          ],
           "tone": "warning",
           "label": "Most heavily affected states and regions",
           "opacity": 0.52
@@ -574,7 +1148,10 @@
         {
           "label": "M7.7 epicentre",
           "detail": "Near Mandalay and Sagaing, 28 March 2025",
-          "coordinates": [95.93, 21.98],
+          "coordinates": [
+            95.93,
+            21.98
+          ],
           "tone": "warning"
         }
       ]
@@ -587,7 +1164,12 @@
       "unit": "%",
       "total": 100,
       "data": [
-        { "label": "Share of annual GDP", "value": 14, "display": "14%", "tone": "military" }
+        {
+          "label": "Share of annual GDP",
+          "value": 14,
+          "display": "14%",
+          "tone": "military"
+        }
       ]
     }
   },
@@ -600,10 +1182,30 @@
       "subtitle": "Official vote shares across the election. The NLD was dissolved and major opposition forces were excluded; one fifth of townships did not vote because of fighting.",
       "total": 100,
       "data": [
-        { "label": "USDP", "value": 44.19, "display": "44.19%", "tone": "military" },
-        { "label": "National Unity Party", "value": 13.28, "display": "13.28%", "tone": "warning" },
-        { "label": "People's Party", "value": 8.8, "display": "8.80%", "tone": "civilian" },
-        { "label": "Other parties", "value": 33.73, "display": "33.73%", "tone": "neutral" }
+        {
+          "label": "USDP",
+          "value": 44.19,
+          "display": "44.19%",
+          "tone": "military"
+        },
+        {
+          "label": "National Unity Party",
+          "value": 13.28,
+          "display": "13.28%",
+          "tone": "warning"
+        },
+        {
+          "label": "People's Party",
+          "value": 8.8,
+          "display": "8.80%",
+          "tone": "civilian"
+        },
+        {
+          "label": "Other parties",
+          "value": 33.73,
+          "display": "33.73%",
+          "tone": "neutral"
+        }
       ],
       "overlay": "Major opposition excluded · 67 townships did not vote"
     }
@@ -614,7 +1216,7 @@
       "type": "bars",
       "eyebrow": "Territorial picture · June–July 2026",
       "title": "A large share of the country remains outside military control",
-      "subtitle": "ISP-Myanmar estimated 39.34% of landmass outside Myanmar Armed Forces control on 5 June 2026. The map above is a separate CC0 community cartography snapshot dated 11 July 2026; neither should be read as a single authoritative ledger.",
+      "subtitle": "ISP-Myanmar estimated 39.34% of landmass outside Myanmar Armed Forces control on 5 June 2026. The map above redraws broad documented patterns in the project palette; hatching marks mixed or contested control, not a precise front line.",
       "unit": "%",
       "total": 100,
       "data": [
@@ -625,6 +1227,101 @@
           "tone": "resistance"
         }
       ]
+    }
+  },
+  {
+    "step": "i-switch",
+    "map": {
+      "fills": [
+        {
+          "areas": [
+            "Myanmar"
+          ],
+          "tone": "occupation",
+          "label": "Japanese occupation recedes",
+          "opacity": 0.28
+        }
+      ],
+      "actors": [
+        {
+          "actor": "bia",
+          "label": "Burma National Army",
+          "coordinates": [
+            96.1,
+            18.8
+          ],
+          "flag": "burma-1943"
+        },
+        {
+          "actor": "afpfl",
+          "label": "AFPFL / Allies",
+          "coordinates": [
+            97.1,
+            17.7
+          ],
+          "flag": "united-kingdom"
+        }
+      ]
+    }
+  },
+  {
+    "step": "i-afpfl",
+    "map": {
+      "journey": {
+        "stops": [
+          {
+            "label": "Yangon",
+            "coordinates": [
+              96.1561,
+              16.8053
+            ]
+          },
+          {
+            "label": "London",
+            "coordinates": [
+              -0.1276,
+              51.5072
+            ],
+            "flag": "united-kingdom",
+            "emphasis": true
+          }
+        ],
+        "caption": "Aung San travelled to London for the January 1947 independence negotiations."
+      }
+    }
+  },
+  {
+    "step": "v-icj",
+    "map": {
+      "journey": {
+        "stops": [
+          {
+            "label": "Banjul - The Gambia",
+            "coordinates": [
+              -16.578,
+              13.4549
+            ],
+            "flag": "gambia"
+          },
+          {
+            "label": "The Hague - ICJ",
+            "coordinates": [
+              4.3007,
+              52.0705
+            ],
+            "flag": "netherlands",
+            "emphasis": true
+          }
+        ],
+        "caption": "The Gambia filed the case; Aung San Suu Kyi appeared for Myanmar at the Peace Palace in The Hague."
+      }
+    },
+    "graphic": {
+      "type": "media",
+      "title": "Aung San Suu Kyi addresses the ICJ",
+      "href": "https://www.youtube.com/watch?v=liy9Dtxo3yE",
+      "caption": "Video: Aung San Suu Kyi presents the Myanmar defence at the International Court of Justice, December 2019.",
+      "credit": "VOA News - proceedings at the Peace Palace, The Hague"
     }
   }
 ]

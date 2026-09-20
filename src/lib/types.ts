@@ -170,6 +170,7 @@ export interface StepMapActor {
   label: string;
   coordinates: [number, number];
   status?: "active" | "assassinated" | "detained" | "deposed" | "excluded";
+  flag?: "myanmar" | "burma-1943" | "japan-imperial" | "united-kingdom" | "gambia" | "netherlands";
 }
 
 export interface StepMapAnnotation {
@@ -177,6 +178,18 @@ export interface StepMapAnnotation {
   coordinates: [number, number];
   detail?: string;
   tone?: VisualTone;
+}
+
+export interface StepMapJourneyStop {
+  label: string;
+  coordinates: [number, number];
+  flag?: "myanmar" | "burma-1943" | "japan-imperial" | "united-kingdom" | "gambia" | "netherlands";
+  emphasis?: boolean;
+}
+
+export interface StepMapJourney {
+  stops: StepMapJourneyStop[];
+  caption?: string;
 }
 
 export interface GraphicDatum {
@@ -207,6 +220,7 @@ export interface StepVisual {
     fills?: StepMapFill[];
     actors?: StepMapActor[];
     annotations?: StepMapAnnotation[];
+    journey?: StepMapJourney;
   };
   graphic?: StepGraphic;
 }

@@ -3,8 +3,8 @@
 import { memo, useMemo } from "react";
 
 import ActorBubble from "@/components/ActorBubble";
-import type { Actor, StepMapFill, StepVisual, VisualTone } from "@/lib/types";
-import { asset } from "@/lib/asset";
+import type { Actor, StepMapFill, StepMapJourney, StepVisual, VisualTone } from "@/lib/types";
+import { worldCountries, worldPath, worldProjection } from "@/lib/worldGeo";
 
 import {
   VIEW,
@@ -327,7 +327,13 @@ function ActorMapLayer({
                   aria-label={actor ? `Open ${actor.name}` : mark.label}
                   className="relative shrink-0 rounded-full disabled:cursor-default"
                 >
-                  {actor ? (
+                  {mark.flag ? (
+                    <span
+                      className={`inline-flex h-[52px] w-[52px] items-center justify-center overflow-hidden rounded-full border-2 border-rule-strong ${mark.flag === "japan-imperial" ? "imperial-japan-flag" : ""}`}
+                      style={mark.flag === "japan-imperial" ? undefined : { background: `linear-gradient(to bottom, ${worldFlagColours[mark.flag].join(",")})` }}
+                      aria-hidden
+                    />
+                  ) : actor ? (
                     <ActorBubble actor={actor} size={52} />
                   ) : (
                     <span className="inline-flex h-[52px] w-[52px] items-center justify-center rounded-full border-2 border-rule-strong bg-paper-raised font-mono text-[0.72rem] font-bold text-ink">
@@ -439,13 +445,54 @@ function CycloneTrackLayer({ camera }: { camera: Camera }) {
         strokeDasharray="10 9"
         className="cyclone-track-line"
       />
-      <circle cx={landX} cy={landY} r={13} fill="none" stroke="var(--series-3)" strokeWidth={2} />
       <circle cx={landX} cy={landY} r={4} fill="var(--series-3)" />
       <text x={landX + 18} y={landY - 8} fontSize={12} fontWeight={700} fill="var(--ink)">
         Delta landfall
       </text>
     </g>
   );
+}
+
+const worldFlagColours = {
+  myanmar: ["#fecb00", "#34b233", "#ea2839"],
+  "burma-1943": ["#f4d03f", "#3a8f56", "#c53b32"],
+  "japan-imperial": ["#fff", "#bc002d", "#bc002d"],
+  "united-kingdom": ["#21468b", "#fff", "#ae1c28"],
+  gambia: ["#ce1126", "#0c1c8c", "#3a7728"],
+  netherlands: ["#ae1c28", "#fff", "#21468b"],
+} as const;
+
+function FlagMark({ flag }: { flag: NonNullable<StepMapJourney["stops"][number]["flag"]> }) {
+  const colours = worldFlagColours[flag];
+  if (flag === "japan-imperial") {
+    return <g><rect x={-18} y={-12} width={36} height={24} fill="#fff" stroke="var(--paper)" />{Array.from({ length: 16 }, (_, index) => { const a = (Math.PI * 2 * index) / 16; const b = a + Math.PI / 16; return <path key={index} d={`M 0 0 L ${Math.cos(a) * 18} ${Math.sin(a) * 12} L ${Math.cos(b) * 18} ${Math.sin(b) * 12} Z`} fill="#bc002d" />; })}<circle r={5} fill="#bc002d" /></g>;
+  }
+  return <g><rect x={-18} y={-12} width={36} height={24} fill={colours[0]} stroke="var(--paper)" /><rect x={-18} y={-4} width={36} height={8} fill={colours[1]} /><rect x={-18} y={4} width={36} height={8} fill={colours[2]} /></g>;
+}
+
+function WorldJourneyLayer({ journey }: { journey: StepMapJourney }) {
+  const projected = journey.stops.map((stop) => ({ ...stop, point: worldProjection(stop.coordinates) }));
+  return <g className="world-journey"><rect width={VIEW.width} height={VIEW.height} fill="var(--map-water)" />
+    {worldCountries.features.map((country, index) => <path key={index} d={worldPath(country) ?? undefined} fill="var(--map-neighbour)" stroke="var(--map-neighbour-edge)" strokeWidth={0.55} />)}
+    {projected.slice(1).map((stop, index) => { const previous = projected[index]; if (!previous.point || !stop.point) return null; const [x1, y1] = previous.point; const [x2, y2] = stop.point; const bow = Math.min(95, Math.abs(x2 - x1) * 0.18 + 25); return <path key={`${previous.label}-${stop.label}`} d={`M ${x1} ${y1} Q ${(x1 + x2) / 2} ${(y1 + y2) / 2 - bow} ${x2} ${y2}`} fill="none" stroke="var(--series-2)" strokeWidth={3} strokeDasharray="8 9" className="world-route-line" />; })}
+    {projected.map((stop) => { if (!stop.point) return null; const [x, y] = stop.point; return <g key={stop.label} transform={`translate(${x} ${y})`}>{stop.emphasis && <circle r={30} fill="var(--series-2-wash)" stroke="var(--series-2)" className="journey-pulse" />}{stop.flag ? <FlagMark flag={stop.flag} /> : <circle r={6} fill="var(--series-2)" />}<text x={24} y={4} fontSize={13} fontWeight={700} fill="var(--ink)" stroke="var(--paper)" strokeWidth={4} paintOrder="stroke">{stop.label}</text></g>; })}
+    {journey.caption && <text x={VIEW.width / 2} y={VIEW.height - 64} textAnchor="middle" fontSize={12} fill="var(--ink-secondary)">{journey.caption}</text>}
+  </g>;
+}
+
+function RadioPulseLayer({ camera }: { camera: Camera }) {
+  const places: [number, number][] = [[96.1561, 16.8053], [96.0836, 21.9747], [95.0844, 21.3349], [92.8983, 20.1462]];
+  return <g pointerEvents="none">{places.flatMap((place, placeIndex) => { const [x, y] = screenPoint(place, camera.center, camera.zoom); return [0, 1, 2].map((ring) => <circle key={`${placeIndex}-${ring}`} cx={x} cy={y} r={7 + ring * 9} fill="none" stroke="#d59b2c" strokeWidth={2} className="radio-pulse" style={{ animationDelay: `${placeIndex * 180 + ring * 240}ms` }} />); })}</g>;
+}
+
+function AlliedLiberationLayer() {
+  return <g pointerEvents="none" className="allied-liberation">{states.features.map((feature, index) => <path key={feature.properties.name} d={toPath(feature)} fill="var(--series-2)" fillOpacity={0.45} stroke="var(--series-2)" strokeWidth={1} style={{ animationDelay: `${index * 80}ms` }} />)}</g>;
+}
+
+function CurrentControlLayer() {
+  const resistance = new Set(["Chin", "Sagaing", "Kayah", "Kayin", "Rakhine", "Kachin"]);
+  const mixed = new Set(["Magway", "Shan", "Mon", "Tanintharyi"]);
+  return <g pointerEvents="none" className="current-control-layer">{states.features.map((feature) => { const name = feature.properties.name; const fill = resistance.has(name) ? "var(--series-2)" : mixed.has(name) ? "url(#control-mixed)" : "var(--series-1)"; return <path key={name} d={toPath(feature)} fill={fill} fillOpacity={0.62} stroke="var(--map-outline)" strokeWidth={0.9} vectorEffect="non-scaling-stroke" />; })}</g>;
 }
 
 /**
@@ -653,6 +700,10 @@ export default function StoryMap({
             />
           </pattern>
         ))}
+        <pattern id="control-mixed" width={10} height={10} patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+          <rect width={10} height={10} fill="var(--series-1)" />
+          <rect width={5} height={10} fill="var(--series-2)" />
+        </pattern>
       </defs>
 
       <rect width={VIEW.width} height={VIEW.height} fill="var(--map-water)" />
@@ -661,6 +712,8 @@ export default function StoryMap({
         <BaseGeography />
         <AdminUnits highlighted={highlighted} />
         {visual?.map?.fills && <HistoricalFillLayer fills={visual.map.fills} />}
+        {has("allied-liberation") && <AlliedLiberationLayer />}
+        {has("current-control-trace") && <CurrentControlLayer />}
         <Rivers />
         {/* Drawn over the states so the country reads as one shape first and
             a set of administrative units second. */}
@@ -680,24 +733,14 @@ export default function StoryMap({
         When a step moves in on somewhere specific, say so on the map rather
         than leaving the reader to infer which shape the paragraph means.
       */}
-      {camera.zoom > 1.7 && <FocusRing camera={camera} />}
+      {has("focus-ring") && <FocusRing camera={camera} />}
       {has("protest-spread") && <ProtestLayer camera={camera} />}
+      {has("protest-radio") && <RadioPulseLayer camera={camera} />}
       {(has("flight-to-border") || has("rohingya-flow")) && (
         <FlowLayer stepId={stepId} camera={camera} />
       )}
       {has("cyclone-track") && <CycloneTrackLayer camera={camera} />}
-      <CityLabels camera={camera} />
-      {has("current-control-reference") && (
-        <image
-          href={asset("images/myanmar-control-2026-07-11.svg")}
-          x={205}
-          y={10}
-          width={590}
-          height={1130}
-          preserveAspectRatio="xMidYMid meet"
-          className="map-reference-layer"
-        />
-      )}
+      {!has("colonial-split") && !visual?.map?.actors?.length && !has("current-control-trace") && !visual?.map?.journey && <CityLabels camera={camera} />}
       {visual?.map?.annotations && (
         <AnnotationLayer annotations={visual.map.annotations} camera={camera} />
       )}
@@ -709,6 +752,7 @@ export default function StoryMap({
           onSelectActor={onSelectActor}
         />
       )}
+      {visual?.map?.journey && <WorldJourneyLayer journey={visual.map.journey} />}
     </svg>
   );
 }

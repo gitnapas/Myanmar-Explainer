@@ -128,11 +128,11 @@ function buildEntries(layers: string[]): Entry[] {
     });
   }
 
-  if (layers.includes("current-control-reference")) {
+  if (layers.includes("current-control-trace")) {
     entries.push({
       term: "Control map snapshot · 11 July 2026",
       caveat:
-        "CC0 community cartography with its own revision history. Control is fluid and often differs between towns, roads, administration and night-time access.",
+        "Native vector redraw of broad documented patterns. Stripes mark mixed or contested control; these are not precise front lines.",
       swatch: <Hatched />,
     });
   }
