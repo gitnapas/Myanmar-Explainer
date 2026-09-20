@@ -1,2 +1,2 @@
-:HL["/Myanmar-Explainer/_next/static/chunks/1k5tuit_zf305.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}},"staleTime":300,"buildId":"xbYRlz0nTr36jFTp5xe7M"}
+:HL["/Myanmar-Explainer/_next/static/chunks/3yiksh17c2yrq.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}},"staleTime":300,"buildId":"ln42dIXaCjvXmw3qk4vLW"}
