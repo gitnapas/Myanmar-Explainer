@@ -29,8 +29,10 @@ try {
     page.on("pageerror", error => errors.push(String(error)));
     page.on("console", message => { if (message.type() === "error") errors.push(message.text()); });
     page.on("response", response => { if (response.status() >= 400) errors.push(response.status() + " " + response.url()); });
-    await page.goto(base, { waitUntil: "networkidle" });
+    await page.goto(base, { waitUntil: "domcontentloaded", timeout: 60_000 });
+    await page.locator(".opening").waitFor({ state: "visible", timeout: 60_000 });
     await page.getByRole("link", { name: "Explore the history" }).click();
+    await page.waitForTimeout(2_000);
     await page.waitForTimeout(150);
     await page.getByRole("button", { name: "Next event", exact: true }).click();
     await page.waitForTimeout(150);
@@ -67,11 +69,13 @@ try {
     await page.close();
   }
   const motionPage = await browser.newPage({ viewport: { width: 1200, height: 800 } });
-  await motionPage.goto(base, { waitUntil: "networkidle" });
+  await motionPage.goto(base, { waitUntil: "domcontentloaded", timeout: 60_000 });
+  await motionPage.locator(".opening").waitFor({ state: "visible", timeout: 60_000 });
   await motionPage.locator("[data-index='16']").evaluate(element => scrollTo({ top: scrollY + element.getBoundingClientRect().top - 36, behavior: "instant" }));
   await motionPage.waitForTimeout(1000);
   await motionPage.getByRole("button", { name: "Pause motion", exact: true }).click();
   await motionPage.waitForTimeout(200);
+  await motionPage.waitForTimeout(2_000);
   const running = await motionPage.locator(".story-shell").evaluate(element => element.getAnimations({ subtree: true }).filter(animation => animation.playState === "running").length);
   if (running) throw new Error("Animations still running while paused: " + running);
   await motionPage.setViewportSize({ width: 390, height: 844 });
