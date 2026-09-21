@@ -125,10 +125,11 @@ export default function MethodologyPage() {
 
         <Section title="The knowledge boundary">
           <p>
-            This prototype was assembled against a May 2026 knowledge boundary. Anything
-            after that point — including current territorial control and the military-run
-            election — is left as a declared gap rather than written from memory. Nine such
-            gaps are listed at the end of the story and reproduced below.
+            This work in progress was reviewed through 20 September 2026. Fast-moving
+            claims — especially territorial control, casualty totals and the military-run
+            election — use dated sources and explicit uncertainty notes. Where the available
+            evidence does not support a precise map or number, that limitation remains a
+            declared gap. Nine such gaps are listed at the end of the story and reproduced below.
           </p>
         </Section>
 

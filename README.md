@@ -68,8 +68,9 @@ These are the constraints the project works to; the reasoning is in
   and is used for nothing else.
 - **Proxies are labelled where they are used.** Protest circles are sized by city
   population, not crowd size. Movement arcs show direction, not routes.
-- **Gaps are declared, not filled.** This prototype was assembled against a May 2026
-  knowledge boundary; anything later is left explicitly empty.
+- **Gaps are declared, not filled.** This work in progress was reviewed through
+  20 September 2026. Fast-moving claims carry dated sources and uncertainty notes;
+  unsupported precision remains explicitly marked as a gap.
 
 ## Palette
 

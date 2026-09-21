@@ -3,17 +3,17 @@
     "id": "g-current-control",
     "needed": "Township-level territorial control for September 2026, with per-township confidence and an as-of date, from IISS Myanmar Conflict Map and/or SAC-M.",
     "affects": ["now", "viii-limits", "vii-initiative"],
-    "why": "The climax of the site layers current control. This project is built to a May 2026 knowledge boundary, and control in an active war changes faster than that. Shipping a current map from memory would be the single most damaging thing this site could do."
+    "why": "The closing layer is deliberately limited to conservative state-level orientation. Control in an active war changes quickly, and converting a community reference image into precise front lines would imply evidence the project does not have."
   },
   {
     "id": "g-2026-election",
-    "needed": "Conditions, phases, participating and excluded parties, areas where voting took place, results, and the competing characterisations of the military-run election.",
+    "needed": "An independently reconciled constituency-level dataset for the 2025–26 military-run election, including cancellations, uncontested races and the areas where no voting occurred.",
     "affects": ["viii-election"],
-    "why": "Required before the comparative seat visualisation against 1990, 2015 and 2020 can be built. The step is deliberately left empty rather than filled with a plausible account."
+    "why": "The current step reports official aggregate results and independently documented exclusions. Published accounts disagree on the exact township coverage, so the explainer does not present a single count as settled."
   },
   {
     "id": "g-seat-counts",
-    "needed": "Verified seat counts by party and chamber for the 1990, 2015 and 2020 elections, with the denominator stated (elected seats versus total seats including military appointees).",
+    "needed": "A standardised cross-election table for 1990, 2015, 2020 and 2025–26, separating elected seats, appointed military seats, vacancies and contests across different levels of government.",
     "affects": ["iii-1990", "iv-2015-election", "v-2020-election"],
     "why": "Published figures differ depending on whether they count elected seats only, both chambers, or the full legislature including the reserved 25 per cent. A comparison across four elections is worthless unless the denominator is consistent."
   },
@@ -43,9 +43,9 @@
   },
   {
     "id": "g-cyclone-nargis",
-    "needed": "Cyclone Nargis track geometry and affected-population figures from a meteorological agency and UN OCHA.",
+    "needed": "A source-backed wind-field or damage-extent layer for Cyclone Nargis, separate from its NOAA best-track line.",
     "affects": ["iii-nargis"],
-    "why": "The cyclone animation needs a real track. A drawn approximation of a storm path is fabricated geometry."
+    "why": "The current animation uses selected NOAA IBTrACS positions and therefore shows direction and landfall only. It must not be read as the width of the storm or the boundary of damage."
   },
   {
     "id": "g-karenni-administration",

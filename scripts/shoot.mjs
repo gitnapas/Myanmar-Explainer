@@ -36,6 +36,7 @@ async function serveLocal() {
   const root = resolve(ROOT, "out");
   const server = createServer(async (req, res) => {
     let path = decodeURIComponent((req.url ?? "/").split("?")[0]);
+    path = path.replace(/^\/Myanmar-Explainer/, "") || "/";
     let file = resolve(root, "." + path);
     try {
       if ((await stat(file)).isDirectory()) file = resolve(file, "index.html");
@@ -48,7 +49,7 @@ async function serveLocal() {
     createReadStream(file).pipe(res);
   });
   await new Promise((r) => server.listen(4321, r));
-  return { url: "http://localhost:4321/", close: () => server.close() };
+  return { url: "http://localhost:4321/Myanmar-Explainer/", close: () => server.close() };
 }
 
 const local = ARG === "local" ? await serveLocal() : null;
@@ -59,13 +60,17 @@ const VIEWPORT = { width: 1440, height: 900 };
 /** Step indices worth looking at: the framings and overlays differ most here. */
 const STEPS = [
   { index: 0, name: "step00-colonial" },
+  { index: 2, name: "step02-thirty-comrades" },
+  { index: 5, name: "step05-london" },
   { index: 6, name: "step06-panglong" },
   { index: 12, name: "step12-demonetisation" },
   { index: 14, name: "step14-election-1990" },
   { index: 23, name: "step23-growth" },
   { index: 29, name: "step29-coup" },
+  { index: 27, name: "step27-the-hague" },
   { index: 36, name: "step36-network" },
   { index: 43, name: "step43-earthquake" },
+  { index: 42, name: "step42-operation-1027" },
   { index: 44, name: "step44-election-2026" },
   { index: 45, name: "step45-control-now" },
 ];

@@ -296,5 +296,32 @@
     "url": "https://www.ncei.noaa.gov/products/international-best-track-archive",
     "kind": "data",
     "note": "The merged global best-track archive used for the simplified Cyclone Nargis path. The interface deliberately samples the track and does not infer the storm's wind field or damage footprint from it."
+  },
+  {
+    "id": "anfrel-2020",
+    "publisher": "Asian Network for Free Elections",
+    "title": "The 2020 Myanmar General Elections: Democracy Under Attack",
+    "date": "2021-05",
+    "url": "https://anfrel.org/wp-content/uploads/2021/05/ANFREL_Democracy-Under-Attack-F.pdf",
+    "kind": "report",
+    "note": "Final observation report. Records 396 NLD seats and 33 USDP seats among 476 elected Union Parliament seats, alongside cancellations and wider electoral shortcomings."
+  },
+  {
+    "id": "carter-2020",
+    "publisher": "The Carter Center",
+    "title": "Preliminary Statement on the 2020 Myanmar General Elections",
+    "date": "2020-11-10",
+    "url": "https://www.cartercenter.org/news/myanmar-111020/",
+    "kind": "report",
+    "note": "Observers assessed election day positively at most polling stations visited and reported no major irregularities, while identifying serious structural and procedural shortcomings."
+  },
+  {
+    "id": "un-operation-1027",
+    "publisher": "United Nations Human Rights Council",
+    "title": "Situation of human rights in Myanmar",
+    "date": "2024-03-20",
+    "url": "https://documents.un.org/doc/undoc/gen/g24/043/38/pdf/g2404338.pdf",
+    "kind": "report",
+    "note": "Documents the Three Brotherhood Alliance offensive in northern Shan and distinguishes it from the Arakan Army campaign in Rakhine and Paletwa."
   }
 ]

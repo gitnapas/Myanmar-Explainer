@@ -12,10 +12,11 @@ import { fileURLToPath } from "node:url";
 const DATA = resolve(dirname(fileURLToPath(import.meta.url)), "../src/data");
 const load = async (name) => JSON.parse(await readFile(resolve(DATA, `${name}.json`), "utf8"));
 
-const [sources, actors, relationships, steps, chapters, territory, gaps, boundaries] =
+const [sources, actors, relationships, steps, chapters, territory, gaps, boundaries, storyVisuals] =
   await Promise.all([
     load("sources"), load("actors"), load("relationships"), load("steps"),
     load("chapters"), load("territory"), load("gaps"), load("geo/boundaries.topo"),
+    load("storyVisuals"),
   ]);
 
 const errors = [];
@@ -67,6 +68,17 @@ for (const t of territory) {
   // Both are load-bearing: an undated or unqualified control claim is the
   // failure mode this whole data model exists to prevent.
   check(!!t.asOf, `territory ${t.id} has no asOf date`);
+for (const visual of storyVisuals) {
+  check(stepIds.has(visual.step), `visual references unknown step "${visual.step}"`);
+  if (visual.graphic?.type === "election") {
+    const sum = visual.graphic.data.reduce((total, item) => total + item.value, 0);
+    check(
+      Math.abs(sum - visual.graphic.total) < 0.001,
+      `election visual ${visual.step} totals ${sum}, expected ${visual.graphic.total}`,
+    );
+  }
+}
+
   check(!!t.confidence, `territory ${t.id} has no confidence`);
   check(!!t.basis, `territory ${t.id} has no stated basis`);
   t.areas.forEach((area) =>

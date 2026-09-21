@@ -291,8 +291,8 @@
     "dateLabel": "1982",
     "title": "The Citizenship Law",
     "mode": "system",
-    "summary": "A new law sorted the population into tiers of citizenship built around recognised national races. Rohingya were not among them.",
-    "detail": "The law is the legal mechanism behind Rohingya statelessness. Its categories still govern who can hold which documents, and therefore who can move, study, marry and vote.",
+    "summary": "A new law created three tiers of citizenship and tied full citizenship closely to membership of recognised national races.",
+    "detail": "The law did not automatically strip every Rohingya of citizenship, but its discretionary and discriminatory implementation denied citizenship documents to many who qualified and became a central mechanism of Rohingya statelessness. Documentation status still shapes access to movement, education and political rights.",
     "focus": {
       "center": [
         96.5,
@@ -735,7 +735,7 @@
     "title": "The NLD wins again",
     "mode": "system",
     "summary": "The NLD increased its majority. The military-aligned USDP rejected the result and alleged large-scale fraud.",
-    "detail": "Election observers and the election commission did not find irregularities on anything approaching the scale alleged. The fraud claim became the stated justification for what happened twelve weeks later.",
+    "detail": "Observers reported no major irregularities on election day, while also identifying structural and procedural shortcomings. Nothing they documented substantiated the military’s claim of fraud on a scale that could overturn the result; that allegation became the stated justification for the coup twelve weeks later.",
     "focus": {
       "center": [
         96.5,
@@ -748,10 +748,10 @@
       "usdp"
     ],
     "sources": [
-      "idea-myanmar",
-      "icg-myanmar"
+      "anfrel-2020",
+      "carter-2020"
     ],
-    "uncertainty": "[DATA NEEDED: verified 2020 seat counts by party and chamber, plus the list of townships where voting was cancelled]"
+    "uncertainty": "ANFREL recorded 396 NLD seats and 33 USDP seats among 476 elected Union Parliament seats. Voting cancellations meant the nominal 498 elected seats were not all filled."
   },
   {
     "id": "vi-coup",
@@ -1137,7 +1137,7 @@
     "title": "Operation 1027",
     "mode": "map",
     "summary": "Three allied organisations attacked across northern Shan State, taking towns, bases and border crossings on the route to China.",
-    "detail": "The significance was not only territorial. It demonstrated that coordinated action could take and hold fixed positions, and it put the most valuable overland trade corridor to China into play.",
+    "detail": "The MNDAA and TNLA fought in their northern Shan heartlands with the Arakan Army as the third alliance member. The map locates territorial actors there without implying that the Arakan Army’s political and territorial base was in Shan; by then its principal theatre was Rakhine.",
     "focus": {
       "center": [
         97.9,
@@ -1157,7 +1157,7 @@
       "operation-1027"
     ],
     "sources": [
-      "icg-myanmar",
+      "un-operation-1027",
       "iiss-conflict-map"
     ],
     "uncertainty": "[DATA NEEDED: township-level control changes with dates and confidence levels, from IISS or SAC-M rather than from press reports of individual battles]"
@@ -1191,7 +1191,7 @@
     "dateLabel": "28 Dec 2025 - 25 Jan 2026",
     "title": "The military-run election",
     "mode": "system",
-    "summary": "The military authorities held voting in three phases across 263 of 330 townships. The military-backed USDP dominated after the NLD was dissolved and major opposition forces were excluded.",
+    "summary": "The military authorities held voting in three phases, limited to areas where they could administer it. The military-backed USDP dominated after the NLD was dissolved and major opposition forces were excluded.",
     "detail": "Official figures gave the USDP 44.19 per cent of votes across the election and 739 winning candidates across national, state, regional and ethnic-affairs contests. A quarter of national parliamentary seats remained reserved for military appointees. Parliament elected Min Aung Hlaing president on 3 April 2026, converting direct military rule into a military-dominated constitutional government.",
     "focus": {
       "center": [
@@ -1210,7 +1210,7 @@
       "ap-2026-election",
       "idea-myanmar"
     ],
-    "uncertainty": "Vote totals are the military-appointed election commission's figures. Independent observers and opposition organisations disputed the conditions and legitimacy of the process; 67 townships did not vote."
+    "uncertainty": "Vote totals are the military-appointed election commission’s figures. Published accounts disagree on the precise number of townships covered, so this explainer does not present one as settled; the vote was not nationwide."
   },
   {
     "id": "now-control",
@@ -1220,7 +1220,7 @@
     "title": "No single authority controls Myanmar",
     "mode": "map",
     "summary": "The military holds the principal cities, air power and important transport corridors. Resistance forces and ethnic armed organisations administer or contest wide areas, especially along the borders and across the northwest.",
-    "detail": "This closing map is a dated, programmatically redrawn synthesis rather than a pasted reference image. Control can mean a town, a road, a garrison, taxation, courts or the ability to operate at night, and those do not always belong to the same actor. ISP-Myanmar estimated in June 2026 that 39.34 per cent of landmass lay outside military control.",
+    "detail": "This closing map is a conservative state-level orientation, not a front-line map. Only the strongest broad patterns are shown as solid; fragmented or contested states are hatched. Control can mean a town, a road, a garrison, taxation, courts or the ability to operate at night, and those do not always belong to the same actor. ISP-Myanmar estimated in June 2026 that 39.34 per cent of landmass lay outside military control.",
     "focus": {
       "center": [
         96.5,
@@ -1236,6 +1236,6 @@
       "commons-control-2026",
       "iiss-conflict-map"
     ],
-    "uncertainty": "There is no authoritative, real-time ledger of territorial control. This map is a dated synthesis and should be read alongside its source history and the project's state-level methodology limits."
+    "uncertainty": "There is no authoritative, real-time ledger of territorial control. This layer deliberately avoids township-level boundaries because the project does not yet have a source-backed control dataset at that resolution."
   }
 ]

@@ -130,9 +130,9 @@ function buildEntries(layers: string[]): Entry[] {
 
   if (layers.includes("current-control-trace")) {
     entries.push({
-      term: "Control map snapshot · 11 July 2026",
+      term: "State-level orientation · sources dated June–July 2026",
       caveat:
-        "Native vector redraw of broad documented patterns. Stripes mark mixed or contested control; these are not precise front lines.",
+        "Only the strongest state-level patterns are solid. Stripes mean fragmented or contested control, not a precise front line.",
       swatch: <Hatched />,
     });
   }

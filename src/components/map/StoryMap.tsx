@@ -1,10 +1,11 @@
 "use client";
 
 import { memo, useEffect, useRef, useState, useMemo } from "react";
+import { geoMercator, geoPath } from "d3-geo";
 
 import ActorBubble from "@/components/ActorBubble";
 import type { Actor, StepMapFill, StepMapJourney, StepVisual, VisualTone } from "@/lib/types";
-import { worldCountries, worldPath, worldProjection } from "@/lib/worldGeo";
+import { worldCountries } from "@/lib/worldGeo";
 
 import {
   VIEW,
@@ -495,20 +496,44 @@ function FlagMark({ flag }: { flag: NonNullable<StepMapJourney["stops"][number][
   return <g><rect x={-18} y={-12} width={36} height={24} fill={colours[0]} stroke="var(--paper)" /><rect x={-18} y={-4} width={36} height={8} fill={colours[1]} /><rect x={-18} y={4} width={36} height={8} fill={colours[2]} /></g>;
 }
 
-function journeyViewBox(journey: StepMapJourney) {
-  const points = journey.stops.map(stop => worldProjection(stop.coordinates)).filter((point): point is [number, number] => !!point);
-  const left = Math.min(...points.map(point => point[0])) - 65;
-  const top = Math.min(...points.map(point => point[1])) - 100;
-  return `${left} ${top} ${Math.max(280, Math.max(...points.map(point => point[0])) - left + 160)} ${Math.max(220, Math.max(...points.map(point => point[1])) - top + 70)}`;
+function journeyProjection(journey: StepMapJourney, height: number) {
+  const longitudes = journey.stops.map((stop) => stop.coordinates[0]);
+  const latitudes = journey.stops.map((stop) => stop.coordinates[1]);
+  const minLon = Math.min(...longitudes);
+  const maxLon = Math.max(...longitudes);
+  const minLat = Math.min(...latitudes);
+  const maxLat = Math.max(...latitudes);
+  const lonPad = Math.max(8, (maxLon - minLon) * 0.12);
+  const latPad = Math.max(6, (maxLat - minLat) * 0.18);
+  const left = minLon - lonPad;
+  const right = maxLon + lonPad;
+  const bottom = Math.max(-72, minLat - latPad);
+  const top = Math.min(72, maxLat + latPad);
+  const center: [number, number] = [(left + right) / 2, (bottom + top) / 2];
+  const trial = geoMercator().center(center).scale(1).translate([0, 0]);
+  const corners = [[left, bottom], [left, top], [right, bottom], [right, top]]
+    .map((point) => trial(point as [number, number]))
+    .filter((point): point is [number, number] => !!point);
+  const xRange = Math.max(...corners.map((point) => point[0])) - Math.min(...corners.map((point) => point[0]));
+  const yRange = Math.max(...corners.map((point) => point[1])) - Math.min(...corners.map((point) => point[1]));
+  const scale = Math.min(840 / xRange, Math.max(260, height - 150) / yRange);
+  return geoMercator().center(center).scale(scale).translate([VIEW.width / 2, height / 2]);
 }
 
-function WorldJourneyLayer({ journey }: { journey: StepMapJourney }) {
-  const projected = journey.stops.map((stop) => ({ ...stop, point: worldProjection(stop.coordinates) }));
-  return <g className="world-journey"><rect width={VIEW.width} height={VIEW.height} fill="var(--map-water)" />
-    {worldCountries.features.map((country, index) => <path key={index} d={worldPath(country) ?? undefined} fill="var(--map-neighbour)" stroke="var(--map-neighbour-edge)" strokeWidth={0.55} />)}
-    {projected.slice(1).map((stop, index) => { const previous = projected[index]; if (!previous.point || !stop.point) return null; const [x1, y1] = previous.point; const [x2, y2] = stop.point; const bow = Math.min(95, Math.abs(x2 - x1) * 0.18 + 25); return <path key={`${previous.label}-${stop.label}`} d={`M ${x1} ${y1} Q ${(x1 + x2) / 2} ${(y1 + y2) / 2 - bow} ${x2} ${y2}`} fill="none" stroke="var(--series-2)" strokeWidth={3} strokeDasharray="8 9" className="world-route-line" />; })}
-    {projected.map((stop) => { if (!stop.point) return null; const [x, y] = stop.point; return <g key={stop.label} transform={`translate(${x} ${y})`}>{stop.emphasis && <circle r={30} fill="var(--series-2-wash)" stroke="var(--series-2)" className="journey-pulse" />}{stop.flag ? <FlagMark flag={stop.flag} /> : <circle r={6} fill="var(--series-2)" />}<text x={24} y={4} fontSize={13} fontWeight={700} fill="var(--ink)" stroke="var(--paper)" strokeWidth={4} paintOrder="stroke">{stop.label}</text></g>; })}
-    {journey.caption && <text x={VIEW.width / 2} y={VIEW.height - 64} textAnchor="middle" fontSize={12} fill="var(--ink-secondary)">{journey.caption}</text>}
+function WorldJourneyLayer({ journey, height }: { journey: StepMapJourney; height: number }) {
+  const projection = journeyProjection(journey, height);
+  const path = geoPath(projection);
+  const projected = journey.stops.map((stop) => ({ ...stop, point: projection(stop.coordinates) }));
+  return <g className="world-journey"><rect width={VIEW.width} height={height} fill="var(--map-water)" />
+    {worldCountries.features.map((country, index) => <path key={index} d={path(country) ?? undefined} fill="var(--map-neighbour)" stroke="var(--map-neighbour-edge)" strokeWidth={0.7} vectorEffect="non-scaling-stroke" />)}
+    {projected.slice(1).map((stop, index) => { const previous = projected[index]; if (!previous.point || !stop.point) return null; const [x1, y1] = previous.point; const [x2, y2] = stop.point; const bow = Math.min(110, Math.abs(x2 - x1) * 0.12 + 30); return <path key={`${previous.label}-${stop.label}`} d={`M ${x1} ${y1} Q ${(x1 + x2) / 2} ${(y1 + y2) / 2 - bow} ${x2} ${y2}`} fill="none" stroke="var(--series-2)" strokeWidth={4} strokeDasharray="10 10" className="world-route-line" />; })}
+    {projected.map((stop) => {
+      if (!stop.point) return null;
+      const [x, y] = stop.point;
+      const placeLeft = x > 760;
+      return <g key={stop.label} transform={`translate(${x} ${y})`}>{stop.emphasis && <circle r={34} fill="var(--series-2-wash)" stroke="var(--series-2)" className="journey-pulse" />}{stop.flag ? <FlagMark flag={stop.flag} /> : <circle r={7} fill="var(--series-2)" />}<text x={placeLeft ? -24 : 24} y={5} textAnchor={placeLeft ? "end" : "start"} fontSize={16} fontWeight={700} fill="var(--ink)" stroke="var(--paper)" strokeWidth={5} paintOrder="stroke">{stop.label}</text></g>;
+    })}
+    {journey.caption && <text x={VIEW.width / 2} y={height - 24} textAnchor="middle" fontSize={13} fill="var(--ink-secondary)">{journey.caption}</text>}
   </g>;
 }
 
@@ -522,9 +547,25 @@ function AlliedLiberationLayer() {
 }
 
 function CurrentControlLayer() {
-  const resistance = new Set(["Chin", "Sagaing", "Kayah", "Kayin", "Rakhine", "Kachin"]);
-  const mixed = new Set(["Magway", "Shan", "Mon", "Tanintharyi"]);
-  return <g pointerEvents="none" className="current-control-layer">{states.features.map((feature) => { const name = feature.properties.name; const fill = resistance.has(name) ? "var(--series-2)" : mixed.has(name) ? "url(#control-mixed)" : "var(--series-1)"; return <path key={name} d={toPath(feature)} fill={fill} fillOpacity={0.62} stroke="var(--map-outline)" strokeWidth={0.9} vectorEffect="non-scaling-stroke" />; })}</g>;
+  const predominantlyResistance = new Set(["Rakhine"]);
+  const predominantlyMilitary = new Set(["Yangon", "Ayeyarwady", "Naypyitaw"]);
+  return <g pointerEvents="none" className="current-control-layer">{states.features.map((feature) => {
+    const name = feature.properties.name;
+    const fill = predominantlyResistance.has(name)
+      ? "var(--series-2)"
+      : predominantlyMilitary.has(name)
+        ? "var(--series-1)"
+        : "url(#control-mixed)";
+    return <path
+      key={name}
+      d={toPath(feature)}
+      fill={fill}
+      fillOpacity={predominantlyResistance.has(name) || predominantlyMilitary.has(name) ? 0.58 : 0.9}
+      stroke="var(--map-outline)"
+      strokeWidth={0.9}
+      vectorEffect="non-scaling-stroke"
+    />;
+  })}</g>;
 }
 
 /**
@@ -748,9 +789,10 @@ export default function StoryMap({
             />
           </pattern>
         ))}
-        <pattern id="control-mixed" width={10} height={10} patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-          <rect width={10} height={10} fill="var(--series-1)" />
-          <rect width={5} height={10} fill="var(--series-2)" />
+        <pattern id="control-mixed" width={18} height={18} patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+          <rect width={18} height={18} fill="var(--map-land)" />
+          <line x1={2} y1={0} x2={2} y2={18} stroke="var(--series-2)" strokeWidth={3} strokeOpacity={0.55} />
+          <line x1={11} y1={0} x2={11} y2={18} stroke="var(--series-1)" strokeWidth={2} strokeOpacity={0.42} />
         </pattern>
       </defs>
 
@@ -803,7 +845,7 @@ export default function StoryMap({
         />
       )}
       </g>
-      {visual?.map?.journey && <svg viewBox={journeyViewBox(visual.map.journey)} width={1000} height={viewport.height} preserveAspectRatio="xMidYMid meet"><WorldJourneyLayer key={stepId} journey={visual.map.journey} /></svg>}
+      {visual?.map?.journey && <WorldJourneyLayer key={stepId} journey={visual.map.journey} height={viewport.height} />}
     </svg>
   );
 }

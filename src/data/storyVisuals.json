@@ -806,8 +806,8 @@
       "type": "election",
       "eyebrow": "2020 elected Union parliament seats",
       "title": "The NLD increased its majority",
-      "subtitle": "The 498 elected seats declared across both houses; military-appointed seats are separate.",
-      "total": 498,
+      "subtitle": "The 476 elected seats declared across both houses; military-appointed seats are separate.",
+      "total": 476,
       "data": [
         {
           "label": "NLD",
@@ -821,7 +821,7 @@
         },
         {
           "label": "Other parties",
-          "value": 69,
+          "value": 47,
           "tone": "neutral"
         }
       ],
@@ -1071,16 +1071,6 @@
   {
     "step": "vii-1027",
     "map": {
-      "fills": [
-        {
-          "areas": [
-            "Shan"
-          ],
-          "tone": "resistance",
-          "label": "Three Brotherhood Alliance offensive",
-          "opacity": 0.5
-        }
-      ],
       "actors": [
         {
           "actor": "mndaa",
@@ -1096,14 +1086,6 @@
           "coordinates": [
             97.03,
             22.54
-          ]
-        },
-        {
-          "actor": "ula-aa",
-          "label": "Arakan Army",
-          "coordinates": [
-            97.75,
-            22.94
           ]
         }
       ],
@@ -1178,8 +1160,8 @@
     "graphic": {
       "type": "election",
       "eyebrow": "Military-run election · Dec 2025–Jan 2026",
-      "title": "The USDP dominated a vote held in 263 of 330 townships",
-      "subtitle": "Official vote shares across the election. The NLD was dissolved and major opposition forces were excluded; one fifth of townships did not vote because of fighting.",
+      "title": "The USDP dominated a tightly controlled election",
+      "subtitle": "Official vote shares. Voting was limited to areas where the military authorities could hold it; the NLD was dissolved and major opposition forces were excluded.",
       "total": 100,
       "data": [
         {
@@ -1207,7 +1189,7 @@
           "tone": "neutral"
         }
       ],
-      "overlay": "Major opposition excluded · 67 townships did not vote"
+      "overlay": "Major opposition excluded · voting was not nationwide"
     }
   },
   {
