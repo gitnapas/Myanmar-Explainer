@@ -694,19 +694,20 @@
     },
     "actors": [
       "knu",
-      "tnla",
-      "ula-aa",
-      "uwsa",
-      "kio"
+      "cnf",
+      "absdf",
+      "kio",
+      "uwsa"
     ],
     "layers": [
       "nca-signatories"
     ],
     "sources": [
       "nca-2015",
-      "icg-myanmar"
+      "icg-myanmar",
+      "spf-nca-2015"
     ],
-    "uncertainty": "[DATA NEEDED: confirm the full signatory and non-signatory lists, including organisations that signed after 2015, against the agreement text]"
+    "uncertainty": "The map shows the eight organisations that signed on 15 October 2015 and two major non-signatories for contrast. Two further organisations joined the agreement in 2018."
   },
   {
     "id": "iv-2015-election",

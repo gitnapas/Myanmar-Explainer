@@ -70,6 +70,31 @@
           ],
           "tone": "independence"
         }
+      ],
+      "actors": [
+        {
+          "label": "British Empire",
+          "coordinates": [
+            92.4,
+            20.2
+          ],
+          "destination": [
+            96.08,
+            21.97
+          ],
+          "flag": "united-kingdom",
+          "role": "Colonizing power"
+        },
+        {
+          "label": "Konbaung kingdom",
+          "coordinates": [
+            96.08,
+            21.97
+          ],
+          "flag": "bamar-peacock",
+          "status": "deposed",
+          "role": "Defeated in 1885"
+        }
       ]
     }
   },
@@ -586,32 +611,32 @@
           "actor": "cpb",
           "label": "Communists",
           "coordinates": [
-            96.1,
-            19.2
+            95.82746,
+            19.71214
           ]
         },
         {
           "actor": "pvo",
           "label": "PVO / army mutineers",
           "coordinates": [
-            95,
-            21.4
+            95.33707,
+            19.10034
           ]
         },
         {
           "actor": "knu",
           "label": "KNDO",
           "coordinates": [
-            97.9,
-            16.5
+            97.85617,
+            17.47647
           ]
         },
         {
           "actor": "rohingya-mujahideen",
           "label": "Mujahideen",
           "coordinates": [
-            92.6,
-            21.2
+            92.44168,
+            20.93949
           ]
         }
       ]
@@ -1204,6 +1229,10 @@
           "coordinates": [
             97.63,
             16.89
+          ],
+          "destination": [
+            96.1297,
+            19.7633
           ]
         },
         {
@@ -1211,20 +1240,78 @@
           "coordinates": [
             98.2,
             20.5
+          ],
+          "destination": [
+            96.1297,
+            19.7633
           ]
         },
         {
+          "actor": "cnf",
           "label": "CNF · signatory",
           "coordinates": [
             93.61,
             22.64
+          ],
+          "destination": [
+            96.1297,
+            19.7633
           ]
         },
         {
+          "actor": "absdf",
           "label": "ABSDF · signatory",
           "coordinates": [
             98.5,
             16.72
+          ],
+          "destination": [
+            96.1297,
+            19.7633
+          ]
+        },
+        {
+          "label": "DKBA · signatory",
+          "coordinates": [
+            98.18,
+            16.54
+          ],
+          "destination": [
+            96.1297,
+            19.7633
+          ]
+        },
+        {
+          "label": "ALP · signatory",
+          "coordinates": [
+            93.3,
+            20.3
+          ],
+          "destination": [
+            96.1297,
+            19.7633
+          ]
+        },
+        {
+          "label": "PNLO · signatory",
+          "coordinates": [
+            97,
+            20.5
+          ],
+          "destination": [
+            96.1297,
+            19.7633
+          ]
+        },
+        {
+          "label": "KNU/KNLA-PC · signatory",
+          "coordinates": [
+            97.75,
+            16.7
+          ],
+          "destination": [
+            96.1297,
+            19.7633
           ]
         },
         {
@@ -1245,7 +1332,26 @@
           ],
           "status": "excluded"
         }
+      ],
+      "annotations": [
+        {
+          "label": "Naypyitaw",
+          "detail": "Eight organisations signed here on 15 October 2015",
+          "coordinates": [
+            96.1297,
+            19.7633
+          ],
+          "tone": "independence"
+        }
       ]
+    },
+    "graphic": {
+      "type": "media",
+      "title": "The NCA signing ceremony",
+      "file": "images/nca-signing-ceremony.jpg",
+      "href": "https://www.spf.org/apbi/news_en/m_160107.html",
+      "caption": "Representatives of the government, armed forces and eight ethnic armed organisations at the signing ceremony in Naypyitaw.",
+      "credit": "Asia Peacebuilding Initiatives, Sasakawa Peace Foundation · 15 October 2015"
     }
   },
   {
