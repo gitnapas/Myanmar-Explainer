@@ -156,10 +156,16 @@ function buildEntries(layers: string[]): Entry[] {
 
   if (layers.includes("current-control-trace")) {
     entries.push({
-      term: "State-level orientation · sources dated June–July 2026",
+      term: "Territorial status · 11 July 2026",
       caveat:
-        "Only the strongest state-level patterns are solid. Stripes mean fragmented or contested control, not a precise front line.",
+        "Areas distinguish SAC/allies, NUG/allies, contested control and neutral EAO control. Boundaries are indicative, not live front lines.",
       swatch: <Hatched />,
+    });
+    entries.push({
+      term: "PDF and ethnic armed organisations",
+      caveat:
+        "PDF is kept as its own category. AA, CBA, CNA, KIA, KNDF, KNLA, MNDAA, NDAA, RCSS, SSPP, TNLA and UWSA remain individually labelled.",
+      swatch: <Dash color="var(--series-2)" />,
     });
   }
 

@@ -22,6 +22,7 @@ import {
   type City,
 } from "@/lib/geo";
 import { useCameraTween, type Camera } from "@/lib/useCameraTween";
+import { asset } from "@/lib/asset";
 import flowsData from "@/data/flows.json";
 import territoryData from "@/data/territory.json";
 import type { TerritoryClaim } from "@/lib/types";
@@ -650,25 +651,26 @@ function AlliedLiberationLayer() {
 }
 
 function CurrentControlLayer() {
-  const predominantlyResistance = new Set(["Rakhine"]);
-  const predominantlyMilitary = new Set(["Yangon", "Ayeyarwady", "Naypyitaw"]);
-  return <g pointerEvents="none" className="current-control-layer">{states.features.map((feature) => {
-    const name = feature.properties.name;
-    const fill = predominantlyResistance.has(name)
-      ? "var(--series-2)"
-      : predominantlyMilitary.has(name)
-        ? "var(--series-1)"
-        : "url(#control-mixed)";
-    return <path
-      key={name}
-      d={toPath(feature)}
-      fill={fill}
-      fillOpacity={predominantlyResistance.has(name) || predominantlyMilitary.has(name) ? 0.58 : 0.9}
-      stroke="var(--map-outline)"
-      strokeWidth={0.9}
-      vectorEffect="non-scaling-stroke"
-    />;
-  })}</g>;
+  return (
+    <g pointerEvents="none" className="current-control-layer">
+      <image
+        href={asset("/maps/myanmar-control-2026.svg")}
+        x={226}
+        y={0}
+        width={548}
+        height={1150}
+        preserveAspectRatio="xMidYMid meet"
+        clipPath="url(#myanmar-clip)"
+      />
+      <path
+        d={toPath(outline)}
+        fill="none"
+        stroke="var(--map-outline)"
+        strokeWidth={1.35}
+        vectorEffect="non-scaling-stroke"
+      />
+    </g>
+  );
 }
 
 /**
@@ -973,16 +975,3 @@ export default function StoryMap({
     </svg>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

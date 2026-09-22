@@ -1279,8 +1279,8 @@
     "dateLabel": "The territorial picture in 2026",
     "title": "No single authority controls Myanmar",
     "mode": "map",
-    "summary": "The military holds the principal cities, air power and important transport corridors. Resistance forces and ethnic armed organisations administer or contest wide areas, especially along the borders and across the northwest.",
-    "detail": "This closing map is a conservative state-level orientation, not a front-line map. Only the strongest broad patterns are shown as solid; fragmented or contested states are hatched. Control can mean a town, a road, a garrison, taxation, courts or the ability to operate at night, and those do not always belong to the same actor. ISP-Myanmar estimated in June 2026 that 39.34 per cent of landmass lay outside military control.",
+    "summary": "The military holds the principal cities, air power and important transport corridors. The map separates PDF resistance from named ethnic armed organisations and shows where control is contested.",
+    "detail": "This closing map uses the detailed vector control areas in the 11 July 2026 Wikimedia map. Territorial status and actor identity are kept separate: the polygons show SAC/allied, NUG/allied, contested or neutral-EAO control, while labels identify PDF and individual organisations such as the AA, KIA, KNLA, KNDF, TNLA and MNDAA. Control can mean a town, road, garrison, taxation, courts or the ability to operate at night, and those do not always belong to the same actor.",
     "focus": {
       "center": [
         96.5,
@@ -1296,6 +1296,6 @@
       "commons-control-2026",
       "iiss-conflict-map"
     ],
-    "uncertainty": "There is no authoritative, real-time ledger of territorial control. This layer deliberately avoids township-level boundaries because the project does not yet have a source-backed control dataset at that resolution."
+    "uncertainty": "There is no authoritative, real-time ledger of territorial control. These source-drawn vector boundaries are an indicative snapshot dated 11 July 2026, not surveyed front lines; organisation labels should not be read as exclusive control of every surrounding polygon."
   }
 ]
