@@ -54,7 +54,7 @@ interface HistoricalInsurgencyPhase {
 }
 
 const historicalInsurgencies =
-  historicalInsurgenciesData as HistoricalInsurgencyPhase[];
+  historicalInsurgenciesData as unknown as HistoricalInsurgencyPhase[];
 const historicalInsurgencyActors = historicalInsurgencies[1].actors;
 
 export interface StoryMapProps {
@@ -973,6 +973,7 @@ export default function StoryMap({
     </svg>
   );
 }
+
 
 
 
