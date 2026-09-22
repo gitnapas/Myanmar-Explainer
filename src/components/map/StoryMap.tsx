@@ -1,7 +1,7 @@
 "use client";
 
 import { memo, useEffect, useRef, useState, useMemo } from "react";
-import { geoMercator, geoPath } from "d3-geo";
+import { geoArea, geoMercator, geoPath } from "d3-geo";
 import type { Feature, Polygon } from "geojson";
 
 import ActorBubble from "@/components/ActorBubble";
@@ -266,11 +266,16 @@ function HistoricalInsurgencyLayer({ year }: { year: "1948" | "1953" }) {
     <g clipPath="url(#myanmar-clip)" pointerEvents="none" aria-label={`Insurgent activity in ${year}`}>
       {phase.actors.flatMap((actor, actorIndex) =>
         actor.zones.map((ring, zoneIndex) => {
-          const feature: Feature<Polygon> = {
+          let feature: Feature<Polygon> = {
             type: "Feature",
             properties: {},
             geometry: { type: "Polygon", coordinates: [ring] },
           };
+          // D3 treats an oppositely wound exterior as the globe minus the ring.
+          // Normalize imported GeoJSON so a small activity zone cannot flood the country clip.
+          if (geoArea(feature) > Math.PI * 2) {
+            feature = { ...feature, geometry: { type: "Polygon", coordinates: [[...ring].reverse()] } };
+          }
           return (
             <path
               key={`${year}-${actor.id}-${zoneIndex}`}
@@ -968,6 +973,7 @@ export default function StoryMap({
     </svg>
   );
 }
+
 
 
 
