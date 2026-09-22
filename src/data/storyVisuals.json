@@ -5,24 +5,70 @@
       "fills": [
         {
           "areas": [
-            "Myanmar",
-            "India",
-            "Bangladesh"
+            "Rakhine",
+            "Tanintharyi"
           ],
           "tone": "colonial",
-          "label": "British India, including Burma after 1886",
-          "opacity": 0.64
+          "label": "First Anglo-Burmese War · 1824–26",
+          "opacity": 0.72,
+          "colour": "#df9a4b",
+          "delayMs": 100
+        },
+        {
+          "areas": [
+            "Ayeyarwady",
+            "Bago",
+            "Yangon",
+            "Mon",
+            "Kayin"
+          ],
+          "tone": "colonial",
+          "label": "Second Anglo-Burmese War · 1852",
+          "opacity": 0.72,
+          "colour": "#c982b6",
+          "delayMs": 950
+        },
+        {
+          "areas": [
+            "Chin",
+            "Sagaing",
+            "Kachin",
+            "Kayah",
+            "Magway",
+            "Mandalay",
+            "Shan"
+          ],
+          "tone": "colonial",
+          "label": "Third Anglo-Burmese War · 1885",
+          "opacity": 0.68,
+          "colour": "#75a878",
+          "delayMs": 1800
         }
       ],
       "annotations": [
         {
-          "label": "Mandalay",
-          "detail": "The last Konbaung capital fell in November 1885",
+          "label": "1824–26 · Arakan and Tenasserim",
           "coordinates": [
-            96.0836,
-            21.9747
+            94.2,
+            19.6
           ],
           "tone": "colonial"
+        },
+        {
+          "label": "1852 · Lower Burma",
+          "coordinates": [
+            96.1,
+            17.5
+          ],
+          "tone": "civilian"
+        },
+        {
+          "label": "1885 · Upper Burma; Mandalay falls",
+          "coordinates": [
+            96.08,
+            21.97
+          ],
+          "tone": "independence"
         }
       ]
     }
@@ -150,39 +196,89 @@
             "Shan"
           ],
           "tone": "civilian",
-          "label": "Panglong in the Shan States",
-          "opacity": 0.45
+          "label": "Shan States represented at Panglong",
+          "opacity": 0.44
+        },
+        {
+          "areas": [
+            "Kachin"
+          ],
+          "tone": "resistance",
+          "label": "Kachin territory represented at Panglong",
+          "opacity": 0.38
+        },
+        {
+          "areas": [
+            "Chin"
+          ],
+          "tone": "warning",
+          "label": "Chin territory represented at Panglong",
+          "opacity": 0.38
+        },
+        {
+          "areas": [
+            "Yangon",
+            "Ayeyarwady",
+            "Bago",
+            "Magway",
+            "Mandalay",
+            "Sagaing",
+            "Tanintharyi",
+            "Naypyitaw"
+          ],
+          "tone": "independence",
+          "label": "Bamar-majority ministerial Burma represented by Aung San; Karen, Mon, Rakhine and Karenni excluded",
+          "opacity": 0.27
         }
       ],
       "actors": [
         {
           "actor": "aung-san",
-          "label": "Aung San",
+          "label": "Aung San · ministerial Burma",
           "coordinates": [
-            96.98,
-            20.82
+            96.16,
+            16.78
+          ],
+          "destination": [
+            97.05,
+            20.78
           ]
         },
         {
           "label": "Shan leaders",
           "coordinates": [
-            97.08,
-            20.9
-          ]
+            98.15,
+            22.15
+          ],
+          "destination": [
+            97.05,
+            20.78
+          ],
+          "flag": "shan"
         },
         {
           "label": "Kachin leaders",
           "coordinates": [
-            96.92,
-            20.93
-          ]
+            97.25,
+            25.25
+          ],
+          "destination": [
+            97.05,
+            20.78
+          ],
+          "flag": "kachin"
         },
         {
           "label": "Chin leaders",
           "coordinates": [
-            96.89,
-            20.77
-          ]
+            93.7,
+            22
+          ],
+          "destination": [
+            97.05,
+            20.78
+          ],
+          "flag": "chin"
         }
       ],
       "annotations": [
@@ -214,16 +310,230 @@
           "actor": "aung-san",
           "label": "Aung San",
           "coordinates": [
-            96.16,
-            16.78
+            96.166,
+            16.774
           ],
-          "status": "assassinated"
+          "status": "assassinated",
+          "group": "martyrs",
+          "groupLabel": "At the attack · victims & survivors",
+          "role": "Executive Council"
+        },
+        {
+          "label": "Thakin Mya",
+          "coordinates": [
+            96.166,
+            16.774
+          ],
+          "status": "assassinated",
+          "group": "martyrs",
+          "groupLabel": "At the attack · victims & survivors",
+          "role": "Executive Council"
+        },
+        {
+          "label": "Ba Cho",
+          "coordinates": [
+            96.166,
+            16.774
+          ],
+          "status": "assassinated",
+          "group": "martyrs",
+          "groupLabel": "At the attack · victims & survivors",
+          "role": "Executive Council"
+        },
+        {
+          "label": "U Abdul Razak",
+          "coordinates": [
+            96.166,
+            16.774
+          ],
+          "status": "assassinated",
+          "group": "martyrs",
+          "groupLabel": "At the attack · victims & survivors",
+          "role": "Executive Council"
+        },
+        {
+          "label": "Ba Win",
+          "coordinates": [
+            96.166,
+            16.774
+          ],
+          "status": "assassinated",
+          "group": "martyrs",
+          "groupLabel": "At the attack · victims & survivors",
+          "role": "Executive Council"
+        },
+        {
+          "label": "Mahn Ba Khaing",
+          "coordinates": [
+            96.166,
+            16.774
+          ],
+          "status": "assassinated",
+          "group": "martyrs",
+          "groupLabel": "At the attack · victims & survivors",
+          "role": "Executive Council"
+        },
+        {
+          "label": "Sao San Tun",
+          "coordinates": [
+            96.166,
+            16.774
+          ],
+          "status": "assassinated",
+          "group": "martyrs",
+          "groupLabel": "At the attack · victims & survivors",
+          "role": "Executive Council"
+        },
+        {
+          "actor": "u-ohn-maung",
+          "label": "U Ohn Maung",
+          "coordinates": [
+            96.166,
+            16.774
+          ],
+          "status": "assassinated",
+          "group": "martyrs",
+          "groupLabel": "At the attack · victims & survivors",
+          "role": "Entered the chamber"
+        },
+        {
+          "actor": "yebaw-ko-htwe",
+          "label": "Yebaw Ko Htwe",
+          "coordinates": [
+            96.166,
+            16.774
+          ],
+          "status": "assassinated",
+          "group": "martyrs",
+          "groupLabel": "At the attack · victims & survivors",
+          "role": "Killed outside"
+        },
+        {
+          "label": "Aung Zan Wai · unhurt",
+          "coordinates": [
+            96.166,
+            16.774
+          ],
+          "status": "survived",
+          "group": "martyrs",
+          "groupLabel": "At the attack · victims & survivors",
+          "role": "Executive Council"
+        },
+        {
+          "label": "U Mya · unhurt",
+          "coordinates": [
+            96.166,
+            16.774
+          ],
+          "status": "survived",
+          "group": "martyrs",
+          "groupLabel": "At the attack · victims & survivors",
+          "role": "Executive Council"
+        },
+        {
+          "label": "Ba Gyan · wounded",
+          "coordinates": [
+            96.166,
+            16.774
+          ],
+          "status": "survived",
+          "group": "martyrs",
+          "groupLabel": "At the attack · victims & survivors",
+          "role": "Executive Council"
+        },
+        {
+          "label": "Kyaw Nyein · overseas",
+          "coordinates": [
+            96.166,
+            16.774
+          ],
+          "status": "survived",
+          "group": "martyrs",
+          "groupLabel": "At the attack · victims & survivors",
+          "role": "Executive Council"
+        },
+        {
+          "label": "Tin Tut · abroad",
+          "coordinates": [
+            96.166,
+            16.774
+          ],
+          "status": "survived",
+          "group": "martyrs",
+          "groupLabel": "At the attack · victims & survivors",
+          "role": "Executive Council"
+        },
+        {
+          "actor": "u-nu",
+          "label": "U Nu",
+          "coordinates": [
+            96.166,
+            16.774
+          ],
+          "group": "leadership",
+          "groupLabel": "Wider political & military leadership",
+          "role": "Absent · political leadership"
+        },
+        {
+          "actor": "ne-win",
+          "label": "Bo Ne Win",
+          "coordinates": [
+            96.166,
+            16.774
+          ],
+          "group": "leadership",
+          "groupLabel": "Wider political & military leadership",
+          "role": "Military leadership"
+        },
+        {
+          "actor": "bo-let-ya",
+          "label": "Bo Let Ya",
+          "coordinates": [
+            96.166,
+            16.774
+          ],
+          "group": "leadership",
+          "groupLabel": "Wider political & military leadership",
+          "role": "Military leadership"
+        },
+        {
+          "actor": "sao-shwe-thaik",
+          "label": "Sao Shwe Thaik",
+          "coordinates": [
+            96.166,
+            16.774
+          ],
+          "group": "leadership",
+          "groupLabel": "Wider political & military leadership",
+          "role": "Ethnic political leadership"
+        },
+        {
+          "actor": "thakin-than-tun",
+          "label": "Thakin Than Tun",
+          "coordinates": [
+            96.166,
+            16.774
+          ],
+          "group": "leadership",
+          "groupLabel": "Wider political & military leadership",
+          "role": "Opposition leadership"
+        },
+        {
+          "actor": "galon-u-saw",
+          "label": "Galon U Saw",
+          "coordinates": [
+            96.166,
+            16.774
+          ],
+          "group": "conspirator",
+          "groupLabel": "Conspirator · separate layer",
+          "role": "Organised the attack"
         }
       ],
       "annotations": [
         {
           "label": "Secretariat, Yangon",
-          "detail": "Aung San and six cabinet colleagues were killed here",
+          "detail": "Seven councillors, U Ohn Maung and Yebaw Ko Htwe were killed",
           "coordinates": [
             96.166,
             16.774
@@ -245,58 +555,111 @@
           "label": "Independent Burma",
           "opacity": 0.55
         }
+      ],
+      "actors": [
+        {
+          "actor": "u-nu",
+          "label": "U Nu",
+          "coordinates": [
+            96.12,
+            16.82
+          ],
+          "role": "Prime minister"
+        },
+        {
+          "actor": "sao-shwe-thaik",
+          "label": "Sao Shwe Thaik",
+          "coordinates": [
+            96.2,
+            16.78
+          ],
+          "role": "President"
+        }
       ]
     }
   },
   {
     "step": "ii-karen",
     "map": {
-      "fills": [
-        {
-          "areas": [
-            "Kayin"
-          ],
-          "tone": "resistance",
-          "label": "Karen insurgency",
-          "opacity": 0.5
-        }
-      ],
       "actors": [
         {
-          "actor": "knu",
-          "label": "KNU",
+          "actor": "cpb",
+          "label": "Communists",
           "coordinates": [
-            97.63,
-            16.89
+            96.1,
+            19.2
           ]
         },
         {
-          "actor": "cpb",
-          "label": "CPB",
+          "actor": "pvo",
+          "label": "PVO / army mutineers",
           "coordinates": [
-            96.18,
-            18.15
+            95,
+            21.4
+          ]
+        },
+        {
+          "actor": "knu",
+          "label": "KNDO",
+          "coordinates": [
+            97.9,
+            16.5
+          ]
+        },
+        {
+          "actor": "rohingya-mujahideen",
+          "label": "Mujahideen",
+          "coordinates": [
+            92.6,
+            21.2
           ]
         }
-      ],
-      "annotations": [
+      ]
+    }
+  },
+  {
+    "step": "ii-insurgencies-1953",
+    "map": {
+      "actors": [
         {
-          "label": "Pegu Yoma",
-          "detail": "CPB stronghold and activity - not a territorial border",
+          "actor": "cpb",
+          "label": "Communists",
           "coordinates": [
-            96.15,
-            18.3
-          ],
-          "tone": "warning"
+            95.9,
+            18.1
+          ]
         },
         {
-          "label": "Paukkongyi",
-          "detail": "Communist revolt began in Pegu Region in 1948",
+          "actor": "pvo",
+          "label": "PVO remnants",
           "coordinates": [
-            96.48,
-            17.75
-          ],
-          "tone": "warning"
+            94.4,
+            23.8
+          ]
+        },
+        {
+          "actor": "knu",
+          "label": "KNDO",
+          "coordinates": [
+            98,
+            16.2
+          ]
+        },
+        {
+          "actor": "rohingya-mujahideen",
+          "label": "Mujahideen",
+          "coordinates": [
+            92.6,
+            21.2
+          ]
+        },
+        {
+          "actor": "kmt",
+          "label": "Kuomintang",
+          "coordinates": [
+            99.4,
+            23
+          ]
         }
       ]
     }
@@ -401,7 +764,8 @@
           "coordinates": [
             96.15,
             16.8
-          ]
+          ],
+          "actor": "aung-san-suu-kyi"
         },
         {
           "actor": "absdf",
@@ -409,7 +773,8 @@
           "coordinates": [
             98.45,
             16.7
-          ]
+          ],
+          "flag": "absdf"
         }
       ],
       "annotations": [
@@ -680,12 +1045,12 @@
         },
         {
           "label": "2015",
-          "value": 8.0,
+          "value": 8,
           "tone": "resistance"
         },
         {
           "label": "2016",
-          "value": 7.0,
+          "value": 7,
           "tone": "resistance"
         },
         {
@@ -723,7 +1088,8 @@
           "coordinates": [
             96.2,
             19.78
-          ]
+          ],
+          "actor": "aung-san-suu-kyi"
         }
       ]
     },
@@ -1006,7 +1372,8 @@
             96.05,
             19.69
           ],
-          "status": "detained"
+          "status": "detained",
+          "actor": "aung-san-suu-kyi"
         },
         {
           "label": "Win Myint",
@@ -1057,12 +1424,12 @@
         },
         {
           "label": "2021",
-          "value": -18.0,
+          "value": -18,
           "tone": "military"
         },
         {
           "label": "2022",
-          "value": 1.0,
+          "value": 1,
           "tone": "neutral"
         }
       ]

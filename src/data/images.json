@@ -124,5 +124,68 @@
     "licence": "Public domain",
     "author": "Unknown authorUnknown author",
     "source": "https://commons.wikimedia.org/wiki/File:Burma_Independence_Army.jpg"
+  },
+  {
+    "actor": "aung-san-suu-kyi",
+    "kind": "portrait",
+    "file": "images/aung-san-suu-kyi.jpg",
+    "title": "Aung San Suu Kyi (December 2011).jpg",
+    "licence": "Public domain",
+    "author": "United States Department of State",
+    "source": "https://commons.wikimedia.org/wiki/File:Aung_San_Suu_Kyi_(December_2011).jpg"
+  },
+  {
+    "actor": "u-nu",
+    "kind": "portrait",
+    "file": "images/u-nu.jpg",
+    "title": "Staatsgreep in Birma, premier U nu, Bestanddeelnr 913-5820 (cropped).jpg",
+    "licence": "CC0",
+    "author": "Staatsgreep in Birma, premier U nu, Bestanddeelnr 913-5820.jpg:Anefo derivative work: Supakit prem",
+    "source": "https://commons.wikimedia.org/wiki/File:Staatsgreep_in_Birma,_premier_U_nu,_Bestanddeelnr_913-5820_(cropped).jpg"
+  },
+  {
+    "actor": "bo-let-ya",
+    "kind": "portrait",
+    "file": "images/bo-let-ya.jpg",
+    "title": "General Let Ya (cropped).jpg",
+    "licence": "CC BY-SA 4.0",
+    "author": "Kyar Yoe",
+    "source": "https://commons.wikimedia.org/wiki/File:General_Let_Ya_(cropped).jpg"
+  },
+  {
+    "actor": "sao-shwe-thaik",
+    "kind": "portrait",
+    "file": "images/sao-shwe-thaik.jpg",
+    "title": "Sao Shwe Thaik.jpg",
+    "licence": "Public domain",
+    "author": "Unknown authorUnknown author",
+    "source": "https://commons.wikimedia.org/wiki/File:Sao_Shwe_Thaik.jpg"
+  },
+  {
+    "actor": "thakin-than-tun",
+    "kind": "portrait",
+    "file": "images/thakin-than-tun.jpg",
+    "title": "ThaKhin Than Htun.jpg",
+    "licence": "Public domain",
+    "author": "The original uploader was Aunghtike at Burmese Wikipedia.",
+    "source": "https://commons.wikimedia.org/wiki/File:ThaKhin_Than_Htun.jpg"
+  },
+  {
+    "actor": "galon-u-saw",
+    "kind": "portrait",
+    "file": "images/galon-u-saw.png",
+    "title": "Prime Minister U Saw 1941.png",
+    "licence": "Public domain",
+    "author": "Unknown author",
+    "source": "https://commons.wikimedia.org/wiki/File:Prime_Minister_U_Saw_1941.png"
+  },
+  {
+    "actor": "u-ohn-maung",
+    "kind": "portrait",
+    "file": "images/u-ohn-maung.jpg",
+    "title": "Uohnmg.jpg",
+    "licence": "Public domain",
+    "author": "The original uploader was Wikimerge at Burmese Wikipedia.",
+    "source": "https://commons.wikimedia.org/wiki/File:Uohnmg.jpg"
   }
 ]

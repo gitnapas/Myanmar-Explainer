@@ -323,5 +323,103 @@
     "url": "https://documents.un.org/doc/undoc/gen/g24/043/38/pdf/g2404338.pdf",
     "kind": "report",
     "note": "Documents the Three Brotherhood Alliance offensive in northern Shan and distinguishes it from the Arakan Army campaign in Rakhine and Paletwa."
+  },
+  {
+    "id": "tinker-1957",
+    "publisher": "Oxford University Press",
+    "title": "Hugh Tinker, The Union of Burma: A Study of the First Years of Independence",
+    "date": "1957",
+    "url": "https://archive.org/details/dli.ernet.507819",
+    "kind": "academic",
+    "note": "Near-contemporary survey used for the broad 1948 and 1953 insurgent-activity reconstructions. Its maps are interpretive snapshots, not surveyed front lines."
+  },
+  {
+    "id": "frus-insurgency-1951",
+    "publisher": "U.S. Department of State, Office of the Historian",
+    "title": "The Current Situation in Burma",
+    "date": "1951-08-01",
+    "url": "https://history.state.gov/historicaldocuments/frus1951v06p1/d131",
+    "kind": "primary",
+    "note": "Contemporary U.S. intelligence estimate identifying the CPB, KNDO and PVO remnants as principal insurgent forces and noting government recovery of the main population centres."
+  },
+  {
+    "id": "frus-burma-1953",
+    "publisher": "U.S. Department of State, Office of the Historian",
+    "title": "Probable Developments in Burma Through 1953",
+    "date": "1952-08-07",
+    "url": "https://history.state.gov/historicaldocuments/frus1952-54v12p2/d37",
+    "kind": "primary",
+    "note": "Contemporary estimate of Communist, Karen and Chinese Nationalist capabilities. Used to check the 1953 actor framing, not to claim exact territorial borders."
+  },
+  {
+    "id": "leider-arakan-2023",
+    "publisher": "ISEAS – Yusof Ishak Institute",
+    "title": "Jacques P. Leider, Violence and Belonging: Conflict, War, and Insecurity in Arakan, 1942–1952",
+    "date": "2023",
+    "url": "https://www.networkmyanmar.org/ESW/Files/2023-Leider-Violence-and-Belonging-Arakan-1942-1952.pdf",
+    "kind": "academic",
+    "note": "Historical study of wartime and early post-independence violence in Arakan, including the Mujahid movement from 1948."
+  },
+  {
+    "id": "commons-burma-1948",
+    "publisher": "Wikimedia Commons",
+    "title": "Burma1948.png",
+    "date": "2024-03-27",
+    "url": "https://commons.wikimedia.org/wiki/File:Burma1948.png",
+    "kind": "data",
+    "note": "CC BY-SA 4.0 reconstruction by BorysMapping based on Hugh Tinker's 1957 study. The site redraws its broad activity areas in native SVG and labels their uncertainty."
+  },
+  {
+    "id": "commons-burma-1953",
+    "publisher": "Wikimedia Commons",
+    "title": "Burma1953.png",
+    "date": "2024-03-27",
+    "url": "https://commons.wikimedia.org/wiki/File:Burma1953.png",
+    "kind": "data",
+    "note": "CC BY-SA 4.0 reconstruction by BorysMapping based on Hugh Tinker's 1957 study. The site redraws its broad activity areas in native SVG and labels their uncertainty."
+  },
+  {
+    "id": "network-myanmar-historical-notes",
+    "publisher": "Network Myanmar",
+    "title": "Historical Notes on Burma / Myanmar",
+    "date": "2022",
+    "url": "https://networkmyanmar.org/ESW/Files/Historical-Notes.pdf",
+    "kind": "academic",
+    "note": "Used for U Nu’s absence, the attempt at his home, and the reconstitution of the Executive Council after the assassination."
+  },
+  {
+    "id": "network-myanmar-aung-san-death",
+    "publisher": "Network Myanmar",
+    "title": "The Death of Aung San in 1947 — An Important Clarification",
+    "date": "2022",
+    "url": "https://www.networkmyanmar.org/ESW/Files/Death-of-Aung-San-rev3.pdf",
+    "kind": "academic",
+    "note": "Detailed review of the assassination record and Galon U Saw’s conviction."
+  },
+  {
+    "id": "frus-assassination-1947",
+    "publisher": "U.S. Department of State, Office of the Historian",
+    "title": "Telegram from Rangoon, 19 July 1947",
+    "date": "1947-07-19",
+    "url": "https://history.state.gov/historicaldocuments/frus1947v06/d41",
+    "kind": "primary",
+    "note": "Contemporary diplomatic report identifying U Ohn Maung as Deputy Secretary of Transport and Communications and recording his death."
+  },
+  {
+    "id": "ide-burma-1947",
+    "publisher": "Institute of Developing Economies, Japan External Trade Organization",
+    "title": "Burma/Myanmar political chronology and historical studies",
+    "url": "https://www.ide.go.jp/English/Research/Region/Asia/Myanmar.html",
+    "kind": "academic",
+    "note": "Used for the post-assassination political and military leadership context."
+  },
+  {
+    "id": "british-museum-anglo-burmese-wars",
+    "publisher": "The British Museum",
+    "title": "Burma to Myanmar: large print exhibition guide",
+    "date": "2023",
+    "url": "https://www.britishmuseum.org/sites/default/files/2023-11/Burma_to_Myanmar_large_print_guide.pdf",
+    "kind": "academic",
+    "note": "Summarises Britain’s three-stage annexation in 1824–26, 1852 and 1885."
   }
 ]

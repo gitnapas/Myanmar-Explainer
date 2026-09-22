@@ -2,10 +2,12 @@
 
 import { memo, useEffect, useRef, useState, useMemo } from "react";
 import { geoMercator, geoPath } from "d3-geo";
+import type { Feature, Polygon } from "geojson";
 
 import ActorBubble from "@/components/ActorBubble";
 import type { Actor, StepMapFill, StepMapJourney, StepVisual, VisualTone } from "@/lib/types";
 import { worldCountries } from "@/lib/worldGeo";
+import historicalInsurgenciesData from "@/data/historicalInsurgencies.json";
 
 import {
   VIEW,
@@ -36,6 +38,24 @@ interface Flow {
   steps: string[];
   sources: string[];
 }
+
+type HistoricalCoordinate = [number, number];
+
+interface HistoricalInsurgencyActor {
+  id: string;
+  label: string;
+  colour: string;
+  zones: HistoricalCoordinate[][];
+}
+
+interface HistoricalInsurgencyPhase {
+  year: "1948" | "1953";
+  actors: HistoricalInsurgencyActor[];
+}
+
+const historicalInsurgencies =
+  historicalInsurgenciesData as HistoricalInsurgencyPhase[];
+const historicalInsurgencyActors = historicalInsurgencies[1].actors;
 
 export interface StoryMapProps {
   focus: Camera;
@@ -206,12 +226,13 @@ function HistoricalFillLayer({ fills }: { fills: StepMapFill[] }) {
             <path
               key={`state-${fillIndex}-${feature.properties.name}`}
               d={toPath(feature)}
-              fill={fillForTone[fill.tone]}
+              fill={fill.colour ?? fillForTone[fill.tone]}
               fillOpacity={fill.opacity ?? 0.45}
-              stroke={fillForTone[fill.tone]}
+              stroke={fill.colour ?? fillForTone[fill.tone]}
               strokeWidth={1.2}
               vectorEffect="non-scaling-stroke"
               className="story-area-fill"
+              style={{ animationDelay: `${fill.delayMs ?? 0}ms` }}
             />
           ));
 
@@ -221,12 +242,13 @@ function HistoricalFillLayer({ fills }: { fills: StepMapFill[] }) {
             <path
               key={`neighbour-${fillIndex}-${feature.properties.name}`}
               d={toPath(feature)}
-              fill={fillForTone[fill.tone]}
+              fill={fill.colour ?? fillForTone[fill.tone]}
               fillOpacity={fill.opacity ?? 0.45}
-              stroke={fillForTone[fill.tone]}
+              stroke={fill.colour ?? fillForTone[fill.tone]}
               strokeWidth={1.2}
               vectorEffect="non-scaling-stroke"
               className="story-area-fill"
+              style={{ animationDelay: `${fill.delayMs ?? 0}ms` }}
             />
           ));
 
@@ -236,6 +258,38 @@ function HistoricalFillLayer({ fills }: { fills: StepMapFill[] }) {
   );
 }
 
+function HistoricalInsurgencyLayer({ year }: { year: "1948" | "1953" }) {
+  const phase = historicalInsurgencies.find((entry) => entry.year === year);
+  if (!phase) return null;
+
+  return (
+    <g clipPath="url(#myanmar-clip)" pointerEvents="none" aria-label={`Insurgent activity in ${year}`}>
+      {phase.actors.flatMap((actor, actorIndex) =>
+        actor.zones.map((ring, zoneIndex) => {
+          const feature: Feature<Polygon> = {
+            type: "Feature",
+            properties: {},
+            geometry: { type: "Polygon", coordinates: [ring] },
+          };
+          return (
+            <path
+              key={`${year}-${actor.id}-${zoneIndex}`}
+              d={toPath(feature)}
+              fill={`url(#insurgency-${actor.id})`}
+              stroke={actor.colour}
+              strokeWidth={1.8}
+              strokeDasharray="5 3"
+              strokeLinejoin="round"
+              vectorEffect="non-scaling-stroke"
+              className="story-area-fill"
+              style={{ animationDelay: `${actorIndex * 110 + zoneIndex * 45}ms` }}
+            />
+          );
+        }),
+      )}
+    </g>
+  );
+}
 function AnnotationLayer({
   annotations,
   camera,
@@ -306,6 +360,13 @@ function ActorMapLayer({
 }) {
   const actorById = new Map(actors.map((actor) => [actor.id, actor]));
   const placed: { x: number; y: number }[] = [];
+  const grouped = marks.some((mark) => mark.group);
+  const groupOrder = [...new Set(marks.map((mark) => mark.group).filter(Boolean))] as string[];
+  const groupColumns: Record<string, { x: number; columns: number; width: number }> = {
+    martyrs: { x: 38, columns: 2, width: 178 },
+    leadership: { x: 410, columns: 2, width: 155 },
+    conspirator: { x: 750, columns: 1, width: 178 },
+  };
 
   return (
     <g className="map-actors">
@@ -313,10 +374,18 @@ function ActorMapLayer({
         const [anchorX, anchorY] = screenPoint(mark.coordinates, camera.center, camera.zoom);
         let x = Math.max(50, Math.min(790, anchorX - 90));
         let y = Math.max(frameTop + 65, Math.min(frameTop + frameHeight - 100, anchorY - 65));
-        for (let attempt = 0; attempt < 24; attempt++) {
-          if (!placed.some((point) => Math.abs(point.x - x) < 195 && Math.abs(point.y - y) < 80)) break;
-          y += 85;
-          if (y > frameTop + frameHeight - 80) { y = frameTop + 65; x = Math.min(790, x + 205); }
+        if (grouped && mark.group) {
+          const config = groupColumns[mark.group] ?? { x: 48 + groupOrder.indexOf(mark.group) * 250, columns: 1, width: 190 };
+          const peers = marks.filter((candidate) => candidate.group === mark.group);
+          const peerIndex = peers.indexOf(mark);
+          x = config.x + (peerIndex % config.columns) * config.width;
+          y = frameTop + 92 + Math.floor(peerIndex / config.columns) * 88;
+        } else {
+          for (let attempt = 0; attempt < 24; attempt++) {
+            if (!placed.some((point) => Math.abs(point.x - x) < 195 && Math.abs(point.y - y) < 80)) break;
+            y += 85;
+            if (y > frameTop + frameHeight - 80) { y = frameTop + 65; x = Math.min(790, x + 205); }
+          }
         }
         placed.push({ x, y });
         const actor = mark.actor ? actorById.get(mark.actor) : undefined;
@@ -325,7 +394,9 @@ function ActorMapLayer({
           .slice(0, 2)
           .map((word) => word[0])
           .join("");
-        const inactive = mark.status && mark.status !== "active";
+        const inactive = mark.status && mark.status !== "active" && mark.status !== "survived";
+        const survived = mark.status === "survived";
+        const destination = mark.destination ? screenPoint(mark.destination, camera.center, camera.zoom) : null;
 
         return (
           <g
@@ -333,8 +404,19 @@ function ActorMapLayer({
             transform={`translate(${x} ${y})`}
             className="actor-map-mark"
           >
-            <line x1={anchorX - x} y1={anchorY - y} x2={0} y2={0} stroke="var(--ink-muted)" strokeOpacity={0.55} strokeWidth={1} />
-            <circle cx={anchorX - x} cy={anchorY - y} r={3} fill="var(--ink)" />
+            {destination && (
+              <path
+                d={`M ${anchorX - x} ${anchorY - y} Q ${(anchorX + destination[0]) / 2 - x} ${Math.min(anchorY, destination[1]) - y - 35} ${destination[0] - x} ${destination[1] - y}`}
+                fill="none"
+                stroke="var(--series-2)"
+                strokeWidth={2.4}
+                strokeDasharray="7 7"
+                markerEnd="url(#journey-arrow)"
+                className="panglong-route"
+              />
+            )}
+            {!grouped && <line x1={anchorX - x} y1={anchorY - y} x2={0} y2={0} stroke="var(--ink-muted)" strokeOpacity={0.55} strokeWidth={1} />}
+            {!grouped && <circle cx={anchorX - x} cy={anchorY - y} r={3} fill="var(--ink)" />}
             <text className="compact-actor-number" x={0} y={0} fontSize={30} fontWeight={700} fill="var(--ink)" stroke="var(--paper)" strokeWidth={5} paintOrder="stroke">{index + 1}</text>
             <foreignObject x={-30} y={-30} width={190} height={82} overflow="visible">
               <div className={`flex items-center gap-2 ${inactive ? "opacity-60 grayscale" : ""}`}>
@@ -351,30 +433,37 @@ function ActorMapLayer({
                       aria-hidden
                     ><svg viewBox="-26 -26 52 52" width={52} height={52}><FlagMark flag={mark.flag} /></svg></span>
                   ) : actor ? (
-                    <ActorBubble actor={actor} size={52} />
+                    <ActorBubble actor={actor} size={52} className={survived ? "actor-survived" : ""} />
                   ) : (
-                    <span className="inline-flex h-[52px] w-[52px] items-center justify-center rounded-full border-2 border-rule-strong bg-paper-raised font-mono text-[0.72rem] font-bold text-ink">
+                    <span className={`inline-flex h-[52px] w-[52px] items-center justify-center rounded-full border-2 border-rule-strong bg-paper-raised font-mono text-[0.72rem] font-bold text-ink ${survived ? "actor-survived" : ""}`}>
                       {initials}
                     </span>
                   )}
                   {inactive && (
-                    <span className="absolute inset-0 flex items-center justify-center text-[3.4rem] font-light leading-none text-series-1">
-                      ×
-                    </span>
+                    <svg className="actor-cross" viewBox="0 0 72 72" aria-hidden>
+                      <path d="M 9 9 L 63 63" />
+                      <path d="M 63 9 L 9 63" />
+                    </svg>
                   )}
                 </button>
                 <span className="max-w-[7.5rem] bg-paper/90 px-1.5 py-1 text-[0.7rem] font-semibold leading-tight text-ink shadow-[0_0_0_1px_var(--rule)]">
                   {mark.label}
                   {mark.status && mark.status !== "active" && (
-                    <small className="mt-0.5 block font-mono text-[0.58rem] uppercase tracking-wide text-series-1">
+                    <small className={`mt-0.5 block font-mono text-[0.58rem] uppercase tracking-wide ${survived ? "text-series-2" : "text-series-1"}`}>
                       {mark.status}
                     </small>
                   )}
+                  {mark.role && <small className="mt-0.5 block font-mono text-[0.58rem] uppercase tracking-wide text-ink-muted">{mark.role}</small>}
                 </span>
               </div>
             </foreignObject>
           </g>
         );
+      })}
+      {grouped && groupOrder.map((group) => {
+        const first = marks.find((mark) => mark.group === group);
+        const config = groupColumns[group] ?? { x: 48 + groupOrder.indexOf(group) * 250 };
+        return <text key={group} x={config.x} y={frameTop + 55} className="map-group-label">{first?.groupLabel ?? group}</text>;
       })}
     </g>
   );
@@ -477,6 +566,11 @@ const worldFlagColours = {
   "united-kingdom": ["#21468b", "#fff", "#ae1c28"],
   gambia: ["#ce1126", "#0c1c8c", "#3a7728"],
   netherlands: ["#ae1c28", "#fff", "#21468b"],
+  "bamar-peacock": ["#f2c230", "#a32125", "#f2c230"],
+  shan: ["#efad10", "#104a31", "#bd2921"],
+  kachin: ["#17854a", "#2264a7", "#d72b32"],
+  chin: ["#154a8a", "#c5222f", "#16864a"],
+  absdf: ["#b41727", "#f2c230", "#fff"],
 } as const;
 
 function FlagMark({ flag }: { flag: NonNullable<StepMapJourney["stops"][number]["flag"]> }) {
@@ -493,6 +587,10 @@ function FlagMark({ flag }: { flag: NonNullable<StepMapJourney["stops"][number][
   if (flag === "japan-imperial") {
     return <g><rect x={-18} y={-12} width={36} height={24} fill="#fff" stroke="var(--paper)" />{Array.from({ length: 16 }, (_, index) => { const a = (Math.PI * 2 * index) / 16; const b = a + Math.PI / 16; return <path key={index} d={`M 0 0 L ${Math.cos(a) * 18} ${Math.sin(a) * 12} L ${Math.cos(b) * 18} ${Math.sin(b) * 12} Z`} fill="#bc002d" />; })}<circle r={5} fill="#bc002d" /></g>;
   }
+  if (flag === "shan") return <g><rect x={-18} y={-12} width={36} height={8} fill="#efad10" /><rect x={-18} y={-4} width={36} height={8} fill="#104a31" /><rect x={-18} y={4} width={36} height={8} fill="#bd2921" /><circle r={6.2} fill="#fff" /></g>;
+  if (flag === "kachin") return <g><rect x={-18} y={-12} width={36} height={24} fill="#17854a" /><circle cy={-1} r={9} fill="#2264a7" /><path d="M-8 3 -3-5 1-1 5-7 10 3Z" fill="#fff" /><path d="M-4 10V-7M4 10V-7M-9-3H9" stroke="#d72b32" strokeWidth={1.8} /></g>;
+  if (flag === "chin") return <g><rect x={-18} y={-12} width={36} height={8} fill="#154a8a" /><rect x={-18} y={-4} width={36} height={8} fill="#c5222f" /><rect x={-18} y={4} width={36} height={8} fill="#16864a" /><circle r={7} fill="#fff" /><path d="M-3 3 Q0-5 3 3 M0-4V5" fill="none" stroke="#111" strokeWidth={1.2} /></g>;
+  if (flag === "absdf") return <g><rect x={-18} y={-12} width={36} height={24} fill="#b41727" /><path d="m-11-8 1.2 3.6h3.8l-3.1 2.2 1.2 3.6-3.1-2.2-3.1 2.2 1.2-3.6-3.1-2.2h3.8z" fill="#fff" /><circle cx={4} cy={1} r={7} fill="none" stroke="#f2c230" strokeWidth={1.4} /><path d="M-2 3Q4-5 10-1M-1 6 10 2" fill="none" stroke="#f2c230" strokeWidth={2} /></g>;
   return <g><rect x={-18} y={-12} width={36} height={24} fill={colours[0]} stroke="var(--paper)" /><rect x={-18} y={-4} width={36} height={8} fill={colours[1]} /><rect x={-18} y={4} width={36} height={8} fill={colours[2]} /></g>;
 }
 
@@ -759,6 +857,25 @@ export default function StoryMap({
       aria-label="Map of Myanmar"
     >
       <defs>
+        <marker id="journey-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 Z" fill="var(--series-2)" />
+        </marker>
+        <clipPath id="myanmar-clip">
+          <path d={toPath(outline)} />
+        </clipPath>
+        {historicalInsurgencyActors.map((actor) => (
+          <pattern
+            key={actor.id}
+            id={`insurgency-${actor.id}`}
+            width={12}
+            height={12}
+            patternUnits="userSpaceOnUse"
+            patternTransform="rotate(38)"
+          >
+            <rect width={12} height={12} fill={actor.colour} fillOpacity={0.3} />
+            <line x1={2} y1={0} x2={2} y2={12} stroke={actor.colour} strokeWidth={3.2} strokeOpacity={0.78} />
+          </pattern>
+        ))}
         {/*
           A little turbulence on the annotation stroke. A perfectly smooth
           ring reads as interface chrome; a slightly broken one reads as
@@ -802,6 +919,8 @@ export default function StoryMap({
         <BaseGeography />
         <AdminUnits highlighted={highlighted} />
         {visual?.map?.fills && <HistoricalFillLayer key={stepId} fills={visual.map.fills} />}
+        {has("insurgencies-1948") && <HistoricalInsurgencyLayer key={stepId} year="1948" />}
+        {has("insurgencies-1953") && <HistoricalInsurgencyLayer key={stepId} year="1953" />}
         {has("allied-liberation") && <AlliedLiberationLayer />}
         {has("current-control-trace") && <CurrentControlLayer />}
         <Rivers />
@@ -849,3 +968,14 @@ export default function StoryMap({
     </svg>
   );
 }
+
+
+
+
+
+
+
+
+
+
+

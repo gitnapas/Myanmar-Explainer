@@ -131,12 +131,14 @@
       "Tanintharyi"
     ],
     "objective": "Self-determination for the Karen people within a federal settlement.",
-    "armedWing": "Karen National Liberation Army (KNLA)",
-    "significance": "One of the oldest continuously active armed organisations in the world. Its conflict with the state began in 1949, the year after independence, which is why the war cannot be described as a consequence of the 2021 coup.",
+    "armedWing": "Karen National Defence Organisation (KNDO) in the early conflict; Karen National Liberation Army (KNLA) thereafter",
+    "significance": "The KNU organised the KNDO before open war with the government began in January 1949. It became one of the world's longest-running armed movements, which is why Myanmar's war cannot be described as a consequence of the 2021 coup.",
     "currentRole": "Administers areas of the southeast and hosts post-coup resistance forces.",
     "sources": [
       "icg-myanmar",
-      "nca-2015"
+      "nca-2015",
+      "frus-insurgency-1951",
+      "tinker-1957"
     ]
   },
   {
@@ -369,6 +371,61 @@
     ]
   },
   {
+    "id": "pvo",
+    "name": "People's Volunteer Organisation",
+    "abbr": "PVO",
+    "type": "resistance",
+    "founded": "1945",
+    "geography": [
+      "Sagaing",
+      "Magway",
+      "Bago",
+      "Ayeyarwady"
+    ],
+    "objective": "A veterans' movement that split after independence; the white-band faction joined the armed left in July 1948.",
+    "significance": "The PVO grew from the wartime independence movement. Its armed faction and sympathetic army mutineers made the first civil-war crisis much broader than a Communist Party revolt.",
+    "currentRole": "Historical; most surviving factions surrendered or were absorbed during the 1950s.",
+    "sources": [
+      "callahan-2003",
+      "frus-insurgency-1951",
+      "tinker-1957"
+    ]
+  },
+  {
+    "id": "rohingya-mujahideen",
+    "name": "Mujahid movement in northern Arakan",
+    "abbr": "Mujahideen",
+    "type": "resistance",
+    "founded": "1948",
+    "geography": [
+      "Rakhine"
+    ],
+    "objective": "Armed claims for Muslim communities in northern Arakan; aims and factions varied over time.",
+    "significance": "One of several rebellions confronting the new union in 1948. Its northern Arakan theatre was geographically and politically distinct from the Communist, PVO and Karen insurgencies.",
+    "currentRole": "Historical. It should not be conflated with later Rohingya armed organisations.",
+    "sources": [
+      "leider-arakan-2023",
+      "tinker-1957"
+    ]
+  },
+  {
+    "id": "kmt",
+    "name": "Chinese Nationalist forces in Burma",
+    "abbr": "KMT",
+    "type": "military",
+    "founded": "1950",
+    "geography": [
+      "Shan"
+    ],
+    "objective": "Maintain bases in eastern Burma for operations against the People's Republic of China.",
+    "significance": "Kuomintang remnants entered northeastern Burma after the Chinese Civil War and became a major foreign armed presence across eastern Shan State in the early 1950s.",
+    "currentRole": "Historical; major forces were evacuated or dispersed during the 1950s and 1960s.",
+    "sources": [
+      "frus-burma-1953",
+      "tinker-1957"
+    ]
+  },
+  {
     "id": "cpb",
     "name": "Communist Party of Burma",
     "abbr": "CPB",
@@ -378,7 +435,9 @@
     "significance": "Went into armed revolt in 1948, months after independence. Its collapse in 1989 produced several of the armed organisations still active on the Chinese border, including the UWSA and MNDAA.",
     "currentRole": "Historical. Its fragmentation shaped the present border landscape.",
     "sources": [
-      "icg-myanmar"
+      "icg-myanmar",
+      "frus-insurgency-1951",
+      "tinker-1957"
     ]
   },
   {
@@ -439,6 +498,93 @@
     "sources": [
       "naw-2001",
       "charney-2009"
+    ]
+  },
+  {
+    "id": "u-nu",
+    "name": "U Nu",
+    "type": "person",
+    "founded": "1907",
+    "objective": "Parliamentary government and independence through the AFPFL.",
+    "significance": "Chairman of the Constituent Assembly and a senior AFPFL figure. He was absent from the Executive Council meeting and was reportedly another intended target. He led the government after the assassination and became independent Burma’s first prime minister.",
+    "currentRole": "Historical.",
+    "sources": [
+      "network-myanmar-historical-notes",
+      "charney-2009"
+    ]
+  },
+  {
+    "id": "bo-let-ya",
+    "name": "Bo Let Ya",
+    "type": "person",
+    "founded": "1911",
+    "objective": "Build and lead the armed forces of independent Burma.",
+    "significance": "One of the Thirty Comrades and a senior military figure. He was not a member of the Executive Council at the time of the assassination, but joined its reconstituted successor as defence minister.",
+    "currentRole": "Historical.",
+    "sources": [
+      "ide-burma-1947",
+      "callahan-2003"
+    ]
+  },
+  {
+    "id": "sao-shwe-thaik",
+    "name": "Sao Shwe Thaik",
+    "type": "person",
+    "founded": "1894",
+    "objective": "Bring the Shan States into an autonomous union negotiated at Panglong.",
+    "significance": "Sawbwa of Yawnghwe and a central figure in the Panglong process. He became independent Burma’s first president.",
+    "currentRole": "Historical.",
+    "sources": [
+      "panglong-1947",
+      "charney-2009"
+    ]
+  },
+  {
+    "id": "thakin-than-tun",
+    "name": "Thakin Than Tun",
+    "type": "person",
+    "founded": "1911",
+    "objective": "Communist revolution outside Aung San’s government.",
+    "significance": "Leader of the Communist Party of Burma and an opposition figure outside the Executive Council. The CPB launched an armed rebellion in 1948.",
+    "currentRole": "Historical.",
+    "sources": [
+      "ide-burma-1947",
+      "charney-2009"
+    ]
+  },
+  {
+    "id": "galon-u-saw",
+    "name": "Galon U Saw",
+    "type": "person",
+    "founded": "1900",
+    "objective": "Recover political power after breaking with the independence settlement.",
+    "significance": "Former premier and political rival of Aung San who organised the assassination. He was convicted and executed in 1948.",
+    "currentRole": "Historical.",
+    "sources": [
+      "network-myanmar-aung-san-death",
+      "charney-2009"
+    ]
+  },
+  {
+    "id": "u-ohn-maung",
+    "name": "U Ohn Maung",
+    "type": "person",
+    "objective": "Serve the Transport and Communications Department during the transfer to independence.",
+    "significance": "Deputy Secretary of Transport and Communications. He entered the council chamber shortly before the shooting and was killed with the Executive Council members.",
+    "currentRole": "Martyr of 19 July 1947.",
+    "sources": [
+      "frus-assassination-1947"
+    ]
+  },
+  {
+    "id": "yebaw-ko-htwe",
+    "name": "Yebaw Ko Htwe",
+    "type": "person",
+    "objective": "Serve as U Abdul Razak’s bodyguard.",
+    "significance": "The young bodyguard of U Abdul Razak. He was killed outside the council chamber during the assassination attack.",
+    "currentRole": "Martyr of 19 July 1947.",
+    "sources": [
+      "network-myanmar-aung-san-death"
     ]
   },
   {
@@ -523,6 +669,19 @@
     "sources": [
       "thant-2019",
       "charney-2009"
+    ]
+  },
+  {
+    "id": "aung-san-suu-kyi",
+    "name": "Aung San Suu Kyi",
+    "type": "person",
+    "founded": "1945",
+    "objective": "Civilian democratic government through the National League for Democracy.",
+    "significance": "Emerged as the best-known leader of the 1988 democracy movement, led the NLD, and later served as State Counsellor from 2016 until the 2021 coup.",
+    "currentRole": "Detained after the 2021 coup.",
+    "sources": [
+      "idea-myanmar",
+      "icg-myanmar"
     ]
   }
 ]

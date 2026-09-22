@@ -163,14 +163,24 @@ export interface StepMapFill {
   tone: VisualTone;
   label?: string;
   opacity?: number;
+  /** Delay used when several historical acquisitions are revealed in sequence. */
+  delayMs?: number;
+  /** Optional documentary colour when the distinction is categorical, not thematic. */
+  colour?: string;
 }
 
 export interface StepMapActor {
   actor?: string;
   label: string;
   coordinates: [number, number];
-  status?: "active" | "assassinated" | "detained" | "deposed" | "excluded";
-  flag?: "myanmar" | "burma-1943" | "japan-imperial" | "united-kingdom" | "gambia" | "netherlands";
+  /** Optional destination for a directional "travelling to" line. */
+  destination?: [number, number];
+  /** Places dense historical rosters into separate, labelled visual columns. */
+  group?: string;
+  groupLabel?: string;
+  role?: string;
+  status?: "active" | "assassinated" | "detained" | "deposed" | "excluded" | "survived";
+  flag?: "myanmar" | "burma-1943" | "bamar-peacock" | "shan" | "kachin" | "chin" | "absdf" | "japan-imperial" | "united-kingdom" | "gambia" | "netherlands";
 }
 
 export interface StepMapAnnotation {
@@ -183,7 +193,7 @@ export interface StepMapAnnotation {
 export interface StepMapJourneyStop {
   label: string;
   coordinates: [number, number];
-  flag?: "myanmar" | "burma-1943" | "japan-imperial" | "united-kingdom" | "gambia" | "netherlands";
+  flag?: "myanmar" | "burma-1943" | "bamar-peacock" | "shan" | "kachin" | "chin" | "absdf" | "japan-imperial" | "united-kingdom" | "gambia" | "netherlands";
   emphasis?: boolean;
 }
 
@@ -286,3 +296,8 @@ export interface ActorImage {
   author: string;
   source: string;
 }
+
+
+
+
+

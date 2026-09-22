@@ -493,3 +493,12 @@ body {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
+
+.panglong-route { animation: flow-dash 1.25s linear infinite; }
+.actor-cross { position: absolute; inset: -11px; width: 74px; height: 74px; overflow: visible; filter: drop-shadow(0 1px 0 var(--paper)); pointer-events: none; }
+.actor-cross path { fill: none; stroke: #d72e2e; stroke-width: 7; stroke-linecap: round; stroke-dasharray: 77; stroke-dashoffset: 77; animation: cross-draw 520ms cubic-bezier(.2,.8,.3,1) forwards; }
+.actor-cross path + path { animation-delay: 260ms; }
+@keyframes cross-draw { to { stroke-dashoffset: 0; } }
+.actor-survived { border: 3px solid var(--series-2) !important; box-shadow: 0 0 0 4px var(--series-2-wash); }
+
+.map-group-label { fill: var(--ink); font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; paint-order: stroke; stroke: var(--paper); stroke-width: 5px; }

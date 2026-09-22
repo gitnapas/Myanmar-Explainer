@@ -15,7 +15,7 @@ export default function MapLegend({ layers, step }: { layers: string[]; step: St
   if (entries.length === 0) return null;
 
   return (
-    <details className="map-legend">
+    <details className="map-legend" open={layers.some((layer) => layer.startsWith("insurgencies-"))}>
       <summary>Map key <span aria-hidden>＋</span></summary>
       <dl className="space-y-2">
         {entries.map((e) => (
@@ -76,6 +76,32 @@ const Hatched = () => (
 
 function buildEntries(layers: string[]): Entry[] {
   const entries: Entry[] = [];
+  const historicalYear = layers.includes("insurgencies-1953")
+    ? "1953"
+    : layers.includes("insurgencies-1948")
+      ? "1948"
+      : null;
+  if (historicalYear) {
+    const actors = [
+      { term: "Communists", colour: "#e6a437" },
+      { term: "PVO and army mutineers", colour: "#36b9d2" },
+      { term: "KNDO", colour: "#d64d52" },
+      { term: "Mujahideen", colour: "#23a93a" },
+      ...(historicalYear === "1953"
+        ? [{ term: "Kuomintang forces", colour: "#435ee7" }]
+        : []),
+    ];
+    entries.push(
+      ...actors.map((actor, index) => ({
+        term: actor.term,
+        caveat:
+          index === 0
+            ? `Broad activity areas redrawn from a 2024 reconstruction based on Hugh Tinker's 1957 survey. These are not precise front lines or continuous control.`
+            : undefined,
+        swatch: <Dot color={actor.colour} opacity={0.72} />,
+      })),
+    );
+  }
 
   if (layers.includes("protest-spread")) {
     entries.push({

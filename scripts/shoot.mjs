@@ -63,16 +63,20 @@ const STEPS = [
   { index: 2, name: "step02-thirty-comrades" },
   { index: 5, name: "step05-london" },
   { index: 6, name: "step06-panglong" },
-  { index: 12, name: "step12-demonetisation" },
-  { index: 14, name: "step14-election-1990" },
-  { index: 23, name: "step23-growth" },
-  { index: 29, name: "step29-coup" },
-  { index: 27, name: "step27-the-hague" },
-  { index: 36, name: "step36-network" },
-  { index: 43, name: "step43-earthquake" },
-  { index: 42, name: "step42-operation-1027" },
-  { index: 44, name: "step44-election-2026" },
-  { index: 45, name: "step45-control-now" },
+  { index: 7, name: "step07-assassination" },
+  { index: 8, name: "step08-independence" },
+  { index: 9, name: "step09-insurgencies-1948" },
+  { index: 10, name: "step10-insurgencies-1953" },
+  { index: 13, name: "step13-demonetisation" },
+  { index: 15, name: "step15-election-1990" },
+  { index: 24, name: "step24-growth" },
+  { index: 30, name: "step30-coup" },
+  { index: 28, name: "step28-the-hague" },
+  { index: 37, name: "step37-network" },
+  { index: 44, name: "step44-earthquake" },
+  { index: 43, name: "step43-operation-1027" },
+  { index: 45, name: "step45-election-2026" },
+  { index: 46, name: "step46-control-now" },
 ];
 
 const browser = await chromium.launch({ channel: "msedge", headless: true });
@@ -136,3 +140,4 @@ await shoot("dark");
 await browser.close();
 if (local) local.close();
 console.log(`\nWrote screenshots to .shots/`);
+

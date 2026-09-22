@@ -2,12 +2,12 @@
   {
     "id": "i-annexation",
     "chapter": "i-assembled",
-    "date": "1885-11-28",
-    "dateLabel": "1885",
-    "title": "Two Burmas, one colony",
+    "date": "1824",
+    "dateLabel": "1824–1885",
+    "title": "Three wars, a country taken in stages",
     "mode": "map",
-    "summary": "Britain deposed the last king and ran the country as a province of India, but not as one place. The lowlands were governed directly. The uplands were left to their existing rulers.",
-    "detail": "This is the most consequential decision in the story. Ministerial Burma got British courts, schools and administration. The Frontier Areas kept their own chiefs under light supervision, and the two had almost no shared political life. When independence came, a border drawn around both had to become a single state.",
+    "summary": "Britain took Burma in three successive wars: the western and southeastern coasts in 1826, Lower Burma in 1852, and Upper Burma in 1885.",
+    "detail": "The map reveals the annexations in order. Arakan and Tenasserim were ceded after the First Anglo-Burmese War; the second brought the delta and Lower Burma under British rule; the third removed King Thibaw and completed the conquest. Britain then governed the lowlands directly while leaving much of the uplands under their existing rulers.",
     "focus": {
       "center": [
         96.5,
@@ -21,7 +21,8 @@
     ],
     "sources": [
       "charney-2009",
-      "callahan-2003"
+      "callahan-2003",
+      "british-museum-anglo-burmese-wars"
     ]
   },
   {
@@ -96,7 +97,7 @@
     "detail": "The war wrecked the country and armed its politics. It also taught the nationalist leadership that the force they had built was the one asset nobody could take from them.",
     "focus": {
       "center": [
-        96.0,
+        96,
         20.5
       ],
       "zoom": 1.3
@@ -121,8 +122,8 @@
     "detail": "The manoeuvre gave him a place at the table with the returning British and made independence a negotiation rather than a plea. The army still marks 27 March every year as Armed Forces Day: the anniversary of a revolt against the government of the day.",
     "focus": {
       "center": [
-        96.0,
-        20.0
+        96,
+        20
       ],
       "zoom": 1.5
     },
@@ -176,7 +177,7 @@
     "detail": "The bargain was simple to state: join us now, and you keep control of your own internal affairs. The agreement runs to nine short clauses. It does not define the union, does not settle how power would be divided, and covers only three of the many peoples inside the border. Every argument since, including the war being fought today, comes back to what was left blank on that page.",
     "focus": {
       "center": [
-        97.0,
+        97,
         20.8
       ],
       "zoom": 1.6
@@ -209,12 +210,23 @@
     },
     "sources": [
       "naw-2001",
-      "charney-2009"
+      "charney-2009",
+      "network-myanmar-historical-notes",
+      "network-myanmar-aung-san-death",
+      "frus-assassination-1947",
+      "ide-burma-1947"
     ],
     "detail": "He was 32. The man who had held the AFPFL together, won over the uplands at Panglong and bargained with London was removed from the story before the union he designed came into being. Nobody afterwards had standing with both the army and the ethnic leaderships.",
     "actors": [
       "aung-san",
-      "afpfl"
+      "u-ohn-maung",
+      "yebaw-ko-htwe",
+      "u-nu",
+      "ne-win",
+      "bo-let-ya",
+      "sao-shwe-thaik",
+      "thakin-than-tun",
+      "galon-u-saw"
     ]
   },
   {
@@ -235,32 +247,79 @@
     "sources": [
       "charney-2009",
       "naw-2001"
-    ]
+    ],
+    "actors": [
+      "u-nu",
+      "sao-shwe-thaik"
+    ],
+    "detail": "The offices visible on the previous scene now became the constitutional leadership of the new union: U Nu as prime minister and Sao Shwe Thaik as president."
   },
   {
     "id": "ii-karen",
     "chapter": "ii-consolidate",
-    "date": "1949-01",
-    "dateLabel": "January 1949",
-    "title": "The war starts immediately",
+    "date": "1948-07",
+    "dateLabel": "1948",
+    "title": "One state, several insurgencies",
     "mode": "map",
-    "summary": "Communist forces revolted in 1948 and Karen forces in 1949. Armed conflict is older than the independent state, not a later development.",
-    "detail": "This ordering matters for everything that follows. Accounts that treat ethnic armed conflict as a consequence of the 1962 coup, or of the 2021 coup, have the chronology backwards.",
+    "summary": "Within the first year of independence, communist organisations, PVO units, army mutineers, Karen forces and Mujahid fighters were active across different parts of the union.",
+    "detail": "These movements did not form one camp. The Communist Party sought revolution; the white-band PVO and mutinous army units emerged from the wartime independence movement; the KNDO organised Karen armed power; and Mujahid groups fought in northern Arakan. Their activity overlapped geographically without sharing a single command or political project.",
     "focus": {
       "center": [
-        97.6,
-        17.5
+        96.5,
+        19.5
       ],
-      "zoom": 1.8
+      "zoom": 1
     },
     "actors": [
+      "cpb",
+      "pvo",
       "knu",
-      "cpb"
+      "rohingya-mujahideen"
+    ],
+    "layers": [
+      "insurgencies-1948"
     ],
     "sources": [
-      "icg-myanmar"
+      "tinker-1957",
+      "frus-insurgency-1951",
+      "leider-arakan-2023",
+      "commons-burma-1948"
     ],
-    "uncertainty": "Territorial control in this period is poorly documented. Areas of insurgent activity can be described; front lines cannot."
+    "uncertainty": "The colored areas are an interpretive redraw of broad insurgent activity shown in a 2024 map based on Hugh Tinker's 1957 survey. They do not establish continuous control or exact front lines."
+  },
+  {
+    "id": "ii-insurgencies-1953",
+    "chapter": "ii-consolidate",
+    "date": "1953",
+    "dateLabel": "1953",
+    "title": "The map fragments again",
+    "mode": "map",
+    "summary": "By 1953 the government had recovered the principal population centres, but communist, PVO, KNDO and Mujahid activity persisted while Kuomintang forces occupied a vast eastern borderland.",
+    "detail": "The comparison shows change rather than a single expanding rebellion. Communist and PVO activity broke into pockets; KNDO activity remained concentrated in the southeast and lower Burma; Mujahid activity persisted in northern Arakan; and Chinese Nationalist forces became the dominant mapped presence across eastern Shan State.",
+    "focus": {
+      "center": [
+        96.5,
+        19.5
+      ],
+      "zoom": 1
+    },
+    "actors": [
+      "cpb",
+      "pvo",
+      "knu",
+      "rohingya-mujahideen",
+      "kmt"
+    ],
+    "layers": [
+      "insurgencies-1953"
+    ],
+    "sources": [
+      "tinker-1957",
+      "frus-burma-1953",
+      "frus-insurgency-1951",
+      "commons-burma-1953"
+    ],
+    "uncertainty": "The colored areas are an interpretive redraw of broad insurgent activity shown in a 2024 map based on Hugh Tinker's 1957 survey. They do not establish continuous control or exact front lines."
   },
   {
     "id": "ii-coup-1962",
@@ -428,8 +487,8 @@
     "summary": "Monks led demonstrations through the major cities. The response was again lethal force and mass arrest.",
     "focus": {
       "center": [
-        96.0,
-        19.0
+        96,
+        19
       ],
       "zoom": 1.6
     },
@@ -572,7 +631,7 @@
         96.16,
         16.87
       ],
-      "zoom": 2.0
+      "zoom": 2
     },
     "actors": [
       "thein-sein"
@@ -690,7 +749,7 @@
         92.4,
         21.2
       ],
-      "zoom": 3.0
+      "zoom": 3
     },
     "layers": [
       "rohingya-flow"
@@ -844,7 +903,7 @@
     "focus": {
       "center": [
         96.3,
-        19.0
+        19
       ],
       "zoom": 1.4
     },
@@ -871,7 +930,7 @@
     "focus": {
       "center": [
         96.3,
-        19.0
+        19
       ],
       "zoom": 1.4
     },
@@ -955,7 +1014,7 @@
         95.2,
         22.5
       ],
-      "zoom": 2.0
+      "zoom": 2
     },
     "actors": [
       "pdf",
@@ -1012,7 +1071,7 @@
     "focus": {
       "center": [
         95.5,
-        22.0
+        22
       ],
       "zoom": 1.8
     },
@@ -1112,7 +1171,7 @@
         97.2,
         19.3
       ],
-      "zoom": 3.0
+      "zoom": 3
     },
     "actors": [
       "kscc",
@@ -1173,7 +1232,7 @@
     "detail": "At least 3,791 people were killed, 5,106 injured and 88 remained missing in USGS reporting. The World Bank estimated that 17 million people were affected, nine million severely, and more than 207,000 displaced. Disaster response in a contested country is also political: who is allowed to deliver aid, and to whom, becomes part of the conflict.",
     "focus": {
       "center": [
-        96.0,
+        96,
         21.8
       ],
       "zoom": 2.6

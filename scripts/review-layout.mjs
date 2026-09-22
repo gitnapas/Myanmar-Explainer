@@ -40,7 +40,7 @@ try {
     if (nextActive !== "1") errors.push("Next event did not activate step 1: " + nextActive);
     await page.getByRole("button", { name: "Pause motion", exact: true }).click();
     if (await page.locator(".story-shell").getAttribute("data-motion") !== "paused") errors.push("Motion pause failed");
-    for (const index of [6, 16, 18, 27, 36]) {
+    for (const index of [6, 9, 10, 17, 19, 28, 37]) {
       await page.locator("[data-index='" + index + "']").evaluate(element => {
         const compact = matchMedia("(max-width: 760px)").matches;
         const offset = compact ? document.querySelector(".story-stage").offsetHeight + 20 : 36;
@@ -49,12 +49,12 @@ try {
       await page.waitForTimeout(100);
       const active = await page.locator("section[aria-current=step]").getAttribute("data-index");
       if (active !== String(index)) errors.push("Reading position mismatch: " + index + " / " + active);
-      if ([6, 27, 36].includes(index)) await page.screenshot({ path: ".shots/layout-" + width + "-" + index + ".png" });
+      if ([9, 10, 28, 37].includes(index)) await page.screenshot({ path: ".shots/layout-" + width + "-" + index + ".png" });
     }
     await page.getByRole("combobox", { name: "Choose a chapter" }).selectOption("iii-1988");
     await page.waitForTimeout(150);
     const chapter = await page.locator("section[aria-current=step]").getAttribute("data-index");
-    if (chapter !== "13") errors.push("Chapter navigation failed: " + chapter);
+    if (chapter !== "14") errors.push("Chapter navigation failed: " + chapter);
     const geometry = await page.evaluate(() => ({
       overflow: document.documentElement.scrollWidth - innerWidth,
       map: document.querySelector(".story-stage").getBoundingClientRect().toJSON(),
